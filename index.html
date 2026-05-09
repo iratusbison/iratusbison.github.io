@@ -7,10 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 <style>
-/* ════════════════════════════════════════════
-   MAYAVISAI — SaaS Landing Page
-   Editorial Dark-Cream Theme
-════════════════════════════════════════════ */
 :root{
   --bg:      #f5f2ed;
   --bg2:     #ffffff;
@@ -38,77 +34,35 @@ img{display:block;max-width:100%}
 ::selection{background:var(--gold);color:#fff}
 
 /* ── TICKER ── */
-.ticker{
-  background:var(--ink);height:30px;
-  display:flex;align-items:center;overflow:hidden;position:relative;z-index:1100;
-}
-.ticker-track{
-  display:flex;white-space:nowrap;
-  animation:tickRoll 32s linear infinite;will-change:transform;
-}
-.ticker-item{
-  display:inline-flex;align-items:center;gap:12px;
-  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;
-  color:rgba(255,255,255,.55);padding:0 28px;flex-shrink:0;
-}
+.ticker{background:var(--ink);height:30px;display:flex;align-items:center;overflow:hidden;position:relative;z-index:1100}
+.ticker-track{display:flex;white-space:nowrap;animation:tickRoll 32s linear infinite;will-change:transform}
+.ticker-item{display:inline-flex;align-items:center;gap:12px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);padding:0 28px;flex-shrink:0}
 .ticker-dot{width:3px;height:3px;border-radius:50%;background:var(--gold);flex-shrink:0}
 @keyframes tickRoll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ── NAVBAR ── */
-.navbar{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 36px;height:62px;
-  background:rgba(245,242,237,.97);
-  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-  border-bottom:1px solid var(--border);
-  position:sticky;top:0;z-index:1000;
-}
+.navbar{display:flex;align-items:center;justify-content:space-between;padding:0 36px;height:62px;background:rgba(245,242,237,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
-.brand-mark{
-  width:36px;height:36px;border-radius:9px;background:var(--ink);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Unbounded',sans-serif;font-size:12px;font-weight:900;color:var(--gold);
-  transition:transform var(--r);flex-shrink:0;
-}
+.brand-mark{width:36px;height:36px;border-radius:9px;background:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:12px;font-weight:900;color:var(--gold);transition:transform var(--r);flex-shrink:0}
 .brand:hover .brand-mark{transform:rotate(-5deg) scale(1.07)}
 .brand-name{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;letter-spacing:.1em;color:var(--ink)}
 .brand-sub{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-top:1px}
 .nav-links{display:flex;align-items:center;gap:28px}
-.nav-link{
-  font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--muted);transition:color var(--r);position:relative;padding-bottom:2px;
-}
+.nav-link{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:color var(--r);position:relative;padding-bottom:2px}
 .nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--gold);transition:width var(--r)}
 .nav-link:hover{color:var(--ink)}
 .nav-link:hover::after{width:100%}
 @media(max-width:860px){.nav-links{display:none}}
 .nav-cta-row{display:flex;align-items:center;gap:10px}
-.btn-ghost{
-  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink3);padding:8px 18px;border:1.5px solid var(--border2);border-radius:4px;
-  transition:border-color var(--r),color var(--r);
-}
+.btn-ghost{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);padding:8px 18px;border:1.5px solid var(--border2);border-radius:4px;transition:border-color var(--r),color var(--r)}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-.btn-primary{
-  font-family:'Unbounded',sans-serif;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-  color:#fff;padding:9px 20px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:4px;
-  box-shadow:0 4px 14px rgba(184,125,58,.38);
-  transition:transform var(--r),box-shadow var(--r);
-}
+.btn-primary{font-family:'Unbounded',sans-serif;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;padding:9px 20px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:4px;box-shadow:0 4px 14px rgba(184,125,58,.38);transition:transform var(--r),box-shadow var(--r)}
 .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(184,125,58,.52)}
-.mob-menu-btn{
-  display:none;width:38px;height:38px;border-radius:50%;
-  background:var(--bg3);border:1px solid var(--border);
-  align-items:center;justify-content:center;font-size:16px;cursor:pointer;color:var(--ink);
-}
+.mob-menu-btn{display:none;width:38px;height:38px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);align-items:center;justify-content:center;font-size:16px;cursor:pointer;color:var(--ink)}
 @media(max-width:860px){.mob-menu-btn{display:flex}.nav-cta-row .btn-ghost{display:none}}
 
 /* ── MOBILE MENU ── */
-.mob-menu{
-  position:fixed;inset:0;background:var(--ink);z-index:2000;
-  display:flex;flex-direction:column;padding:24px 26px 30px;
-  transform:translateX(100%);transition:transform .36s cubic-bezier(.4,0,.2,1);pointer-events:none;
-}
+.mob-menu{position:fixed;inset:0;background:var(--ink);z-index:2000;display:flex;flex-direction:column;padding:24px 26px 30px;transform:translateX(100%);transition:transform .36s cubic-bezier(.4,0,.2,1);pointer-events:none}
 .mob-menu.open{transform:translateX(0);pointer-events:all}
 .mob-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px}
 .mob-brand-name{font-family:'Unbounded',sans-serif;font-size:17px;font-weight:700;letter-spacing:.08em;color:#fff}
@@ -120,140 +74,50 @@ img{display:block;max-width:100%}
 .mob-link i{font-size:12px;color:rgba(255,255,255,.2)}
 .mob-footer{margin-top:auto;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18)}
 
-/* ══════════════════════════════════════════
-   HERO
-══════════════════════════════════════════ */
-.hero{
-  background:var(--ink2);
-  position:relative;
-  overflow:hidden;
-  padding:100px 36px 80px;
-  min-height:88vh;
-  display:flex;align-items:center;
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(
-    -52deg,
-    transparent,
-    transparent 60px,
-    rgba(184,125,58,.03) 60px,
-    rgba(184,125,58,.03) 61px
-  );pointer-events:none;
-}
-/* animated grain */
-.hero::after{
-  content:'';position:absolute;inset:-50%;width:200%;height:200%;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
-  opacity:.4;animation:grainAnim 1.4s steps(2) infinite;pointer-events:none;z-index:0;
-}
-@keyframes grainAnim{
-  0%{transform:translate(0,0)}25%{transform:translate(-4px,4px)}
-  50%{transform:translate(4px,-4px)}75%{transform:translate(-4px,-4px)}100%{transform:translate(4px,4px)}
-}
-/* floating orbs */
-.hero-orb{
-  position:absolute;border-radius:50%;pointer-events:none;opacity:.12;
-}
+/* ══ HERO ══ */
+.hero{background:var(--ink2);position:relative;overflow:hidden;padding:100px 36px 80px;min-height:88vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-52deg,transparent,transparent 60px,rgba(184,125,58,.03) 60px,rgba(184,125,58,.03) 61px);pointer-events:none}
+.hero::after{content:'';position:absolute;inset:-50%;width:200%;height:200%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");opacity:.4;animation:grainAnim 1.4s steps(2) infinite;pointer-events:none;z-index:0}
+@keyframes grainAnim{0%{transform:translate(0,0)}25%{transform:translate(-4px,4px)}50%{transform:translate(4px,-4px)}75%{transform:translate(-4px,-4px)}100%{transform:translate(4px,4px)}}
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none;opacity:.12}
 .hero-orb-1{width:500px;height:500px;background:radial-gradient(circle,var(--gold) 0%,transparent 70%);top:-120px;right:-100px;animation:orbFloat 12s ease-in-out infinite}
 .hero-orb-2{width:300px;height:300px;background:radial-gradient(circle,var(--gold2) 0%,transparent 70%);bottom:-60px;left:-60px;animation:orbFloat 16s ease-in-out infinite reverse}
 @keyframes orbFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-20px)}}
-
 .hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 @media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:48px}}
-
-.hero-left{}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:9px;
-  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:20px;
-  background:rgba(184,125,58,.1);border:1px solid rgba(184,125,58,.25);
-  padding:6px 14px;border-radius:999px;
-  opacity:0;animation:fadeUp .7s .1s forwards;
-}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;background:rgba(184,125,58,.1);border:1px solid rgba(184,125,58,.25);padding:6px 14px;border-radius:999px;opacity:0;animation:fadeUp .7s .1s forwards}
 .hero-eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:blink 1.2s step-end infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-.hero-title{
-  font-family:'Unbounded',sans-serif;font-size:clamp(32px,4.5vw,62px);
-  font-weight:700;line-height:.92;letter-spacing:-.03em;color:#fff;
-  opacity:0;animation:fadeUp .7s .25s forwards;
-}
+.hero-title{font-family:'Unbounded',sans-serif;font-size:clamp(32px,4.5vw,62px);font-weight:700;line-height:.92;letter-spacing:-.03em;color:#fff;opacity:0;animation:fadeUp .7s .25s forwards}
 .hero-title em{color:var(--gold);font-style:normal;display:block;margin-top:6px}
-.hero-sub{
-  font-family:'DM Sans',sans-serif;font-size:16px;color:rgba(255,255,255,.5);
-  line-height:1.7;max-width:480px;margin:22px 0 32px;
-  opacity:0;animation:fadeUp .7s .4s forwards;
-}
+.hero-sub{font-family:'DM Sans',sans-serif;font-size:16px;color:rgba(255,255,255,.5);line-height:1.7;max-width:480px;margin:22px 0 32px;opacity:0;animation:fadeUp .7s .4s forwards}
 .hero-sub strong{color:rgba(255,255,255,.8)}
 .hero-cta-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;opacity:0;animation:fadeUp .7s .55s forwards}
-.btn-hero-primary{
-  display:inline-flex;align-items:center;gap:9px;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:#fff;padding:15px 30px;border-radius:5px;
-  font-family:'Unbounded',sans-serif;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-  box-shadow:0 6px 22px rgba(184,125,58,.45);
-  transition:transform var(--r),box-shadow var(--r);
-}
+.btn-hero-primary{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;padding:15px 30px;border-radius:5px;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 6px 22px rgba(184,125,58,.45);transition:transform var(--r),box-shadow var(--r)}
 .btn-hero-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(184,125,58,.6)}
 .btn-hero-primary i{font-size:12px;transition:transform var(--r)}
 .btn-hero-primary:hover i{transform:translateX(4px)}
-.btn-hero-ghost{
-  display:inline-flex;align-items:center;gap:8px;
-  border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.75);
-  padding:14px 24px;border-radius:5px;
-  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;
-  transition:border-color var(--r),color var(--r);
-}
+.btn-hero-ghost{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.75);padding:14px 24px;border-radius:5px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;transition:border-color var(--r),color var(--r)}
 .btn-hero-ghost:hover{border-color:var(--gold);color:var(--gold)}
-.hero-trust{
-  display:flex;align-items:center;gap:18px;margin-top:28px;flex-wrap:wrap;
-  opacity:0;animation:fadeUp .7s .7s forwards;
-}
-.hero-trust-item{
-  display:flex;align-items:center;gap:6px;
-  font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(255,255,255,.3);
-}
+.hero-trust{display:flex;align-items:center;gap:18px;margin-top:28px;flex-wrap:wrap;opacity:0;animation:fadeUp .7s .7s forwards}
+.hero-trust-item{display:flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3)}
 .hero-trust-item i{color:var(--gold);font-size:10px}
-
-/* hero right — browser mockup */
 .hero-right{opacity:0;animation:fadeUp .7s .35s forwards}
-.browser-mock{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
-  border-radius:14px;overflow:hidden;
-  box-shadow:0 30px 80px rgba(0,0,0,.4);
-}
-.browser-bar{
-  display:flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.08);
-  padding:10px 16px;
-}
+.browser-mock{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.browser-bar{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.08);padding:10px 16px}
 .browser-dots{display:flex;gap:5px}
 .bdot{width:9px;height:9px;border-radius:50%}
 .bdot-r{background:#ff5f57}.bdot-y{background:#febc2e}.bdot-g{background:#28c840}
-.browser-url{
-  flex:1;background:rgba(255,255,255,.07);border-radius:6px;padding:5px 12px;
-  font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.05em;
-  display:flex;align-items:center;gap:6px;margin-left:10px;
-}
+.browser-url{flex:1;background:rgba(255,255,255,.07);border-radius:6px;padding:5px 12px;font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.05em;display:flex;align-items:center;gap:6px;margin-left:10px}
 .browser-url i{font-size:10px;color:var(--gold)}
 .browser-body{padding:16px}
-
-/* mini marketplace preview */
-.mini-nav{
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(255,255,255,.05);border-radius:8px;padding:10px 14px;margin-bottom:12px;
-}
+.mini-nav{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.05);border-radius:8px;padding:10px 14px;margin-bottom:12px}
 .mini-brand{font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;color:#fff}
 .mini-brand span{color:var(--gold)}
 .mini-nav-icons{display:flex;gap:8px}
 .mini-nav-icons i{font-size:13px;color:rgba(255,255,255,.4)}
 .mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.mini-card{
-  background:rgba(255,255,255,.06);border-radius:8px;overflow:hidden;
-  border:1px solid rgba(255,255,255,.08);
-  transition:transform .2s;
-}
+.mini-card{background:rgba(255,255,255,.06);border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:transform .2s}
 .mini-card:hover{transform:translateY(-2px)}
 .mini-card-img{height:70px;display:flex;align-items:center;justify-content:center;font-size:24px;position:relative;overflow:hidden}
 .mini-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.3))}
@@ -266,169 +130,85 @@ img{display:block;max-width:100%}
 .mini-card-body{padding:6px 8px 8px}
 .mini-card-name{font-family:'DM Sans',sans-serif;font-size:8px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:2px}
 .mini-card-price{font-family:'Unbounded',sans-serif;font-size:9px;font-weight:700;color:var(--gold)}
-
-/* seller tag on mini cards */
-.mini-badge{
-  position:absolute;top:5px;right:5px;z-index:2;
-  background:rgba(184,125,58,.85);border-radius:3px;
-  font-family:'DM Mono',monospace;font-size:6px;letter-spacing:.1em;
-  color:#fff;padding:2px 5px;text-transform:uppercase;
-}
-
-/* live stats strip */
-.live-strip{
-  display:flex;justify-content:space-around;align-items:center;
-  background:rgba(184,125,58,.08);border:1px solid rgba(184,125,58,.2);
-  border-radius:8px;padding:10px 14px;margin-top:12px;
-}
+.mini-badge{position:absolute;top:5px;right:5px;z-index:2;background:rgba(184,125,58,.85);border-radius:3px;font-family:'DM Mono',monospace;font-size:6px;letter-spacing:.1em;color:#fff;padding:2px 5px;text-transform:uppercase}
+.live-strip{display:flex;justify-content:space-around;align-items:center;background:rgba(184,125,58,.08);border:1px solid rgba(184,125,58,.2);border-radius:8px;padding:10px 14px;margin-top:12px}
 .live-stat{text-align:center}
 .live-num{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:800;color:var(--gold)}
 .live-label{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:2px}
-
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-/* ══════════════════════════════════════════
-   LOGOS / SOCIAL PROOF BAR
-══════════════════════════════════════════ */
-.proof-bar{
-  background:var(--bg2);border-bottom:1px solid var(--border);border-top:1px solid var(--border);
-  padding:20px 36px;
-}
+/* ══ PROOF BAR ══ */
+.proof-bar{background:var(--bg2);border-bottom:1px solid var(--border);border-top:1px solid var(--border);padding:20px 36px}
 .proof-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap}
 .proof-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted2);margin-right:32px;white-space:nowrap}
 .proof-chips{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
-.proof-chip{
-  display:flex;align-items:center;gap:7px;
-  background:var(--bg3);border:1px solid var(--border);
-  border-radius:999px;padding:7px 16px;
-  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;color:var(--ink3);
-  white-space:nowrap;
-}
+.proof-chip{display:flex;align-items:center;gap:7px;background:var(--bg3);border:1px solid var(--border);border-radius:999px;padding:7px 16px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;color:var(--ink3);white-space:nowrap}
 .proof-chip i{font-size:12px;color:var(--gold)}
 
-/* ══════════════════════════════════════════
-   SECTION WRAPPER
-══════════════════════════════════════════ */
+/* ══ SECTION ══ */
 .section{padding:80px 36px}
 .section-inner{max-width:1200px;margin:0 auto}
-.sec-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:14px;
-}
+.sec-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
 .sec-eyebrow::before{content:'';width:18px;height:1px;background:var(--gold)}
 .sec-title{font-family:'Unbounded',sans-serif;font-size:clamp(26px,3.5vw,46px);font-weight:700;letter-spacing:-.025em;line-height:.96;color:var(--ink);margin-bottom:14px}
 .sec-title em{color:var(--gold);font-style:normal}
 .sec-desc{font-family:'DM Sans',sans-serif;font-size:15px;color:var(--muted);line-height:1.7;max-width:580px}
 .sec-head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:52px}
 
-/* dark section */
-.section-dark{background:var(--ink2);padding:80px 36px}
-.section-dark .sec-title{color:#fff}
-.section-dark .sec-desc{color:rgba(255,255,255,.5)}
-.section-dark .sec-eyebrow{color:var(--gold)}
-
-/* ══════════════════════════════════════════
-   FEATURES GRID
-══════════════════════════════════════════ */
-.features-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
+/* ══ FEATURES GRID ══ */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:960px){.features-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.features-grid{grid-template-columns:1fr}}
-
-.feat-card{
-  background:var(--card);border:1px solid var(--border);border-radius:14px;
-  padding:28px 26px;
-  transition:transform .28s cubic-bezier(.4,0,.2,1),box-shadow .28s,border-color .28s;
-}
+.feat-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 26px;transition:transform .28s cubic-bezier(.4,0,.2,1),box-shadow .28s,border-color .28s}
 .feat-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(12,12,12,.09);border-color:var(--gold)}
-.feat-icon{
-  width:44px;height:44px;border-radius:10px;
-  background:var(--goldbg);border:1px solid rgba(184,125,58,.2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;color:var(--gold);margin-bottom:18px;
-}
+.feat-icon{width:44px;height:44px;border-radius:10px;background:var(--goldbg);border:1px solid rgba(184,125,58,.2);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--gold);margin-bottom:18px}
 .feat-title{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
 .feat-desc{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.65}
-.feat-badge{
-  display:inline-block;margin-top:12px;
-  font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--green);background:rgba(42,112,72,.08);border:1px solid rgba(42,112,72,.2);
-  padding:3px 9px;border-radius:3px;
-}
-
-/* featured card — full width */
-.feat-card.featured{
-  grid-column:1/-1;
-  background:var(--ink);border-color:rgba(184,125,58,.2);
-  display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;
-}
+.feat-badge{display:inline-block;margin-top:12px;font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);background:rgba(42,112,72,.08);border:1px solid rgba(42,112,72,.2);padding:3px 9px;border-radius:3px}
+.feat-card.featured{grid-column:1/-1;background:var(--ink);border-color:rgba(184,125,58,.2);display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
 @media(max-width:600px){.feat-card.featured{grid-template-columns:1fr}}
 .feat-card.featured .feat-icon{background:rgba(184,125,58,.15)}
 .feat-card.featured .feat-title{color:#fff}
 .feat-card.featured .feat-desc{color:rgba(255,255,255,.5)}
 .feat-card.featured .feat-badge{color:var(--gold);background:rgba(184,125,58,.1);border-color:rgba(184,125,58,.25)}
 .feat-card-visual{border-radius:10px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:16px}
-
-/* account type tags */
 .account-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.acc-tag{
-  display:inline-flex;align-items:center;gap:6px;
-  font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;
-  padding:6px 13px;border-radius:999px;border:1px solid;
-}
+.acc-tag{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;padding:6px 13px;border-radius:999px;border:1px solid}
 .acc-tag-customer{color:#60a5fa;border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.07)}
 .acc-tag-seller{color:var(--gold);border-color:rgba(184,125,58,.3);background:rgba(184,125,58,.07)}
 .acc-tag-staff{color:#f87171;border-color:rgba(248,113,113,.3);background:rgba(248,113,113,.07)}
 .acc-tag i{font-size:10px}
 
-/* ══════════════════════════════════════════
-   HOW IT WORKS
-══════════════════════════════════════════ */
+/* ══ HOW IT WORKS ══ */
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
 @media(max-width:860px){.steps-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:500px){.steps-grid{grid-template-columns:1fr}}
-.step-item{
-  background:var(--bg2);padding:36px 28px;
-  transition:background var(--r);
-}
+.step-item{background:var(--bg2);padding:36px 28px;transition:background var(--r)}
 .step-item:hover{background:var(--bg3)}
-.step-num{
-  font-family:'Unbounded',sans-serif;font-size:48px;font-weight:900;
-  color:var(--border2);line-height:1;margin-bottom:16px;
-  transition:color var(--r);
-}
+.step-num{font-family:'Unbounded',sans-serif;font-size:48px;font-weight:900;color:var(--border2);line-height:1;margin-bottom:16px;transition:color var(--r)}
 .step-item:hover .step-num{color:var(--gold)}
 .step-title{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
 .step-desc{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.6}
 
-/* ══════════════════════════════════════════
-   PRICING
-══════════════════════════════════════════ */
+/* ══ PRICING — UPDATED ══ */
+/* Toggle */
+.pricing-toggle-wrap{display:flex;justify-content:center;margin-bottom:48px}
+.pricing-toggle{display:inline-flex;background:var(--bg3);border:1px solid var(--border);border-radius:999px;padding:4px;gap:0}
+.ptog-btn{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;padding:9px 22px;border-radius:999px;color:var(--muted);cursor:pointer;transition:all var(--r);border:none;background:none;user-select:none}
+.ptog-btn.active{background:var(--ink);color:#fff}
+.ptog-btn.active.hl{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff}
+
+/* Panels */
+.pricing-panel{display:none}
+.pricing-panel.active{display:block}
+
+/* Monthly grid */
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:860px){.pricing-grid{grid-template-columns:1fr}}
-
-.price-card{
-  background:var(--card);border:1.5px solid var(--border);border-radius:16px;
-  padding:32px 28px;
-  position:relative;overflow:hidden;
-  transition:transform .28s cubic-bezier(.4,0,.2,1),box-shadow .28s;
-}
+.price-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:32px 28px;position:relative;overflow:hidden;transition:transform .28s cubic-bezier(.4,0,.2,1),box-shadow .28s}
 .price-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(12,12,12,.1)}
-.price-card.popular{
-  background:var(--ink);border-color:rgba(184,125,58,.4);
-  box-shadow:0 8px 32px rgba(0,0,0,.15);
-}
-.price-card.popular::before{
-  content:'MOST POPULAR';
-  position:absolute;top:18px;right:-28px;
-  background:var(--gold);color:#fff;
-  font-family:'Unbounded',sans-serif;font-size:7px;font-weight:900;letter-spacing:.16em;
-  padding:6px 44px;transform:rotate(45deg);transform-origin:right top;
-}
+.price-card.popular{background:var(--ink);border-color:rgba(184,125,58,.4);box-shadow:0 8px 32px rgba(0,0,0,.15)}
+.price-card.popular::before{content:'RECOMMENDED';position:absolute;top:18px;right:-32px;background:var(--gold);color:#fff;font-family:'Unbounded',sans-serif;font-size:7px;font-weight:900;letter-spacing:.16em;padding:6px 52px;transform:rotate(45deg);transform-origin:right top}
 .price-tier{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted2);margin-bottom:14px}
 .price-card.popular .price-tier{color:var(--gold)}
 .price-amount{display:flex;align-items:flex-end;gap:4px;margin-bottom:4px}
@@ -447,95 +227,92 @@ img{display:block;max-width:100%}
 .price-features li i{font-size:12px;color:var(--gold);flex-shrink:0}
 .price-features li.muted-feat{color:var(--muted2)}
 .price-features li.muted-feat i{color:var(--border2)}
-.btn-price{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  width:100%;padding:13px;border-radius:8px;
-  font-family:'Unbounded',sans-serif;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-  border:1.5px solid var(--border2);color:var(--ink3);
-  transition:all var(--r);
-}
+.btn-price{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border-radius:8px;font-family:'Unbounded',sans-serif;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid var(--border2);color:var(--ink3);transition:all var(--r)}
 .btn-price:hover{background:var(--ink);border-color:var(--ink);color:#fff}
-.btn-price-pop{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  width:100%;padding:13px;border-radius:8px;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;
-  font-family:'Unbounded',sans-serif;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-  box-shadow:0 4px 14px rgba(184,125,58,.4);
-  transition:transform var(--r),box-shadow var(--r);
-}
+.btn-price-pop{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border-radius:8px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;font-family:'Unbounded',sans-serif;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 4px 14px rgba(184,125,58,.4);transition:transform var(--r),box-shadow var(--r)}
 .btn-price-pop:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(184,125,58,.55)}
 
-/* commission note */
-.commission-note{
-  display:flex;align-items:center;gap:12px;
-  background:var(--bg3);border:1px solid var(--border);border-radius:10px;
-  padding:16px 20px;margin-top:20px;
-}
-.commission-note i{font-size:18px;color:var(--gold);flex-shrink:0}
-.commission-note p{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.5}
-.commission-note strong{color:var(--ink)}
+/* One-time grid */
+.license-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.license-grid{grid-template-columns:1fr}}
+.lic-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:30px 26px;position:relative;overflow:hidden;transition:transform .28s cubic-bezier(.4,0,.2,1),box-shadow .28s}
+.lic-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(12,12,12,.1)}
+.lic-card.featured{background:var(--ink);border-color:rgba(184,125,58,.35)}
+.lic-tier{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted2);margin-bottom:12px}
+.lic-card.featured .lic-tier{color:var(--gold)}
+.lic-amount{display:flex;align-items:flex-end;gap:3px;margin-bottom:3px}
+.lic-cur{font-family:'Unbounded',sans-serif;font-size:20px;font-weight:700;color:var(--ink);line-height:1.2}
+.lic-card.featured .lic-cur{color:#fff}
+.lic-num{font-family:'Unbounded',sans-serif;font-size:42px;font-weight:900;color:var(--ink);line-height:1}
+.lic-card.featured .lic-num{color:#fff}
+.lic-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--muted2);padding-bottom:8px}
+.lic-note{font-family:'DM Sans',sans-serif;font-size:11px;color:var(--muted);margin-bottom:18px;line-height:1.5}
+.lic-card.featured .lic-note{color:rgba(255,255,255,.45)}
+.lic-divider{height:1px;background:var(--border);margin-bottom:18px}
+.lic-card.featured .lic-divider{background:rgba(255,255,255,.1)}
+.lic-features{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px}
+.lic-features li{display:flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink3)}
+.lic-card.featured .lic-features li{color:rgba(255,255,255,.8)}
+.lic-features li i{font-size:12px;color:var(--gold);flex-shrink:0}
 
-/* ══════════════════════════════════════════
-   DEMO SECTION
-══════════════════════════════════════════ */
-.demo-section{
-  background:var(--ink);
-  padding:80px 36px;
-  position:relative;overflow:hidden;
-}
-.demo-section::before{
-  content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(-52deg,transparent,transparent 60px,rgba(184,125,58,.03) 60px,rgba(184,125,58,.03) 61px);
-  pointer-events:none;
-}
-.demo-section::after{
-  content:'';position:absolute;inset:-50%;width:200%;height:200%;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
-  opacity:.35;animation:grainAnim 1.4s steps(2) infinite;pointer-events:none;z-index:0;
-}
+/* Revenue share table */
+.revshare-wrap{background:var(--card);border:1.5px solid var(--border);border-radius:16px;overflow:hidden}
+.rs-head{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;background:var(--ink);padding:16px 22px;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.7);gap:8px}
+.rs-head span.hl{color:var(--gold)}
+.rs-row{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;padding:18px 22px;border-bottom:1px solid var(--border);gap:8px;transition:background var(--r)}
+.rs-row:last-child{border:none}
+.rs-row:hover{background:var(--bg3)}
+.rs-cell{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink3);display:flex;align-items:center}
+.rs-cell strong{color:var(--gold);font-family:'Unbounded',sans-serif;font-size:13px;font-weight:800}
+.rs-cell.mono{font-family:'DM Mono',monospace;font-size:12px}
+.rs-badge{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;background:rgba(42,112,72,.09);border:1px solid rgba(42,112,72,.2);color:var(--green);padding:4px 10px;border-radius:999px}
+@media(max-width:640px){.rs-head,.rs-row{grid-template-columns:1fr 1fr}.rs-head span:nth-child(3),.rs-row .rs-cell:nth-child(3){display:none}}
+
+/* Model tabs for pricing toggle */
+.pricing-model-note{display:flex;align-items:flex-start;gap:12px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-top:20px}
+.pricing-model-note i{font-size:18px;color:var(--gold);flex-shrink:0;margin-top:1px}
+.pricing-model-note p{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.6}
+.pricing-model-note strong{color:var(--ink)}
+
+/* ══ COMPARISON ══ */
+.ct-header{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;background:var(--ink);color:#fff;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;letter-spacing:-.01em}
+.ct-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;border-bottom:1px solid var(--border)}
+.ct-row:last-child{border:none}
+.ct-row:hover{background:var(--bg3)}
+.ct-cell{padding:14px 18px;display:flex;align-items:center;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink3)}
+.ct-cell:first-child{font-weight:600}
+.ct-cell.center{justify-content:center;font-size:11px;font-weight:700;font-family:'DM Mono',monospace;letter-spacing:.1em}
+.ct-cell.yes{color:var(--green)}.ct-cell.no{color:var(--muted2)}
+.ct-head-cell{padding:14px 18px;display:flex;align-items:center}
+.ct-head-cell.center{justify-content:center;color:rgba(255,255,255,.7);font-size:11px;letter-spacing:.12em}
+.ct-head-cell.highlight{background:rgba(184,125,58,.15);color:var(--gold)}
+.ct-head-cell:first-child{color:rgba(255,255,255,.4);font-size:10px;font-weight:400;font-family:'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:640px){.ct-header,.ct-row{grid-template-columns:1.5fr 1fr 1fr}.ct-cell:nth-child(3),.ct-head-cell:nth-child(3){display:none}}
+
+/* ══ DEMO ══ */
+.demo-section{background:var(--ink);padding:80px 36px;position:relative;overflow:hidden}
+.demo-section::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-52deg,transparent,transparent 60px,rgba(184,125,58,.03) 60px,rgba(184,125,58,.03) 61px);pointer-events:none}
+.demo-section::after{content:'';position:absolute;inset:-50%;width:200%;height:200%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");opacity:.35;animation:grainAnim 1.4s steps(2) infinite;pointer-events:none;z-index:0}
 .demo-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 @media(max-width:900px){.demo-inner{grid-template-columns:1fr;gap:40px}}
-.demo-pill{
-  display:inline-flex;align-items:center;gap:7px;
-  background:rgba(184,125,58,.12);border:1px solid rgba(184,125,58,.3);
-  border-radius:999px;padding:5px 14px;
-  font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:18px;
-}
+.demo-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(184,125,58,.12);border:1px solid rgba(184,125,58,.3);border-radius:999px;padding:5px 14px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
 .demo-pill-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:blink 1.2s step-end infinite}
 .demo-title{font-family:'Unbounded',sans-serif;font-size:clamp(24px,3vw,40px);font-weight:700;letter-spacing:-.025em;line-height:.96;color:#fff;margin-bottom:16px}
 .demo-title em{color:var(--gold);font-style:normal}
 .demo-desc{font-family:'DM Sans',sans-serif;font-size:15px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:28px}
 .demo-links{display:flex;flex-direction:column;gap:10px}
-.demo-link-card{
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-  border-radius:10px;padding:14px 18px;
-  transition:background var(--r),border-color var(--r);text-decoration:none;
-}
+.demo-link-card{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 18px;transition:background var(--r),border-color var(--r);text-decoration:none}
 .demo-link-card:hover{background:rgba(184,125,58,.1);border-color:rgba(184,125,58,.3)}
 .demo-link-left{display:flex;align-items:center;gap:12px}
 .demo-link-icon{width:36px;height:36px;border-radius:8px;background:rgba(184,125,58,.15);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--gold);flex-shrink:0}
 .demo-link-title{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:2px}
 .demo-link-url{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.1em;color:rgba(255,255,255,.3)}
 .demo-link-arrow{font-size:14px;color:var(--gold)}
-
-/* phone mockup */
-.phone-mock{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
-  border-radius:40px;padding:12px;max-width:260px;margin:0 auto;
-  box-shadow:0 30px 80px rgba(0,0,0,.5);position:relative;
-}
-.phone-notch{
-  width:60px;height:22px;background:rgba(0,0,0,.8);border-radius:0 0 14px 14px;
-  margin:0 auto 8px;display:flex;align-items:center;justify-content:center;
-}
+.phone-mock{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:40px;padding:12px;max-width:260px;margin:0 auto;box-shadow:0 30px 80px rgba(0,0,0,.5);position:relative}
+.phone-notch{width:60px;height:22px;background:rgba(0,0,0,.8);border-radius:0 0 14px 14px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center}
 .phone-cam{width:8px;height:8px;border-radius:50%;background:#222}
 .phone-screen{background:var(--ink2);border-radius:28px;overflow:hidden}
-.phone-header{
-  background:rgba(255,255,255,.05);padding:10px 12px;
-  display:flex;align-items:center;justify-content:space-between;
-}
+.phone-header{background:rgba(255,255,255,.05);padding:10px 12px;display:flex;align-items:center;justify-content:space-between}
 .phone-brand{font-family:'Unbounded',sans-serif;font-size:9px;font-weight:700;color:#fff}
 .phone-brand span{color:var(--gold)}
 .phone-icons{display:flex;gap:7px}
@@ -546,140 +323,54 @@ img{display:block;max-width:100%}
 .pp-body{padding:5px 7px 7px}
 .pp-name{font-family:'DM Sans',sans-serif;font-size:7px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:2px}
 .pp-price{font-family:'Unbounded',sans-serif;font-size:8px;font-weight:700;color:var(--gold)}
+.security-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.sec-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(42,112,72,.08);border:1px solid rgba(42,112,72,.2);color:var(--green);font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-radius:999px}
+.sec-badge i{font-size:10px}
 
-/* login preview card */
-.login-preview-card{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
-  border-radius:14px;padding:20px;margin-top:16px;
-}
+/* login preview */
+.login-preview-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px;margin-top:16px}
 .login-preview-tabs{display:flex;background:rgba(255,255,255,.06);border-radius:8px;padding:3px;gap:2px;margin-bottom:16px}
 .lp-tab{flex:1;padding:7px;text-align:center;border-radius:6px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);cursor:pointer}
 .lp-tab.active{background:var(--ink2);color:#fff}
-.lp-tab.active i{color:var(--gold)}
 .lp-tab i{font-size:11px;display:block;margin-bottom:2px}
-.login-preview-body{text-align:center}
-.lp-google{
-  display:flex;align-items:center;justify-content:center;gap:9px;
-  background:rgba(255,255,255,.9);border-radius:7px;padding:9px 14px;
-  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;color:#1e1b17;
-}
+.lp-google{display:flex;align-items:center;justify-content:center;gap:9px;background:rgba(255,255,255,.9);border-radius:7px;padding:9px 14px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;color:#1e1b17}
 .lp-google-g{width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,#4285f4,#ea4335);flex-shrink:0}
 .lp-or{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25);margin:10px 0;text-align:center}
-.lp-input-mock{
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
-  border-radius:6px;padding:8px 12px;
-  font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.25);
-  text-align:left;margin-bottom:7px;
-}
+.lp-input-mock{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:8px 12px;font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.25);text-align:left;margin-bottom:7px}
 .lp-input-mock.focus-mock{border-color:rgba(184,125,58,.5)}
-.lp-btn{
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:#fff;border-radius:7px;padding:9px;
-  font-family:'Unbounded',sans-serif;font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-  text-align:center;
-}
+.lp-btn{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border-radius:7px;padding:9px;font-family:'Unbounded',sans-serif;font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-align:center}
 
-/* ══════════════════════════════════════════
-   COMPARISON TABLE
-══════════════════════════════════════════ */
-.comparison-table{width:100%;border-collapse:collapse;border-radius:14px;overflow:hidden}
-.ct-header{
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-  background:var(--ink);color:#fff;
-  font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;letter-spacing:-.01em;
-}
-.ct-row{
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-  border-bottom:1px solid var(--border);
-}
-.ct-row:last-child{border:none}
-.ct-row:hover{background:var(--bg3)}
-.ct-cell{padding:14px 18px;display:flex;align-items:center;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink3)}
-.ct-cell:first-child{font-weight:600}
-.ct-cell.center{justify-content:center;font-size:11px;font-weight:700;font-family:'DM Mono',monospace;letter-spacing:.1em}
-.ct-cell.yes{color:var(--green)}
-.ct-cell.no{color:var(--muted2)}
-.ct-head-cell{padding:14px 18px;display:flex;align-items:center}
-.ct-head-cell.center{justify-content:center;color:rgba(255,255,255,.7);font-size:11px;letter-spacing:.12em}
-.ct-head-cell.highlight{background:rgba(184,125,58,.15);color:var(--gold)}
-.ct-head-cell:first-child{color:rgba(255,255,255,.4);font-size:10px;font-weight:400;font-family:'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
-@media(max-width:640px){
-  .ct-header,.ct-row{grid-template-columns:1.5fr 1fr 1fr}
-  .ct-cell:nth-child(3),.ct-head-cell:nth-child(3){display:none}
-}
-
-/* ══════════════════════════════════════════
-   TESTIMONIALS
-══════════════════════════════════════════ */
+/* ══ TESTIMONIALS ══ */
 .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:860px){.testimonials-grid{grid-template-columns:1fr}}
-.testi-card{
-  background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:26px 24px;
-  transition:transform .28s cubic-bezier(.4,0,.2,1),box-shadow .28s;
-}
+.testi-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:26px 24px;transition:transform .28s cubic-bezier(.4,0,.2,1),box-shadow .28s}
 .testi-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(12,12,12,.08)}
 .testi-stars{display:flex;gap:3px;margin-bottom:14px}
 .testi-stars i{font-size:12px;color:var(--gold)}
 .testi-text{font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink3);line-height:1.7;font-style:italic;margin-bottom:18px}
 .testi-author{display:flex;align-items:center;gap:12px}
-.testi-avatar{
-  width:40px;height:40px;border-radius:50%;background:var(--goldbg);
-  border:2px solid var(--gold);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:var(--gold);
-  flex-shrink:0;
-}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--goldbg);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:var(--gold);flex-shrink:0}
 .testi-name{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:var(--ink)}
 .testi-role{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2)}
 
-/* ══════════════════════════════════════════
-   CONTACT / CTA FINAL
-══════════════════════════════════════════ */
-.cta-final{
-  background:var(--ink);padding:90px 36px;
-  position:relative;overflow:hidden;text-align:center;
-}
-.cta-final::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(184,125,58,.12) 0%,transparent 70%);
-  pointer-events:none;
-}
-.cta-final::after{
-  content:'';position:absolute;inset:-50%;width:200%;height:200%;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
-  opacity:.35;animation:grainAnim 1.4s steps(2) infinite;pointer-events:none;z-index:0;
-}
+/* ══ CTA FINAL ══ */
+.cta-final{background:var(--ink);padding:90px 36px;position:relative;overflow:hidden;text-align:center}
+.cta-final::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(184,125,58,.12) 0%,transparent 70%);pointer-events:none}
+.cta-final::after{content:'';position:absolute;inset:-50%;width:200%;height:200%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");opacity:.35;animation:grainAnim 1.4s steps(2) infinite;pointer-events:none;z-index:0}
 .cta-final-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
-.cta-final-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:20px;
-}
+.cta-final-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .cta-final h2{font-family:'Unbounded',sans-serif;font-size:clamp(28px,4vw,52px);font-weight:700;letter-spacing:-.03em;line-height:.95;color:#fff;margin-bottom:16px}
 .cta-final h2 em{color:var(--gold);font-style:normal}
 .cta-final p{font-family:'DM Sans',sans-serif;font-size:16px;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:36px}
 .cta-final-btns{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:40px}
-.cta-contact{
-  display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;
-  padding-top:32px;border-top:1px solid rgba(255,255,255,.08);
-}
-.cta-contact-item{
-  display:flex;align-items:center;gap:9px;
-  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(255,255,255,.4);transition:color var(--r);
-}
+.cta-contact{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;padding-top:32px;border-top:1px solid rgba(255,255,255,.08)}
+.cta-contact-item{display:flex;align-items:center;gap:9px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);transition:color var(--r)}
 .cta-contact-item a{color:inherit;transition:color var(--r)}
 .cta-contact-item:hover,.cta-contact-item:hover a{color:var(--gold)}
 .cta-contact-item i{font-size:13px;color:var(--gold)}
 
-/* ══════════════════════════════════════════
-   FOOTER
-══════════════════════════════════════════ */
-footer{
-  background:var(--ink2);border-top:1px solid rgba(255,255,255,.06);
-  padding:30px 36px;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
-}
+/* ══ FOOTER ══ */
+footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.06);padding:30px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 .footer-brand{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.6)}
 .footer-brand span{color:var(--gold)}
 .footer-note{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2)}
@@ -687,48 +378,18 @@ footer{
 .footer-link{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);transition:color var(--r)}
 .footer-link:hover{color:var(--gold)}
 
-/* ══════════════════════════════════════════
-   SCROLL REVEAL
-══════════════════════════════════════════ */
+/* ══ SCROLL REVEAL ══ */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-/* ══════════════════════════════════════════
-   MFA BADGE + SECURITY STRIP
-══════════════════════════════════════════ */
-.security-strip{
-  display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;
-}
-.sec-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(42,112,72,.08);border:1px solid rgba(42,112,72,.2);
-  color:var(--green);font-family:'DM Mono',monospace;font-size:8px;
-  letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-radius:999px;
-}
-.sec-badge i{font-size:10px}
-
-/* ── Utility ── */
-.gold{color:var(--gold)}
-.text-center{text-align:center}
-.mt-4{margin-top:16px}
-.mt-8{margin-top:32px}
-
-/* Responsive padding */
-@media(max-width:640px){
-  .section{padding:60px 18px}
-  .section-dark{padding:60px 18px}
-  .hero{padding:72px 18px 60px}
-  .navbar{padding:0 18px}
-  .demo-section{padding:60px 18px}
-  .cta-final{padding:70px 18px}
-  footer{padding:24px 18px}
-  .proof-bar{padding:18px}
-}
+/* utils */
+.gold{color:var(--gold)}.text-center{text-align:center}.mt-4{margin-top:16px}.mt-8{margin-top:32px}
+@media(max-width:640px){.section{padding:60px 18px}.hero{padding:72px 18px 60px}.navbar{padding:0 18px}.demo-section{padding:60px 18px}.cta-final{padding:70px 18px}footer{padding:24px 18px}.proof-bar{padding:18px}}
 </style>
 </head>
 <body>
 
-<!-- ══ TICKER ══ -->
+<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
     <span class="ticker-item"><span class="ticker-dot"></span>Multi-vendor marketplace, fully white-labelled</span>
@@ -736,15 +397,17 @@ footer{
     <span class="ticker-item"><span class="ticker-dot"></span>Razorpay payments, coupons, combo offers</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Live demo available — no signup required</span>
     <span class="ticker-item"><span class="ticker-dot"></span>MFA support &amp; enterprise-grade security</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Monthly · One-time license · Revenue share — pick your model</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Multi-vendor marketplace, fully white-labelled</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Seller + Customer + Staff accounts built-in</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Razorpay payments, coupons, combo offers</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Live demo available — no signup required</span>
     <span class="ticker-item"><span class="ticker-dot"></span>MFA support &amp; enterprise-grade security</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Monthly · One-time license · Revenue share — pick your model</span>
   </div>
 </div>
 
-<!-- ══ NAVBAR ══ -->
+<!-- NAVBAR -->
 <nav class="navbar">
   <a href="#" class="brand">
     <div class="brand-mark">MV</div>
@@ -767,7 +430,7 @@ footer{
   <button class="mob-menu-btn" id="menuToggle"><i class="bi bi-list"></i></button>
 </nav>
 
-<!-- ══ MOBILE MENU ══ -->
+<!-- MOBILE MENU -->
 <div class="mob-menu" id="mobileMenu">
   <div class="mob-head">
     <div>
@@ -787,31 +450,18 @@ footer{
   <div class="mob-footer">© 2025 Mayavisai · mayavisai.in</div>
 </div>
 
-<!-- ══ HERO ══ -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-eyebrow">
-        <span class="hero-eyebrow-dot"></span>
-        Now accepting clients
-      </div>
-      <h1 class="hero-title">
-        Your Own<br>
-        <em>Marketplace</em>
-        Built &amp; Hosted
-      </h1>
-      <p class="hero-sub">
-        A complete, <strong>white-label multi-vendor marketplace</strong> — like Amazon or Flipkart, but branded for <strong>your business</strong>. Sellers, customers, payments, inventory, analytics — all ready.
-      </p>
+      <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Now accepting clients</div>
+      <h1 class="hero-title">Your Own<br><em>Marketplace</em> Built &amp; Hosted</h1>
+      <p class="hero-sub">A complete, <strong>white-label multi-vendor marketplace</strong> — like Amazon or Flipkart, but branded for <strong>your business</strong>. Sellers, customers, payments, inventory, analytics — all ready.</p>
       <div class="hero-cta-row">
-        <a href="#demo" class="btn-hero-primary">
-          Explore Live Demo <i class="bi bi-arrow-right"></i>
-        </a>
-        <a href="#pricing" class="btn-hero-ghost">
-          <i class="bi bi-tag"></i> See Pricing
-        </a>
+        <a href="#demo" class="btn-hero-primary">Explore Live Demo <i class="bi bi-arrow-right"></i></a>
+        <a href="#pricing" class="btn-hero-ghost"><i class="bi bi-tag"></i> See Pricing</a>
       </div>
       <div class="hero-trust">
         <div class="hero-trust-item"><i class="bi bi-shield-check"></i> MFA Secured</div>
@@ -820,92 +470,25 @@ footer{
         <div class="hero-trust-item"><i class="bi bi-phone"></i> Fully Responsive</div>
       </div>
     </div>
-
-    <!-- browser mockup -->
     <div class="hero-right">
       <div class="browser-mock">
         <div class="browser-bar">
-          <div class="browser-dots">
-            <div class="bdot bdot-r"></div>
-            <div class="bdot bdot-y"></div>
-            <div class="bdot bdot-g"></div>
-          </div>
-          <div class="browser-url">
-            <i class="bi bi-lock-fill"></i>
-            yourbrand.in / marketplace
-          </div>
+          <div class="browser-dots"><div class="bdot bdot-r"></div><div class="bdot bdot-y"></div><div class="bdot bdot-g"></div></div>
+          <div class="browser-url"><i class="bi bi-lock-fill"></i> yourbrand.in / marketplace</div>
         </div>
         <div class="browser-body">
-          <!-- mini navbar -->
           <div class="mini-nav">
             <div class="mini-brand">YOUR<span>BRAND</span></div>
-            <div class="mini-nav-icons">
-              <i class="bi bi-search"></i>
-              <i class="bi bi-heart"></i>
-              <i class="bi bi-bag"></i>
-            </div>
+            <div class="mini-nav-icons"><i class="bi bi-search"></i><i class="bi bi-heart"></i><i class="bi bi-bag"></i></div>
           </div>
-          <!-- mini product grid -->
           <div class="mini-grid">
-            <div class="mini-card">
-              <div class="mini-card-img mc-fashion">
-                <span style="position:relative;z-index:1;font-size:20px">&#128084;</span>
-                <div class="mini-badge">NEW</div>
-              </div>
-              <div class="mini-card-body">
-                <div class="mini-card-name">Cotton Kurta</div>
-                <div class="mini-card-price">₹849</div>
-              </div>
-            </div>
-            <div class="mini-card">
-              <div class="mini-card-img mc-tech">
-                <span style="position:relative;z-index:1;font-size:20px">&#128241;</span>
-                <div class="mini-badge" style="background:rgba(198,53,53,.85)">SALE</div>
-              </div>
-              <div class="mini-card-body">
-                <div class="mini-card-name">Wireless Buds</div>
-                <div class="mini-card-price">₹1,299</div>
-              </div>
-            </div>
-            <div class="mini-card">
-              <div class="mini-card-img mc-food">
-                <span style="position:relative;z-index:1;font-size:20px">&#127807;</span>
-              </div>
-              <div class="mini-card-body">
-                <div class="mini-card-name">Organic Spice</div>
-                <div class="mini-card-price">₹349</div>
-              </div>
-            </div>
-            <div class="mini-card">
-              <div class="mini-card-img mc-art">
-                <span style="position:relative;z-index:1;font-size:20px">&#127912;</span>
-              </div>
-              <div class="mini-card-body">
-                <div class="mini-card-name">Wall Art Print</div>
-                <div class="mini-card-price">₹599</div>
-              </div>
-            </div>
-            <div class="mini-card">
-              <div class="mini-card-img mc-home">
-                <span style="position:relative;z-index:1;font-size:20px">&#127968;</span>
-              </div>
-              <div class="mini-card-body">
-                <div class="mini-card-name">Decor Item</div>
-                <div class="mini-card-price">₹1,049</div>
-              </div>
-            </div>
-            <div class="mini-card">
-              <div class="mini-card-img mc-beauty">
-                <span style="position:relative;z-index:1;font-size:20px">&#127800;</span>
-                <div class="mini-badge">HOT</div>
-              </div>
-              <div class="mini-card-body">
-                <div class="mini-card-name">Face Serum</div>
-                <div class="mini-card-price">₹749</div>
-              </div>
-            </div>
+            <div class="mini-card"><div class="mini-card-img mc-fashion"><span style="position:relative;z-index:1;font-size:20px">&#128084;</span><div class="mini-badge">NEW</div></div><div class="mini-card-body"><div class="mini-card-name">Cotton Kurta</div><div class="mini-card-price">₹849</div></div></div>
+            <div class="mini-card"><div class="mini-card-img mc-tech"><span style="position:relative;z-index:1;font-size:20px">&#128241;</span><div class="mini-badge" style="background:rgba(198,53,53,.85)">SALE</div></div><div class="mini-card-body"><div class="mini-card-name">Wireless Buds</div><div class="mini-card-price">₹1,299</div></div></div>
+            <div class="mini-card"><div class="mini-card-img mc-food"><span style="position:relative;z-index:1;font-size:20px">&#127807;</span></div><div class="mini-card-body"><div class="mini-card-name">Organic Spice</div><div class="mini-card-price">₹349</div></div></div>
+            <div class="mini-card"><div class="mini-card-img mc-art"><span style="position:relative;z-index:1;font-size:20px">&#127912;</span></div><div class="mini-card-body"><div class="mini-card-name">Wall Art Print</div><div class="mini-card-price">₹599</div></div></div>
+            <div class="mini-card"><div class="mini-card-img mc-home"><span style="position:relative;z-index:1;font-size:20px">&#127968;</span></div><div class="mini-card-body"><div class="mini-card-name">Decor Item</div><div class="mini-card-price">₹1,049</div></div></div>
+            <div class="mini-card"><div class="mini-card-img mc-beauty"><span style="position:relative;z-index:1;font-size:20px">&#127800;</span><div class="mini-badge">HOT</div></div><div class="mini-card-body"><div class="mini-card-name">Face Serum</div><div class="mini-card-price">₹749</div></div></div>
           </div>
-          <!-- live stats -->
           <div class="live-strip">
             <div class="live-stat"><div class="live-num" id="counterSellers">0</div><div class="live-label">Sellers</div></div>
             <div class="live-stat"><div class="live-num" id="counterProducts">0</div><div class="live-label">Products</div></div>
@@ -917,7 +500,7 @@ footer{
   </div>
 </section>
 
-<!-- ══ PROOF BAR ══ -->
+<!-- PROOF BAR -->
 <div class="proof-bar">
   <div class="proof-inner">
     <div class="proof-label">Built for</div>
@@ -932,7 +515,7 @@ footer{
   </div>
 </div>
 
-<!-- ══ FEATURES ══ -->
+<!-- FEATURES -->
 <section class="section" id="features">
   <div class="section-inner">
     <div class="sec-head-row reveal">
@@ -942,9 +525,7 @@ footer{
       </div>
       <p class="sec-desc">No months of development. No massive team. The entire platform — from storefront to seller dashboard to admin panel — is ready on day one.</p>
     </div>
-
     <div class="features-grid">
-      <!-- Featured card -->
       <div class="feat-card featured reveal">
         <div>
           <div class="feat-icon"><i class="bi bi-person-badge"></i></div>
@@ -958,7 +539,6 @@ footer{
           <div class="feat-badge">Google OAuth + MFA Support</div>
         </div>
         <div class="feat-card-visual">
-          <!-- login preview -->
           <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">Live Login Preview</div>
           <div class="login-preview-tabs">
             <div class="lp-tab active"><i class="bi bi-person"></i> Customer</div>
@@ -966,10 +546,7 @@ footer{
             <div class="lp-tab"><i class="bi bi-shield-lock"></i> Staff</div>
           </div>
           <div class="login-preview-body">
-            <div class="lp-google">
-              <div class="lp-google-g"></div>
-              Continue with Google
-            </div>
+            <div class="lp-google"><div class="lp-google-g"></div> Continue with Google</div>
             <div class="lp-or">— or staff login —</div>
             <div class="lp-input-mock">Username</div>
             <div class="lp-input-mock focus-mock">Password ••••••••</div>
@@ -977,67 +554,19 @@ footer{
           </div>
         </div>
       </div>
-
-      <div class="feat-card reveal">
-        <div class="feat-icon"><i class="bi bi-credit-card-2-front"></i></div>
-        <div class="feat-title">Razorpay &amp; COD payments</div>
-        <div class="feat-desc">Razorpay is fully integrated for online payments with real-time verification. Cash on Delivery is also supported. Automatic invoice generation and order tracking built in.</div>
-        <div class="feat-badge">Payment verified, order auto-confirmed</div>
-      </div>
-
-      <div class="feat-card reveal">
-        <div class="feat-icon"><i class="bi bi-tag-fill"></i></div>
-        <div class="feat-title">Coupons &amp; Combo Offers</div>
-        <div class="feat-desc">Create percentage or flat-rate discount coupons, set minimum cart values, usage limits, and expiry dates. Stack combo offers across seller products — all with a clean customer-facing UI.</div>
-        <div class="feat-badge">Per-seller and platform-wide discounts</div>
-      </div>
-
-      <div class="feat-card reveal">
-        <div class="feat-icon"><i class="bi bi-bag-check"></i></div>
-        <div class="feat-title">Walk-in POS system</div>
-        <div class="feat-desc">A full point-of-sale terminal for offline / walk-in customers. Sellers can bill customers directly, apply coupons, and generate professional PDF receipts — shareable via signed links.</div>
-        <div class="feat-badge">Signed shareable receipt links</div>
-      </div>
-
-      <div class="feat-card reveal">
-        <div class="feat-icon"><i class="bi bi-box-seam"></i></div>
-        <div class="feat-title">Order &amp; Returns management</div>
-        <div class="feat-desc">Full order lifecycle — pending, accepted, packed, shipped, delivered, returned. Sellers manage their own order items. Customers request returns. Stock auto-adjusts at each stage.</div>
-        <div class="feat-badge">7-stage order lifecycle</div>
-      </div>
-
-      <div class="feat-card reveal">
-        <div class="feat-icon"><i class="bi bi-phone"></i></div>
-        <div class="feat-title">Mobile-first responsive UI</div>
-        <div class="feat-desc">Every page — storefront, checkout, seller dashboard, POS — is fully responsive and optimised for mobile. Touch swipe on product images, drawer cart, native share API support.</div>
-        <div class="feat-badge">Swipe gestures + native share</div>
-      </div>
-
-      <div class="feat-card reveal">
-        <div class="feat-icon"><i class="bi bi-star-fill"></i></div>
-        <div class="feat-title">Ratings &amp; Wishlist</div>
-        <div class="feat-desc">Customers can rate products only after verified purchase. Wishlist system with cross-session persistence. Product share tracking across WhatsApp, Facebook, Twitter, and copy-link.</div>
-        <div class="feat-badge">Verified purchase ratings only</div>
-      </div>
-
-      <div class="feat-card reveal">
-        <div class="feat-icon"><i class="bi bi-qr-code"></i></div>
-        <div class="feat-title">QR &amp; Product variants</div>
-        <div class="feat-desc">Each seller product gets a unique QR code (UUID). Full product variant system — size, colour, weight — with combination keys. Per-variant pricing, stock, expiry and batch tracking.</div>
-        <div class="feat-badge">UUID-keyed QR per SKU</div>
-      </div>
-
-      <div class="feat-card reveal">
-        <div class="feat-icon"><i class="bi bi-graph-up-arrow"></i></div>
-        <div class="feat-title">Seller sub-stores</div>
-        <div class="feat-desc">Each seller gets their own branded sub-store at <em>yourdomain.in/sellername</em> with a custom banner, hero section, product grid, and share button — essentially a mini e-commerce site.</div>
-        <div class="feat-badge">Seller subdomain routing</div>
-      </div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-credit-card-2-front"></i></div><div class="feat-title">Razorpay &amp; COD payments</div><div class="feat-desc">Razorpay is fully integrated for online payments with real-time verification. Cash on Delivery is also supported. Automatic invoice generation and order tracking built in.</div><div class="feat-badge">Payment verified, order auto-confirmed</div></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-tag-fill"></i></div><div class="feat-title">Coupons &amp; Combo Offers</div><div class="feat-desc">Create percentage or flat-rate discount coupons, set minimum cart values, usage limits, and expiry dates. Stack combo offers across seller products — all with a clean customer-facing UI.</div><div class="feat-badge">Per-seller and platform-wide discounts</div></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-bag-check"></i></div><div class="feat-title">Walk-in POS system</div><div class="feat-desc">A full point-of-sale terminal for offline / walk-in customers. Sellers can bill customers directly, apply coupons, and generate professional PDF receipts — shareable via signed links.</div><div class="feat-badge">Signed shareable receipt links</div></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-box-seam"></i></div><div class="feat-title">Order &amp; Returns management</div><div class="feat-desc">Full order lifecycle — pending, accepted, packed, shipped, delivered, returned. Sellers manage their own order items. Customers request returns. Stock auto-adjusts at each stage.</div><div class="feat-badge">7-stage order lifecycle</div></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-phone"></i></div><div class="feat-title">Mobile-first responsive UI</div><div class="feat-desc">Every page — storefront, checkout, seller dashboard, POS — is fully responsive and optimised for mobile. Touch swipe on product images, drawer cart, native share API support.</div><div class="feat-badge">Swipe gestures + native share</div></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-star-fill"></i></div><div class="feat-title">Ratings &amp; Wishlist</div><div class="feat-desc">Customers can rate products only after verified purchase. Wishlist system with cross-session persistence. Product share tracking across WhatsApp, Facebook, Twitter, and copy-link.</div><div class="feat-badge">Verified purchase ratings only</div></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-qr-code"></i></div><div class="feat-title">QR &amp; Product variants</div><div class="feat-desc">Each seller product gets a unique QR code (UUID). Full product variant system — size, colour, weight — with combination keys. Per-variant pricing, stock, expiry and batch tracking.</div><div class="feat-badge">UUID-keyed QR per SKU</div></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-graph-up-arrow"></i></div><div class="feat-title">Seller sub-stores</div><div class="feat-desc">Each seller gets their own branded sub-store at <em>yourdomain.in/sellername</em> with a custom banner, hero section, product grid, and share button — essentially a mini e-commerce site.</div><div class="feat-badge">Seller subdomain routing</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ HOW IT WORKS ══ -->
+<!-- HOW IT WORKS -->
 <section id="how-it-works" style="background:var(--bg2);padding:80px 0 0">
   <div style="max-width:1200px;margin:0 auto;padding:0 36px 48px">
     <div class="text-center reveal" style="margin-bottom:48px">
@@ -1046,30 +575,14 @@ footer{
     </div>
   </div>
   <div class="steps-grid reveal">
-    <div class="step-item">
-      <div class="step-num">01</div>
-      <div class="step-title">You choose a plan</div>
-      <div class="step-desc">Pick the tier that fits your scale — Starter for individuals and small teams, Professional for growing businesses, Enterprise for full custom deployments.</div>
-    </div>
-    <div class="step-item">
-      <div class="step-num">02</div>
-      <div class="step-title">We configure &amp; brand it</div>
-      <div class="step-desc">We set up the platform with your brand name, logo, colours, domain, and payment gateway keys. Your marketplace goes live on your own domain — fully yours.</div>
-    </div>
-    <div class="step-item">
-      <div class="step-num">03</div>
-      <div class="step-title">Onboard your sellers</div>
-      <div class="step-desc">Sellers sign up, create their sub-stores, add products and inventory. You approve them through the staff dashboard. All seller management is self-service.</div>
-    </div>
-    <div class="step-item">
-      <div class="step-num">04</div>
-      <div class="step-title">Sell &amp; scale</div>
-      <div class="step-desc">Customers shop, pay, rate, return. You collect commissions. We handle maintenance and updates. As your business grows, upgrade your plan or add custom features.</div>
-    </div>
+    <div class="step-item"><div class="step-num">01</div><div class="step-title">You choose a plan</div><div class="step-desc">Pick the model that fits your situation — monthly hosting for a managed service, one-time license for full ownership, or revenue share for zero upfront cost.</div></div>
+    <div class="step-item"><div class="step-num">02</div><div class="step-title">We configure &amp; brand it</div><div class="step-desc">We set up the platform with your brand name, logo, colours, domain, and payment gateway keys. Your marketplace goes live on your own domain — fully yours.</div></div>
+    <div class="step-item"><div class="step-num">03</div><div class="step-title">Onboard your sellers</div><div class="step-desc">Sellers sign up, create their sub-stores, add products and inventory. You approve them through the staff dashboard. All seller management is self-service.</div></div>
+    <div class="step-item"><div class="step-num">04</div><div class="step-title">Sell &amp; scale</div><div class="step-desc">Customers shop, pay, rate, return. You collect commissions. We handle maintenance and updates. As your business grows, upgrade your plan or switch models any time.</div></div>
   </div>
 </section>
 
-<!-- ══ COMPARISON ══ -->
+<!-- COMPARISON -->
 <section class="section" style="background:var(--bg2);padding-top:60px">
   <div class="section-inner reveal">
     <div class="sec-head-row" style="margin-bottom:32px">
@@ -1085,48 +598,13 @@ footer{
         <div class="ct-head-cell center highlight">Mayavisai</div>
         <div class="ct-head-cell center">Shopify / Wix</div>
       </div>
-      <div class="ct-row">
-        <div class="ct-cell">Multi-vendor support</div>
-        <div class="ct-cell center no">6–12 months</div>
-        <div class="ct-cell center yes">Ready</div>
-        <div class="ct-cell center no">Limited</div>
-      </div>
-      <div class="ct-row">
-        <div class="ct-cell">Custom seller sub-stores</div>
-        <div class="ct-cell center no">Custom dev</div>
-        <div class="ct-cell center yes">Built-in</div>
-        <div class="ct-cell center no">Not available</div>
-      </div>
-      <div class="ct-row">
-        <div class="ct-cell">Walk-in POS with PDF receipts</div>
-        <div class="ct-cell center no">Custom dev</div>
-        <div class="ct-cell center yes">Built-in</div>
-        <div class="ct-cell center no">Add-on $$</div>
-      </div>
-      <div class="ct-row">
-        <div class="ct-cell">Coupon + combo offer engine</div>
-        <div class="ct-cell center no">3–4 months</div>
-        <div class="ct-cell center yes">Built-in</div>
-        <div class="ct-cell center no">Basic only</div>
-      </div>
-      <div class="ct-row">
-        <div class="ct-cell">Razorpay + COD payments</div>
-        <div class="ct-cell center no">2–4 months</div>
-        <div class="ct-cell center yes">Ready</div>
-        <div class="ct-cell center no">Fixed gateways</div>
-      </div>
-      <div class="ct-row">
-        <div class="ct-cell">Full ownership of code &amp; data</div>
-        <div class="ct-cell center yes">Yes</div>
-        <div class="ct-cell center yes">Yes</div>
-        <div class="ct-cell center no">No</div>
-      </div>
-      <div class="ct-row">
-        <div class="ct-cell">Cost to launch</div>
-        <div class="ct-cell center no">₹15–50L+</div>
-        <div class="ct-cell center yes">₹1,999/mo</div>
-        <div class="ct-cell center no">₹3K+/mo</div>
-      </div>
+      <div class="ct-row"><div class="ct-cell">Multi-vendor support</div><div class="ct-cell center no">6–12 months</div><div class="ct-cell center yes">Ready</div><div class="ct-cell center no">Limited</div></div>
+      <div class="ct-row"><div class="ct-cell">Custom seller sub-stores</div><div class="ct-cell center no">Custom dev</div><div class="ct-cell center yes">Built-in</div><div class="ct-cell center no">Not available</div></div>
+      <div class="ct-row"><div class="ct-cell">Walk-in POS with PDF receipts</div><div class="ct-cell center no">Custom dev</div><div class="ct-cell center yes">Built-in</div><div class="ct-cell center no">Add-on $$</div></div>
+      <div class="ct-row"><div class="ct-cell">Coupon + combo offer engine</div><div class="ct-cell center no">3–4 months</div><div class="ct-cell center yes">Built-in</div><div class="ct-cell center no">Basic only</div></div>
+      <div class="ct-row"><div class="ct-cell">Razorpay + COD payments</div><div class="ct-cell center no">2–4 months</div><div class="ct-cell center yes">Ready</div><div class="ct-cell center no">Fixed gateways</div></div>
+      <div class="ct-row"><div class="ct-cell">Full ownership of code &amp; data</div><div class="ct-cell center yes">Yes</div><div class="ct-cell center yes">Yes (License)</div><div class="ct-cell center no">No</div></div>
+      <div class="ct-row"><div class="ct-cell">Cost to launch</div><div class="ct-cell center no">₹15–50L+</div><div class="ct-cell center yes">₹7,999/mo</div><div class="ct-cell center no">₹3K+/mo</div></div>
     </div>
   </div>
 </section>
@@ -1134,132 +612,207 @@ footer{
 <!-- ══ PRICING ══ -->
 <section class="section" id="pricing">
   <div class="section-inner">
-    <div class="text-center reveal" style="margin-bottom:52px">
+    <div class="text-center reveal" style="margin-bottom:36px">
       <div class="sec-eyebrow" style="justify-content:center">Transparent Pricing</div>
-      <h2 class="sec-title text-center">Simple plans, <em>serious results</em></h2>
-      <p class="sec-desc" style="margin:14px auto 0;text-align:center">All plans include hosting, support, and full platform access. No hidden fees.</p>
+      <h2 class="sec-title text-center">Three ways to <em>get started</em></h2>
+      <p class="sec-desc" style="margin:14px auto 0;text-align:center">Monthly hosting, one-time license, or revenue share — pick the model that suits your cash flow and goals.</p>
     </div>
 
-    <div class="pricing-grid reveal">
-      <!-- STARTER -->
-      <div class="price-card">
-        <div class="price-tier">Starter</div>
-        <div class="price-amount">
-          <span class="price-cur">₹</span>
-          <span class="price-num">1,999</span>
-        </div>
-        <div class="price-period">per month</div>
-        <div class="price-note">Best for solo sellers, small shops, and anyone getting started with online selling.</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><i class="bi bi-check-circle-fill"></i> Up to 5 sellers</li>
-          <li><i class="bi bi-check-circle-fill"></i> Up to 200 products</li>
-          <li><i class="bi bi-check-circle-fill"></i> Razorpay + COD payments</li>
-          <li><i class="bi bi-check-circle-fill"></i> Customer, Seller &amp; Staff accounts</li>
-          <li><i class="bi bi-check-circle-fill"></i> Coupon &amp; discount engine</li>
-          <li><i class="bi bi-check-circle-fill"></i> Walk-in POS + PDF receipts</li>
-          <li><i class="bi bi-check-circle-fill"></i> Basic email support</li>
-          <li class="muted-feat"><i class="bi bi-dash-circle"></i> Custom domain</li>
-          <li class="muted-feat"><i class="bi bi-dash-circle"></i> Custom branding</li>
-        </ul>
-        <a href="#contact" class="btn-price">Get Started</a>
-      </div>
-
-      <!-- PROFESSIONAL (popular) -->
-      <div class="price-card popular">
-        <div class="price-tier">Professional</div>
-        <div class="price-amount">
-          <span class="price-cur">₹</span>
-          <span class="price-num">4,999</span>
-        </div>
-        <div class="price-period">per month</div>
-        <div class="price-note" style="color:rgba(255,255,255,.45)">For growing businesses, D2C brands, and multi-seller networks ready to scale.</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><i class="bi bi-check-circle-fill"></i> Up to 50 sellers</li>
-          <li><i class="bi bi-check-circle-fill"></i> Unlimited products</li>
-          <li><i class="bi bi-check-circle-fill"></i> Razorpay + COD payments</li>
-          <li><i class="bi bi-check-circle-fill"></i> All account types + MFA</li>
-          <li><i class="bi bi-check-circle-fill"></i> Combo offers + coupons</li>
-          <li><i class="bi bi-check-circle-fill"></i> Custom domain &amp; branding</li>
-          <li><i class="bi bi-check-circle-fill"></i> Seller sub-stores + QR codes</li>
-          <li><i class="bi bi-check-circle-fill"></i> Priority WhatsApp support</li>
-          <li><i class="bi bi-check-circle-fill"></i> Analytics dashboard</li>
-        </ul>
-        <a href="#contact" class="btn-price-pop">Get Started</a>
-      </div>
-
-      <!-- ENTERPRISE -->
-      <div class="price-card">
-        <div class="price-tier">Enterprise</div>
-        <div class="price-amount">
-          <span class="price-cur">₹</span>
-          <span class="price-num">14,999</span>
-        </div>
-        <div class="price-period">per month · or one-time license</div>
-        <div class="price-note">Full white-label license with source code, custom features, and dedicated support — deploy on your own server.</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><i class="bi bi-check-circle-fill"></i> Unlimited sellers &amp; products</li>
-          <li><i class="bi bi-check-circle-fill"></i> Full white-label + source code</li>
-          <li><i class="bi bi-check-circle-fill"></i> Custom payment gateways</li>
-          <li><i class="bi bi-check-circle-fill"></i> Custom feature development</li>
-          <li><i class="bi bi-check-circle-fill"></i> Self-host or managed hosting</li>
-          <li><i class="bi bi-check-circle-fill"></i> Dedicated account manager</li>
-          <li><i class="bi bi-check-circle-fill"></i> SLA &amp; 24/7 support</li>
-          <li><i class="bi bi-check-circle-fill"></i> API access</li>
-          <li><i class="bi bi-check-circle-fill"></i> Multi-region deployment</li>
-        </ul>
-        <a href="#contact" class="btn-price">Contact Us</a>
+    <!-- Toggle -->
+    <div class="pricing-toggle-wrap reveal">
+      <div class="pricing-toggle">
+        <button class="ptog-btn active" onclick="switchPricing('monthly',this)">Monthly Hosting</button>
+        <button class="ptog-btn" onclick="switchPricing('license',this)">One-Time License</button>
+        <button class="ptog-btn hl" onclick="switchPricing('revshare',this)">Revenue Share</button>
       </div>
     </div>
 
-    <div class="commission-note mt-8 reveal">
-      <i class="bi bi-info-circle-fill"></i>
-      <p><strong>Commission model also available:</strong> Instead of a monthly fee, we can run on a revenue-share basis — typically 2–5% of your GMV (Gross Merchandise Value). Ideal for marketplaces that prefer zero upfront costs. <a href="#contact" style="color:var(--gold)">Contact us</a> to discuss.</p>
+    <!-- MONTHLY -->
+    <div class="pricing-panel active" id="panel-monthly">
+      <div class="pricing-grid reveal">
+        <!-- STARTER -->
+        <div class="price-card">
+          <div class="price-tier">Starter</div>
+          <div class="price-amount"><span class="price-cur">₹</span><span class="price-num">3,999</span></div>
+          <div class="price-period">per month · hosted &amp; managed</div>
+          <div class="price-note">Best for individuals and small shops getting started with multi-seller selling.</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li><i class="bi bi-check-circle-fill"></i> Up to 2 sellers</li>
+            <li><i class="bi bi-check-circle-fill"></i> Up to 500 products</li>
+            <li><i class="bi bi-check-circle-fill"></i> Razorpay + COD payments</li>
+            <li><i class="bi bi-check-circle-fill"></i> Customer, Seller &amp; Staff portals</li>
+            <li><i class="bi bi-check-circle-fill"></i> Coupon &amp; discount engine</li>
+            <li><i class="bi bi-check-circle-fill"></i> Walk-in POS + PDF receipts</li>
+            <li><i class="bi bi-check-circle-fill"></i> SSL + daily backups</li>
+            <li><i class="bi bi-check-circle-fill"></i> Basic email support</li>
+            <li class="muted-feat"><i class="bi bi-dash-circle"></i> Custom domain</li>
+            <li class="muted-feat"><i class="bi bi-dash-circle"></i> Custom branding</li>
+          </ul>
+          <a href="#contact" class="btn-price">Get Started</a>
+        </div>
+        <!-- MULTI SHOP (popular) -->
+        <div class="price-card popular">
+          <div class="price-tier">Multi Shop</div>
+          <div class="price-amount"><span class="price-cur">₹</span><span class="price-num">7,999</span></div>
+          <div class="price-period">per month · hosted &amp; managed</div>
+          <div class="price-note" style="color:rgba(255,255,255,.45)">For growing businesses and D2C brands with multiple sellers and real order volume.</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li><i class="bi bi-check-circle-fill"></i> Up to 10 sellers</li>
+            <li><i class="bi bi-check-circle-fill"></i> Up to 2,000 products</li>
+            <li><i class="bi bi-check-circle-fill"></i> Razorpay + COD payments</li>
+            <li><i class="bi bi-check-circle-fill"></i> All account types + MFA</li>
+            <li><i class="bi bi-check-circle-fill"></i> Combo offers + coupons</li>
+            <li><i class="bi bi-check-circle-fill"></i> Custom domain &amp; branding</li>
+            <li><i class="bi bi-check-circle-fill"></i> Seller sub-stores + QR codes</li>
+            <li><i class="bi bi-check-circle-fill"></i> Analytics dashboard</li>
+            <li><i class="bi bi-check-circle-fill"></i> Priority WhatsApp support</li>
+          </ul>
+          <a href="#contact" class="btn-price-pop">Get Started</a>
+        </div>
+        <!-- ENTERPRISE -->
+        <div class="price-card">
+          <div class="price-tier">Enterprise</div>
+          <div class="price-amount"><span class="price-cur">₹</span><span class="price-num">14,999</span></div>
+          <div class="price-period">per month · dedicated server</div>
+          <div class="price-note">Unlimited sellers and products. Dedicated infrastructure, dedicated account manager, 24/7 SLA.</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li><i class="bi bi-check-circle-fill"></i> Unlimited sellers &amp; products</li>
+            <li><i class="bi bi-check-circle-fill"></i> Dedicated server (not shared)</li>
+            <li><i class="bi bi-check-circle-fill"></i> Custom payment gateways</li>
+            <li><i class="bi bi-check-circle-fill"></i> Multi-region deployment</li>
+            <li><i class="bi bi-check-circle-fill"></i> API access</li>
+            <li><i class="bi bi-check-circle-fill"></i> Dedicated account manager</li>
+            <li><i class="bi bi-check-circle-fill"></i> SLA &amp; 24/7 support</li>
+            <li><i class="bi bi-check-circle-fill"></i> Custom feature requests</li>
+          </ul>
+          <a href="#contact" class="btn-price">Contact Us</a>
+        </div>
+      </div>
+      <div class="pricing-model-note mt-8 reveal">
+        <i class="bi bi-info-circle-fill"></i>
+        <p><strong>All monthly plans include:</strong> Hosting on cloud infrastructure (AWS/DigitalOcean), SSL certificate, automated daily backups, CloudFlare CDN, and Razorpay integration. You own all your data. <a href="#contact" style="color:var(--gold)">Ask us anything</a> before signing up.</p>
+      </div>
     </div>
+
+    <!-- ONE-TIME LICENSE -->
+    <div class="pricing-panel" id="panel-license">
+      <div class="license-grid reveal">
+        <div class="lic-card">
+          <div class="lic-tier">Starter License</div>
+          <div class="lic-amount"><span class="lic-cur">₹</span><span class="lic-num">49,999</span></div>
+          <div class="lic-label">one-time · single domain</div>
+          <div class="lic-note">Full source code for one domain. You deploy on your own VPS. Lifetime updates for 1 year.</div>
+          <div class="lic-divider"></div>
+          <ul class="lic-features">
+            <li><i class="bi bi-check-circle-fill"></i> Full Django + React source code</li>
+            <li><i class="bi bi-check-circle-fill"></i> Deploy on 1 domain (your VPS)</li>
+            <li><i class="bi bi-check-circle-fill"></i> Lifetime use on that domain</li>
+            <li><i class="bi bi-check-circle-fill"></i> 1-year free updates</li>
+            <li><i class="bi bi-check-circle-fill"></i> Deployment documentation</li>
+            <li><i class="bi bi-check-circle-fill"></i> 30-day setup support</li>
+          </ul>
+          <a href="#contact" class="btn-price">Buy License</a>
+        </div>
+        <div class="lic-card featured">
+          <div class="lic-tier">Pro License</div>
+          <div class="lic-amount"><span class="lic-cur">₹</span><span class="lic-num">99,999</span></div>
+          <div class="lic-label">one-time · unlimited domains</div>
+          <div class="lic-note">Full source code, unlimited domains, resale rights (limited). Best for agencies and multi-property operators.</div>
+          <div class="lic-divider"></div>
+          <ul class="lic-features">
+            <li><i class="bi bi-check-circle-fill"></i> Full source code</li>
+            <li><i class="bi bi-check-circle-fill"></i> Unlimited domain deployments</li>
+            <li><i class="bi bi-check-circle-fill"></i> Limited resale rights included</li>
+            <li><i class="bi bi-check-circle-fill"></i> 2-year free updates</li>
+            <li><i class="bi bi-check-circle-fill"></i> 90-day setup &amp; migration support</li>
+            <li><i class="bi bi-check-circle-fill"></i> WhatsApp priority support</li>
+          </ul>
+          <a href="#contact" class="btn-price-pop">Buy Pro License</a>
+        </div>
+        <div class="lic-card">
+          <div class="lic-tier">Enterprise License</div>
+          <div class="lic-amount"><span class="lic-cur">₹</span><span class="lic-num">1,99,999</span></div>
+          <div class="lic-label">one-time · full ownership</div>
+          <div class="lic-note">Complete ownership of code and brand. Full resale rights, custom features, 6-month implementation support.</div>
+          <div class="lic-divider"></div>
+          <ul class="lic-features">
+            <li><i class="bi bi-check-circle-fill"></i> Full source code + ownership</li>
+            <li><i class="bi bi-check-circle-fill"></i> Unlimited domains &amp; resale</li>
+            <li><i class="bi bi-check-circle-fill"></i> Custom feature development</li>
+            <li><i class="bi bi-check-circle-fill"></i> 6-month implementation support</li>
+            <li><i class="bi bi-check-circle-fill"></i> Dedicated account manager</li>
+            <li><i class="bi bi-check-circle-fill"></i> Lifetime updates</li>
+          </ul>
+          <a href="#contact" class="btn-price">Contact Us</a>
+        </div>
+      </div>
+      <div class="pricing-model-note mt-8 reveal">
+        <i class="bi bi-info-circle-fill"></i>
+        <p><strong>Note on self-hosting:</strong> One-time licenses require you to run the app on a VPS (AWS, DigitalOcean, etc.) — shared cPanel hosting won't work for Django. Your VPS cost will be approximately ₹1,500–3,000/month depending on traffic. We provide deployment guides and setup support for all license tiers.</p>
+      </div>
+    </div>
+
+    <!-- REVENUE SHARE -->
+    <div class="pricing-panel" id="panel-revshare">
+      <div class="reveal" style="max-width:800px;margin:0 auto 32px;text-align:center">
+        <p style="font-family:'DM Sans',sans-serif;font-size:15px;color:var(--muted);line-height:1.7">Zero upfront cost. We host everything, you pay only a small commission on actual sales your marketplace generates. Ideal for pre-revenue startups and bootstrap founders.</p>
+      </div>
+      <div class="revshare-wrap reveal">
+        <div class="rs-head">
+          <span>Monthly GMV Range</span>
+          <span class="hl">Commission</span>
+          <span>Upfront Cost</span>
+          <span>Example (your payment)</span>
+        </div>
+        <div class="rs-row">
+          <div class="rs-cell">₹0 – ₹5 Lakhs/month</div>
+          <div class="rs-cell"><strong>5%</strong></div>
+          <div class="rs-cell mono" style="color:var(--green)">₹0</div>
+          <div class="rs-cell" style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted)">₹1L GMV → you pay ₹5,000/mo</div>
+        </div>
+        <div class="rs-row" style="background:var(--bg3)">
+          <div class="rs-cell">₹5L – ₹20 Lakhs/month</div>
+          <div class="rs-cell"><strong>3%</strong></div>
+          <div class="rs-cell mono" style="color:var(--green)">₹0</div>
+          <div class="rs-cell" style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted)">₹10L GMV → you pay ₹30,000/mo</div>
+        </div>
+        <div class="rs-row">
+          <div class="rs-cell">₹20 Lakhs+/month</div>
+          <div class="rs-cell"><strong>2%</strong></div>
+          <div class="rs-cell mono" style="color:var(--green)">₹0</div>
+          <div class="rs-cell" style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted)">₹50L GMV → you pay ₹1,00,000/mo</div>
+        </div>
+      </div>
+      <div class="pricing-model-note mt-8 reveal">
+        <i class="bi bi-info-circle-fill"></i>
+        <p><strong>How it works:</strong> We host and maintain the platform at our cost. You pay nothing until your marketplace generates sales. Commission is calculated on verified GMV (gross merchandise value) after returns. Razorpay's own gateway fee (2–3%) is separate and charged by Razorpay directly. <a href="#contact" style="color:var(--gold)">Get in touch to discuss</a> — this model requires a short onboarding call to qualify.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- ══ DEMO SECTION ══ -->
+<!-- DEMO -->
 <section class="demo-section" id="demo">
   <div class="demo-inner">
     <div>
-      <div class="demo-pill">
-        <span class="demo-pill-dot"></span>
-        Live Demo
-      </div>
+      <div class="demo-pill"><span class="demo-pill-dot"></span>Live Demo</div>
       <h2 class="demo-title">See it live,<br><em>right now</em></h2>
       <p class="demo-desc">The full marketplace is running live. Browse products, add to cart, explore seller stores, and see the checkout flow — no signup needed for browsing. Test credentials available.</p>
       <div class="demo-links">
         <a href="https://udeshmukundan.pythonanywhere.com/" target="_blank" class="demo-link-card">
-          <div class="demo-link-left">
-            <div class="demo-link-icon"><i class="bi bi-shop"></i></div>
-            <div>
-              <div class="demo-link-title">Customer Storefront</div>
-              <div class="demo-link-url">udeshmukundan.pythonanywhere.com</div>
-            </div>
-          </div>
+          <div class="demo-link-left"><div class="demo-link-icon"><i class="bi bi-shop"></i></div><div><div class="demo-link-title">Customer Storefront</div><div class="demo-link-url">udeshmukundan.pythonanywhere.com</div></div></div>
           <i class="bi bi-box-arrow-up-right demo-link-arrow"></i>
         </a>
         <a href="https://udeshmukundan.pythonanywhere.com/?mode=seller" target="_blank" class="demo-link-card">
-          <div class="demo-link-left">
-            <div class="demo-link-icon"><i class="bi bi-graph-up"></i></div>
-            <div>
-              <div class="demo-link-title">Seller Dashboard</div>
-              <div class="demo-link-url">Manage products, orders, POS</div>
-            </div>
-          </div>
+          <div class="demo-link-left"><div class="demo-link-icon"><i class="bi bi-graph-up"></i></div><div><div class="demo-link-title">Seller Dashboard</div><div class="demo-link-url">Manage products, orders, POS</div></div></div>
           <i class="bi bi-box-arrow-up-right demo-link-arrow"></i>
         </a>
         <a href="https://udeshmukundan.pythonanywhere.com/?mode=staff" target="_blank" class="demo-link-card">
-          <div class="demo-link-left">
-            <div class="demo-link-icon"><i class="bi bi-shield-lock"></i></div>
-            <div>
-              <div class="demo-link-title">Staff Admin Panel</div>
-              <div class="demo-link-url">Full marketplace control</div>
-            </div>
-          </div>
+          <div class="demo-link-left"><div class="demo-link-icon"><i class="bi bi-shield-lock"></i></div><div><div class="demo-link-title">Staff Admin Panel</div><div class="demo-link-url">Full marketplace control</div></div></div>
           <i class="bi bi-box-arrow-up-right demo-link-arrow"></i>
         </a>
       </div>
@@ -1270,41 +823,19 @@ footer{
         <div class="sec-badge"><i class="bi bi-incognito"></i> Demo Data Only</div>
       </div>
     </div>
-
-    <!-- phone mockup -->
     <div style="display:flex;justify-content:center">
       <div class="phone-mock">
         <div class="phone-notch"><div class="phone-cam"></div></div>
         <div class="phone-screen">
-          <div class="phone-header">
-            <div class="phone-brand">MAYA<span>VISAI</span></div>
-            <div class="phone-icons">
-              <i class="bi bi-search"></i>
-              <i class="bi bi-bag"></i>
-            </div>
-          </div>
+          <div class="phone-header"><div class="phone-brand">MAYA<span>VISAI</span></div><div class="phone-icons"><i class="bi bi-search"></i><i class="bi bi-bag"></i></div></div>
           <div class="phone-products">
-            <div class="pp-card">
-              <div class="pp-img mc-fashion" style="height:60px;display:flex;align-items:center;justify-content:center;font-size:22px">&#128084;</div>
-              <div class="pp-body"><div class="pp-name">Silk Saree</div><div class="pp-price">₹2,499</div></div>
-            </div>
-            <div class="pp-card">
-              <div class="pp-img mc-tech" style="height:60px;display:flex;align-items:center;justify-content:center;font-size:22px">&#9201;</div>
-              <div class="pp-body"><div class="pp-name">Smart Watch</div><div class="pp-price">₹3,299</div></div>
-            </div>
-            <div class="pp-card">
-              <div class="pp-img mc-food" style="height:60px;display:flex;align-items:center;justify-content:center;font-size:22px">&#127831;</div>
-              <div class="pp-body"><div class="pp-name">Dry Fruits</div><div class="pp-price">₹649</div></div>
-            </div>
-            <div class="pp-card">
-              <div class="pp-img mc-art" style="height:60px;display:flex;align-items:center;justify-content:center;font-size:22px">&#127912;</div>
-              <div class="pp-body"><div class="pp-name">Canvas Print</div><div class="pp-price">₹899</div></div>
-            </div>
+            <div class="pp-card"><div class="pp-img mc-fashion" style="height:60px;display:flex;align-items:center;justify-content:center;font-size:22px">&#128084;</div><div class="pp-body"><div class="pp-name">Silk Saree</div><div class="pp-price">₹2,499</div></div></div>
+            <div class="pp-card"><div class="pp-img mc-tech" style="height:60px;display:flex;align-items:center;justify-content:center;font-size:22px">&#9201;</div><div class="pp-body"><div class="pp-name">Smart Watch</div><div class="pp-price">₹3,299</div></div></div>
+            <div class="pp-card"><div class="pp-img mc-food" style="height:60px;display:flex;align-items:center;justify-content:center;font-size:22px">&#127831;</div><div class="pp-body"><div class="pp-name">Dry Fruits</div><div class="pp-price">₹649</div></div></div>
+            <div class="pp-card"><div class="pp-img mc-art" style="height:60px;display:flex;align-items:center;justify-content:center;font-size:22px">&#127912;</div><div class="pp-body"><div class="pp-name">Canvas Print</div><div class="pp-price">₹899</div></div></div>
           </div>
           <div style="padding:8px;background:rgba(184,125,58,.1);border-top:1px solid rgba(184,125,58,.2)">
-            <div style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);text-align:center">
-              <i class="bi bi-qr-code-scan"></i> Scan to open demo
-            </div>
+            <div style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);text-align:center"><i class="bi bi-qr-code-scan"></i> Scan to open demo</div>
             <div style="font-family:'DM Mono',monospace;font-size:6.5px;color:rgba(255,255,255,.25);text-align:center;margin-top:3px">udeshmukundan.pythonanywhere.com</div>
           </div>
         </div>
@@ -1313,7 +844,7 @@ footer{
   </div>
 </section>
 
-<!-- ══ TESTIMONIALS ══ -->
+<!-- TESTIMONIALS -->
 <section class="section">
   <div class="section-inner">
     <div class="text-center reveal" style="margin-bottom:48px">
@@ -1322,84 +853,44 @@ footer{
     </div>
     <div class="testimonials-grid reveal">
       <div class="testi-card">
-        <div class="testi-stars">
-          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-        </div>
+        <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
         <div class="testi-text">"We needed a way for 20+ local artisans to sell through one portal. Getting a full seller management system with separate dashboards was something we thought would cost us months of development."</div>
-        <div class="testi-author">
-          <div class="testi-avatar">A</div>
-          <div>
-            <div class="testi-name">Artisan Collective</div>
-            <div class="testi-role">D2C Handicrafts · Chennai</div>
-          </div>
-        </div>
+        <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Artisan Collective</div><div class="testi-role">D2C Handicrafts · Chennai</div></div></div>
       </div>
       <div class="testi-card">
-        <div class="testi-stars">
-          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-        </div>
+        <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
         <div class="testi-text">"The POS system alone is worth it — our floor staff can bill walk-in customers, apply discounts, and send a PDF receipt link via WhatsApp, all from their phone. It's replaced three separate tools."</div>
-        <div class="testi-author">
-          <div class="testi-avatar">R</div>
-          <div>
-            <div class="testi-name">Retail Chain Owner</div>
-            <div class="testi-role">Fashion Retail · Coimbatore</div>
-          </div>
-        </div>
+        <div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Retail Chain Owner</div><div class="testi-role">Fashion Retail · Coimbatore</div></div></div>
       </div>
       <div class="testi-card">
-        <div class="testi-stars">
-          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
-        </div>
+        <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
         <div class="testi-text">"We're a B2B distributor and needed combo offer pricing for bulk buyers. The coupon engine and order management were exactly what we needed — and the seller sub-store feature is brilliant for our partners."</div>
-        <div class="testi-author">
-          <div class="testi-avatar">K</div>
-          <div>
-            <div class="testi-name">Distribution Startup</div>
-            <div class="testi-role">B2B Marketplace · Bangalore</div>
-          </div>
-        </div>
+        <div class="testi-author"><div class="testi-avatar">K</div><div><div class="testi-name">Distribution Startup</div><div class="testi-role">B2B Marketplace · Bangalore</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FINAL CTA ══ -->
+<!-- FINAL CTA -->
 <section class="cta-final" id="contact">
   <div class="cta-final-inner reveal">
     <div class="cta-final-eyebrow">Ready to Launch</div>
     <h2>Start your marketplace<br><em>this week</em></h2>
     <p>Reach out on WhatsApp or email — we'll walk you through the demo, understand your use case, and get you set up. No lengthy contracts, no hidden costs.</p>
     <div class="cta-final-btns">
-      <a href="https://udeshmukundan.pythonanywhere.com/" target="_blank" class="btn-hero-primary">
-        <i class="bi bi-play-circle"></i> View Live Demo
-      </a>
-      <a href="mailto:udesh@mayavisai.in" class="btn-hero-ghost">
-        <i class="bi bi-envelope"></i> Email Us
-      </a>
+      <a href="https://udeshmukundan.pythonanywhere.com/" target="_blank" class="btn-hero-primary"><i class="bi bi-play-circle"></i> View Live Demo</a>
+      <a href="mailto:udesh@mayavisai.in" class="btn-hero-ghost"><i class="bi bi-envelope"></i> Email Us</a>
     </div>
     <div class="cta-contact">
-      <div class="cta-contact-item">
-        <i class="bi bi-whatsapp"></i>
-        <a href="https://wa.me/916374193181" target="_blank">+91 63741 93181</a>
-      </div>
-      <div class="cta-contact-item">
-        <i class="bi bi-telephone"></i>
-        <a href="tel:+919445368718">+91 94453 68718</a>
-      </div>
-      <div class="cta-contact-item">
-        <i class="bi bi-envelope"></i>
-        <a href="mailto:udesh@mayavisai.in">udesh@mayavisai.in</a>
-      </div>
-      <div class="cta-contact-item">
-        <i class="bi bi-globe"></i>
-        <a href="https://udeshmukundan.pythonanywhere.com/" target="_blank">Live Demo</a>
-      </div>
+      <div class="cta-contact-item"><i class="bi bi-whatsapp"></i><a href="https://wa.me/916374193181" target="_blank">+91 63741 93181</a></div>
+      <div class="cta-contact-item"><i class="bi bi-telephone"></i><a href="tel:+919445368718">+91 94453 68718</a></div>
+      <div class="cta-contact-item"><i class="bi bi-envelope"></i><a href="mailto:udesh@mayavisai.in">udesh@mayavisai.in</a></div>
+      <div class="cta-contact-item"><i class="bi bi-globe"></i><a href="https://udeshmukundan.pythonanywhere.com/" target="_blank">Live Demo</a></div>
     </div>
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-brand">MAYA<span>VISAI</span></div>
   <div class="footer-note">© 2025 Mayavisai · mayavisai.in · All rights reserved</div>
@@ -1412,70 +903,41 @@ footer{
 </footer>
 
 <script>
-/* ── MOBILE MENU ── */
-document.getElementById('menuToggle').addEventListener('click',()=>{
-  document.getElementById('mobileMenu').classList.add('open');
-  document.body.style.overflow='hidden';
-});
+/* MOBILE MENU */
+document.getElementById('menuToggle').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open');document.body.style.overflow='hidden';});
 document.getElementById('mobClose').addEventListener('click',closeMob);
-function closeMob(){
-  document.getElementById('mobileMenu').classList.remove('open');
-  document.body.style.overflow='';
-}
+function closeMob(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMob();});
 
-/* ── SCROLL REVEAL ── */
-const io = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
-  });
-},{threshold:.08});
+/* SCROLL REVEAL */
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-/* ── COUNTER ANIMATION ── */
-function animateCounter(el, target, suffix){
-  let start = 0;
-  const step = Math.ceil(target / 60);
-  const timer = setInterval(()=>{
-    start = Math.min(start + step, target);
-    el.textContent = start + (suffix || '');
-    if(start >= target) clearInterval(timer);
-  }, 25);
-}
-const heroObserver = new IntersectionObserver(entries=>{
-  if(entries[0].isIntersecting){
-    animateCounter(document.getElementById('counterSellers'), 24, '+');
-    animateCounter(document.getElementById('counterProducts'), 180, '+');
-    animateCounter(document.getElementById('counterOrders'), 96, '+');
-    heroObserver.disconnect();
-  }
-},{threshold:.3});
-const liveStrip = document.querySelector('.live-strip');
-if(liveStrip) heroObserver.observe(liveStrip);
+/* COUNTER */
+function animateCounter(el,target,suffix){let s=0;const step=Math.ceil(target/60);const t=setInterval(()=>{s=Math.min(s+step,target);el.textContent=s+(suffix||'');if(s>=target)clearInterval(t);},25);}
+const ho=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){animateCounter(document.getElementById('counterSellers'),24,'+');animateCounter(document.getElementById('counterProducts'),180,'+');animateCounter(document.getElementById('counterOrders'),96,'+');ho.disconnect();}},{threshold:.3});
+const ls=document.querySelector('.live-strip');if(ls)ho.observe(ls);
 
-/* ── SMOOTH SCROLL ── */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const id = a.getAttribute('href');
-    if(id === '#') return;
-    const el = document.querySelector(id);
-    if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}
+/* SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id==='#')return;const el=document.querySelector(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}});});
+
+/* LOGIN TABS */
+document.querySelectorAll('.lp-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.lp-tab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');});});
+
+/* TICKER PAUSE */
+const track=document.querySelector('.ticker-track');
+if(track){track.addEventListener('mouseenter',()=>{track.style.animationPlayState='paused';});track.addEventListener('mouseleave',()=>{track.style.animationPlayState='running';});}
+
+/* PRICING TOGGLE */
+function switchPricing(panel, btn){
+  document.querySelectorAll('.pricing-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ptog-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+panel).classList.add('active');
+  btn.classList.add('active');
+  // re-trigger reveals in newly shown panel
+  document.querySelectorAll('#panel-'+panel+' .reveal').forEach(el=>{
+    if(!el.classList.contains('visible')){io.observe(el);}
   });
-});
-
-/* ── LOGIN PREVIEW TABS ── */
-document.querySelectorAll('.lp-tab').forEach((tab,i)=>{
-  tab.addEventListener('click',()=>{
-    document.querySelectorAll('.lp-tab').forEach(t=>t.classList.remove('active'));
-    tab.classList.add('active');
-  });
-});
-
-/* ── TICKER pause on hover ── */
-const track = document.querySelector('.ticker-track');
-if(track){
-  track.addEventListener('mouseenter',()=>{track.style.animationPlayState='paused';});
-  track.addEventListener('mouseleave',()=>{track.style.animationPlayState='running';});
 }
 </script>
 </body>
