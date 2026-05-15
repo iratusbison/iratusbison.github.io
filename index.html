@@ -3,438 +3,388 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mayavisai — Your Shop, Online.</title>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>Mayavisai — Your Own Multi-Vendor Marketplace, Built & Hosted</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- Google Translate -->
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    includedLanguages: 'ta,en',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-    autoDisplay: false
-  }, 'google_translate_element');
-}
-</script>
-
 <style>
-:root {
-  --ink: #0d0b09;
-  --ink2: #1c1915;
-  --cream: #f7f3ec;
-  --cream2: #efe9dd;
-  --cream3: #e3dbd0;
-  --muted: #6b6055;
-  --muted2: #9e9185;
-  --gold: #b8711f;
-  --gold2: #d4853a;
-  --gold3: #f0a050;
-  --goldbg: rgba(184,113,31,.09);
-  --goldborder: rgba(184,113,31,.25);
-  --green: #1a5736;
-  --greenbg: rgba(26,87,54,.09);
-  --greenborder: rgba(26,87,54,.25);
-  --red: #a82424;
-  --redbg: rgba(168,36,36,.08);
-  --redborder: rgba(168,36,36,.2);
-  --wa: #128C7E;
-  --wa2: #075E54;
-  --r: .22s cubic-bezier(.4,0,.2,1);
-  --card: #ffffff;
+:root{
+  --bg:      #f5f2ed;
+  --bg2:     #ffffff;
+  --bg3:     #ede9e2;
+  --card:    #ffffff;
+  --border:  #e8e3da;
+  --border2: #d8d1c5;
+  --ink:     #0c0c0c;
+  --ink2:    #1e1b17;
+  --ink3:    #3d3830;
+  --muted:   #7a7268;
+  --muted2:  #b0a89c;
+  --gold:    #b87d3a;
+  --gold2:   #d4954a;
+  --goldbg:  rgba(184,125,58,.09);
+  --red:     #c13535;
+  --green:   #2a7048;
+  --r: .2s cubic-bezier(.4,0,.2,1);
 }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+::selection{background:var(--gold);color:#fff}
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-a { text-decoration: none; color: inherit; }
-::selection { background: var(--gold); color: #fff; }
-img { max-width: 100%; }
-
-/* ── GOOGLE TRANSLATE WIDGET ── */
-#google_translate_element { display: inline-flex; align-items: center; }
-.goog-te-gadget-simple {
-  background: transparent !important;
-  border: none !important;
-  font-family: 'Outfit', sans-serif !important;
-  font-size: 12px !important;
-}
-.goog-te-gadget-simple .goog-te-menu-value span {
-  color: var(--muted) !important;
-  font-weight: 700 !important;
-  font-size: 12px !important;
-}
-.goog-te-gadget-simple img { display: none !important; }
-.translate-wrap {
-  display: flex; align-items: center; gap: 8px;
-  background: var(--cream3); border-radius: 8px; padding: 6px 14px;
-  border: 1.5px solid var(--cream3); transition: border-color var(--r);
-}
-.translate-wrap:hover { border-color: var(--goldborder); }
-.translate-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
-
-/* ── ANNOUNCEMENT TICKER ── */
-.ticker { background: var(--ink); height: 38px; overflow: hidden; display: flex; align-items: center; position: sticky; top: 0; z-index: 950; }
-.ticker-track { display: flex; white-space: nowrap; animation: ticker 45s linear infinite; }
-.ticker-track:hover { animation-play-state: paused; }
-.ticker-item { display: inline-flex; align-items: center; gap: 10px; padding: 0 36px; font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,.5); letter-spacing: .03em; flex-shrink: 0; }
-.ticker-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold3); flex-shrink: 0; }
-.ticker-hi { color: var(--gold3); font-weight: 800; }
-@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+/* ── TICKER ── */
+.ticker{background:var(--ink);height:30px;display:flex;align-items:center;overflow:hidden;position:relative;z-index:1100}
+.ticker-track{display:flex;white-space:nowrap;animation:tickRoll 32s linear infinite;will-change:transform}
+.ticker-item{display:inline-flex;align-items:center;gap:12px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);padding:0 28px;flex-shrink:0}
+.ticker-dot{width:3px;height:3px;border-radius:50%;background:var(--gold);flex-shrink:0}
+@keyframes tickRoll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ── NAVBAR ── */
-.nav {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 56px; height: 72px;
-  background: rgba(247,243,236,.97); backdrop-filter: blur(24px);
-  border-bottom: 1.5px solid var(--cream3);
-  position: sticky; top: 38px; z-index: 900;
-}
-.brand { display: flex; align-items: center; gap: 13px; }
-.brand-mark {
-  width: 44px; height: 44px; background: var(--ink); border-radius: 11px;
-  display: grid; place-items: center; font-family: 'Instrument Serif', serif;
-  font-size: 22px; font-style: italic; color: var(--gold3);
-  transition: transform var(--r);
-}
-.brand:hover .brand-mark { transform: rotate(-5deg) scale(1.07); }
-.brand-text .brand-name { font-size: 19px; font-weight: 800; letter-spacing: -.03em; color: var(--ink); line-height: 1.1; }
-.brand-text .brand-sub { font-size: 10px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted2); }
-.nav-links { display: flex; gap: 36px; }
-.nav-link { font-size: 13px; font-weight: 600; color: var(--muted); transition: color var(--r); }
-.nav-link:hover { color: var(--ink); }
-.nav-right { display: flex; align-items: center; gap: 10px; }
-.btn-demo { font-size: 12.5px; font-weight: 700; color: var(--ink); padding: 9px 20px; border: 1.5px solid var(--cream3); border-radius: 8px; transition: all var(--r); }
-.btn-demo:hover { border-color: var(--goldborder); color: var(--gold); }
-.btn-wa-nav {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 13px; font-weight: 700; color: #fff; padding: 10px 22px;
-  background: var(--wa); border-radius: 8px;
-  box-shadow: 0 4px 14px rgba(18,140,126,.3);
-  transition: all var(--r);
-}
-.btn-wa-nav:hover { background: var(--wa2); transform: translateY(-1px); box-shadow: 0 7px 22px rgba(18,140,126,.42); }
-.mob-toggle { display: none; width: 42px; height: 42px; background: var(--cream2); border: 1.5px solid var(--cream3); border-radius: 9px; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; color: var(--ink); }
-@media (max-width: 960px) { .nav-links { display: none; } .nav-right .btn-demo { display: none; } .mob-toggle { display: flex; } .nav { padding: 0 20px; } }
+.navbar{display:flex;align-items:center;justify-content:space-between;padding:0 36px;height:62px;background:rgba(245,242,237,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand-mark{width:36px;height:36px;border-radius:9px;background:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:12px;font-weight:900;color:var(--gold);transition:transform var(--r);flex-shrink:0}
+.brand:hover .brand-mark{transform:rotate(-5deg) scale(1.07)}
+.brand-name{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;letter-spacing:.1em;color:var(--ink)}
+.brand-sub{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-link{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:color var(--r);position:relative;padding-bottom:2px}
+.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--gold);transition:width var(--r)}
+.nav-link:hover{color:var(--ink)}
+.nav-link:hover::after{width:100%}
+@media(max-width:860px){.nav-links{display:none}}
+.nav-cta-row{display:flex;align-items:center;gap:10px}
+.btn-ghost{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);padding:8px 18px;border:1.5px solid var(--border2);border-radius:4px;transition:border-color var(--r),color var(--r)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn-primary{font-family:'Unbounded',sans-serif;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;padding:9px 20px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:4px;box-shadow:0 4px 14px rgba(184,125,58,.38);transition:transform var(--r),box-shadow var(--r)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(184,125,58,.52)}
+.mob-menu-btn{display:none;width:38px;height:38px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);align-items:center;justify-content:center;font-size:16px;cursor:pointer;color:var(--ink)}
+@media(max-width:860px){.mob-menu-btn{display:flex}.nav-cta-row .btn-ghost{display:none}}
 
 /* ── MOBILE MENU ── */
-.mob-menu { position: fixed; inset: 0; background: var(--ink); z-index: 9999; display: flex; flex-direction: column; padding: 28px 24px; transform: translateX(110%); transition: transform .36s cubic-bezier(.4,0,.2,1); }
-.mob-menu.open { transform: none; }
-.mob-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 48px; }
-.mob-brand { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -.025em; }
-.mob-x { width: 40px; height: 40px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; display: grid; place-items: center; font-size: 18px; cursor: pointer; color: rgba(255,255,255,.7); }
-.mob-link { display: flex; align-items: center; justify-content: space-between; padding: 19px 0; font-size: 20px; font-weight: 700; color: rgba(255,255,255,.65); border-bottom: 1px solid rgba(255,255,255,.06); transition: color var(--r); }
-.mob-link:hover { color: var(--gold3); }
-.mob-wa { margin-top: auto; display: flex; align-items: center; gap: 12px; background: var(--wa); color: #fff; padding: 18px 22px; border-radius: 10px; font-size: 15px; font-weight: 700; }
+.mob-menu{position:fixed;inset:0;background:var(--ink);z-index:2000;display:flex;flex-direction:column;padding:24px 26px 30px;transform:translateX(100%);transition:transform .36s cubic-bezier(.4,0,.2,1);pointer-events:none}
+.mob-menu.open{transform:translateX(0);pointer-events:all}
+.mob-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px}
+.mob-brand-name{font-family:'Unbounded',sans-serif;font-size:17px;font-weight:700;letter-spacing:.08em;color:#fff}
+.mob-brand-sub{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-top:2px}
+.mob-close{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;color:#fff}
+.mob-links{display:flex;flex-direction:column}
+.mob-link{display:flex;align-items:center;justify-content:space-between;padding:15px 0;font-family:'Unbounded',sans-serif;font-size:18px;font-weight:600;color:rgba(255,255,255,.82);border-bottom:1px solid rgba(255,255,255,.06);transition:color var(--r),padding-left var(--r)}
+.mob-link:hover{color:var(--gold);padding-left:5px}
+.mob-link i{font-size:12px;color:rgba(255,255,255,.2)}
+.mob-footer{margin-top:auto;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18)}
 
-/* ── HERO ── */
-.hero {
-  background: var(--ink);
-  min-height: 91vh;
-  display: flex; align-items: center;
-  position: relative; overflow: hidden;
-  padding: 100px 56px 80px;
-}
-.hero-noise { position: absolute; inset: 0; opacity: .025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); pointer-events: none; }
-.hero-glow-a { position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(184,113,31,.13) 0%, transparent 70%); top: -200px; right: -150px; pointer-events: none; }
-.hero-glow-b { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(18,140,126,.08) 0%, transparent 70%); bottom: -100px; left: 5%; pointer-events: none; }
-.hero-inner { max-width: 1140px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center; position: relative; z-index: 1; }
-@media (max-width: 980px) { .hero-inner { grid-template-columns: 1fr; gap: 52px; } .hero { padding: 80px 20px 70px; } }
+/* ══ HERO ══ */
+.hero{background:var(--ink2);position:relative;overflow:hidden;padding:100px 36px 80px;min-height:88vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-52deg,transparent,transparent 60px,rgba(184,125,58,.03) 60px,rgba(184,125,58,.03) 61px);pointer-events:none}
+.hero::after{content:'';position:absolute;inset:-50%;width:200%;height:200%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");opacity:.4;animation:grainAnim 1.4s steps(2) infinite;pointer-events:none;z-index:0}
+@keyframes grainAnim{0%{transform:translate(0,0)}25%{transform:translate(-4px,4px)}50%{transform:translate(4px,-4px)}75%{transform:translate(-4px,-4px)}100%{transform:translate(4px,4px)}}
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none;opacity:.12}
+.hero-orb-1{width:500px;height:500px;background:radial-gradient(circle,var(--gold) 0%,transparent 70%);top:-120px;right:-100px;animation:orbFloat 12s ease-in-out infinite}
+.hero-orb-2{width:300px;height:300px;background:radial-gradient(circle,var(--gold2) 0%,transparent 70%);bottom:-60px;left:-60px;animation:orbFloat 16s ease-in-out infinite reverse}
+@keyframes orbFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-20px)}}
+.hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:48px}}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;background:rgba(184,125,58,.1);border:1px solid rgba(184,125,58,.25);padding:6px 14px;border-radius:999px;opacity:0;animation:fadeUp .7s .1s forwards}
+.hero-eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:blink 1.2s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-title{font-family:'Unbounded',sans-serif;font-size:clamp(32px,4.5vw,62px);font-weight:700;line-height:.92;letter-spacing:-.03em;color:#fff;opacity:0;animation:fadeUp .7s .25s forwards}
+.hero-title em{color:var(--gold);font-style:normal;display:block;margin-top:6px}
+.hero-sub{font-family:'DM Sans',sans-serif;font-size:16px;color:rgba(255,255,255,.5);line-height:1.7;max-width:480px;margin:22px 0 32px;opacity:0;animation:fadeUp .7s .4s forwards}
+.hero-sub strong{color:rgba(255,255,255,.8)}
+.hero-cta-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;opacity:0;animation:fadeUp .7s .55s forwards}
+.btn-hero-primary{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;padding:15px 30px;border-radius:5px;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 6px 22px rgba(184,125,58,.45);transition:transform var(--r),box-shadow var(--r)}
+.btn-hero-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(184,125,58,.6)}
+.btn-hero-primary i{font-size:12px;transition:transform var(--r)}
+.btn-hero-primary:hover i{transform:translateX(4px)}
+.btn-hero-ghost{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.75);padding:14px 24px;border-radius:5px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;transition:border-color var(--r),color var(--r)}
+.btn-hero-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-trust{display:flex;align-items:center;gap:18px;margin-top:28px;flex-wrap:wrap;opacity:0;animation:fadeUp .7s .7s forwards}
+.hero-trust-item{display:flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.hero-trust-item i{color:var(--gold);font-size:10px}
+.hero-right{opacity:0;animation:fadeUp .7s .35s forwards}
+.browser-mock{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.browser-bar{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.08);padding:10px 16px}
+.browser-dots{display:flex;gap:5px}
+.bdot{width:9px;height:9px;border-radius:50%}
+.bdot-r{background:#ff5f57}.bdot-y{background:#febc2e}.bdot-g{background:#28c840}
+.browser-url{flex:1;background:rgba(255,255,255,.07);border-radius:6px;padding:5px 12px;font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.05em;display:flex;align-items:center;gap:6px;margin-left:10px}
+.browser-url i{font-size:10px;color:var(--gold)}
+.browser-body{padding:16px}
+.mini-nav{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.05);border-radius:8px;padding:10px 14px;margin-bottom:12px}
+.mini-brand{font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;color:#fff}
+.mini-brand span{color:var(--gold)}
+.mini-nav-icons{display:flex;gap:8px}
+.mini-nav-icons i{font-size:13px;color:rgba(255,255,255,.4)}
+.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mini-card{background:rgba(255,255,255,.06);border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:transform .2s}
+.mini-card:hover{transform:translateY(-2px)}
+.mini-card-img{height:70px;display:flex;align-items:center;justify-content:center;font-size:24px;position:relative;overflow:hidden}
+.mini-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.3))}
+.mc-fashion{background:linear-gradient(135deg,#2d1a0e,#4a2a12)}
+.mc-tech{background:linear-gradient(135deg,#0a1628,#112244)}
+.mc-food{background:linear-gradient(135deg,#1a0a00,#2d1500)}
+.mc-art{background:linear-gradient(135deg,#1a0f0f,#2d1a1a)}
+.mc-home{background:linear-gradient(135deg,#0f1a0f,#1a2d1a)}
+.mc-beauty{background:linear-gradient(135deg,#1a0f1a,#2d1a2d)}
+.mini-card-body{padding:6px 8px 8px}
+.mini-card-name{font-family:'DM Sans',sans-serif;font-size:8px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:2px}
+.mini-card-price{font-family:'Unbounded',sans-serif;font-size:9px;font-weight:700;color:var(--gold)}
+.mini-badge{position:absolute;top:5px;right:5px;z-index:2;background:rgba(184,125,58,.85);border-radius:3px;font-family:'DM Mono',monospace;font-size:6px;letter-spacing:.1em;color:#fff;padding:2px 5px;text-transform:uppercase}
+.live-strip{display:flex;justify-content:space-around;align-items:center;background:rgba(184,125,58,.08);border:1px solid rgba(184,125,58,.2);border-radius:8px;padding:10px 14px;margin-top:12px}
+.live-stat{text-align:center}
+.live-num{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:800;color:var(--gold)}
+.live-label{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:2px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-.h-eyebrow { display: inline-flex; align-items: center; gap: 9px; background: rgba(184,113,31,.14); border: 1px solid rgba(184,113,31,.28); padding: 7px 16px 7px 10px; border-radius: 999px; margin-bottom: 28px; opacity: 0; animation: fadeUp .6s .05s forwards; }
-.h-eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold3); animation: blink 1.6s step-end infinite; }
-.h-eyebrow span { font-size: 11.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--gold3); }
-@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+/* ══ PROOF BAR ══ */
+.proof-bar{background:var(--bg2);border-bottom:1px solid var(--border);border-top:1px solid var(--border);padding:20px 36px}
+.proof-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap}
+.proof-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted2);margin-right:32px;white-space:nowrap}
+.proof-chips{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
+.proof-chip{display:flex;align-items:center;gap:7px;background:var(--bg3);border:1px solid var(--border);border-radius:999px;padding:7px 16px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;color:var(--ink3);white-space:nowrap}
+.proof-chip i{font-size:12px;color:var(--gold)}
 
-.h-title { font-family: 'Instrument Serif', serif; font-size: clamp(52px, 6.5vw, 88px); line-height: .9; color: #fff; letter-spacing: -.02em; margin-bottom: 0; opacity: 0; animation: fadeUp .65s .15s forwards; }
-.h-title em { font-style: italic; color: var(--gold3); display: block; }
-.h-subtitle { font-size: clamp(15px, 1.5vw, 18px); font-weight: 500; color: rgba(255,255,255,.4); line-height: 1.65; margin-top: 20px; display: block; opacity: 0; animation: fadeUp .65s .25s forwards; }
-.h-desc { font-size: 16px; font-weight: 500; color: rgba(255,255,255,.5); line-height: 1.8; max-width: 500px; margin: 28px 0 36px; opacity: 0; animation: fadeUp .65s .35s forwards; }
-.h-desc strong { color: rgba(255,255,255,.88); font-weight: 700; }
+/* ══ SECTION ══ */
+.section{padding:80px 36px}
+.section-inner{max-width:1200px;margin:0 auto}
+.sec-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.sec-eyebrow::before{content:'';width:18px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Unbounded',sans-serif;font-size:clamp(26px,3.5vw,46px);font-weight:700;letter-spacing:-.025em;line-height:.96;color:var(--ink);margin-bottom:14px}
+.sec-title em{color:var(--gold);font-style:normal}
+.sec-desc{font-family:'DM Sans',sans-serif;font-size:15px;color:var(--muted);line-height:1.7;max-width:580px}
+.sec-head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:52px}
 
-.h-actions { display: flex; gap: 12px; flex-wrap: wrap; opacity: 0; animation: fadeUp .65s .45s forwards; }
-.btn-hero-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--wa); color: #fff; padding: 17px 34px; border-radius: 9px; font-size: 14.5px; font-weight: 700; box-shadow: 0 8px 28px rgba(18,140,126,.38); transition: all var(--r); }
-.btn-hero-primary:hover { background: var(--wa2); transform: translateY(-2px); box-shadow: 0 12px 38px rgba(18,140,126,.52); }
-.btn-hero-secondary { display: inline-flex; align-items: center; gap: 9px; border: 1.5px solid rgba(255,255,255,.13); color: rgba(255,255,255,.5); padding: 16px 26px; border-radius: 9px; font-size: 13.5px; font-weight: 600; transition: all var(--r); }
-.btn-hero-secondary:hover { border-color: var(--gold3); color: var(--gold3); }
+/* ══ FEATURES GRID ══ */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:960px){.features-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.features-grid{grid-template-columns:1fr}}
+.feat-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 26px;transition:transform .28s cubic-bezier(.4,0,.2,1),box-shadow .28s,border-color .28s}
+.feat-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(12,12,12,.09);border-color:var(--gold)}
+.feat-icon{width:44px;height:44px;border-radius:10px;background:var(--goldbg);border:1px solid rgba(184,125,58,.2);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--gold);margin-bottom:18px}
+.feat-title{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
+.feat-desc{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.65}
+.feat-badge{display:inline-block;margin-top:12px;font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);background:rgba(42,112,72,.08);border:1px solid rgba(42,112,72,.2);padding:3px 9px;border-radius:3px}
+.feat-card.featured{grid-column:1/-1;background:var(--ink);border-color:rgba(184,125,58,.2);display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+@media(max-width:600px){.feat-card.featured{grid-template-columns:1fr}}
+.feat-card.featured .feat-icon{background:rgba(184,125,58,.15)}
+.feat-card.featured .feat-title{color:#fff}
+.feat-card.featured .feat-desc{color:rgba(255,255,255,.5)}
+.feat-card.featured .feat-badge{color:var(--gold);background:rgba(184,125,58,.1);border-color:rgba(184,125,58,.25)}
+.feat-card-visual{border-radius:10px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:16px}
+.account-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.acc-tag{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;padding:6px 13px;border-radius:999px;border:1px solid}
+.acc-tag-customer{color:#60a5fa;border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.07)}
+.acc-tag-seller{color:var(--gold);border-color:rgba(184,125,58,.3);background:rgba(184,125,58,.07)}
+.acc-tag-staff{color:#f87171;border-color:rgba(248,113,113,.3);background:rgba(248,113,113,.07)}
+.acc-tag i{font-size:10px}
 
-.h-badges { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 34px; opacity: 0; animation: fadeUp .65s .55s forwards; }
-.badge { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,.3); }
-.badge i { color: var(--gold3); font-size: 13px; }
+/* ══ HOW IT WORKS ══ */
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+@media(max-width:860px){.steps-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.steps-grid{grid-template-columns:1fr}}
+.step-item{background:var(--bg2);padding:36px 28px;transition:background var(--r)}
+.step-item:hover{background:var(--bg3)}
+.step-num{font-family:'Unbounded',sans-serif;font-size:48px;font-weight:900;color:var(--border2);line-height:1;margin-bottom:16px;transition:color var(--r)}
+.step-item:hover .step-num{color:var(--gold)}
+.step-title{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
+.step-desc{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.6}
 
-@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+/* ══ PRICING — UPDATED ══ */
+/* Toggle */
+.pricing-toggle-wrap{display:flex;justify-content:center;margin-bottom:48px}
+.pricing-toggle{display:inline-flex;background:var(--bg3);border:1px solid var(--border);border-radius:999px;padding:4px;gap:0}
+.ptog-btn{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;padding:9px 22px;border-radius:999px;color:var(--muted);cursor:pointer;transition:all var(--r);border:none;background:none;user-select:none}
+.ptog-btn.active{background:var(--ink);color:#fff}
+.ptog-btn.active.hl{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff}
 
-/* Hero card */
-.hero-card { background: rgba(255,255,255,.04); border: 1.5px solid rgba(255,255,255,.09); border-radius: 20px; overflow: hidden; opacity: 0; animation: fadeUp .65s .25s forwards; }
-.hc-top { background: rgba(255,255,255,.05); border-bottom: 1px solid rgba(255,255,255,.07); padding: 20px 24px; }
-.hc-top-title { font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); }
-.hc-top-sub { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.45); line-height: 1.6; margin-top: 5px; }
-.hc-list { padding: 6px 0; }
-.hc-item { display: grid; grid-template-columns: 42px 1fr; gap: 14px; align-items: start; padding: 16px 24px; border-bottom: 1px solid rgba(255,255,255,.05); }
-.hc-item:last-child { border: none; }
-.hc-icon { width: 40px; height: 40px; background: rgba(184,113,31,.15); border: 1px solid rgba(184,113,31,.22); border-radius: 10px; display: grid; place-items: center; color: var(--gold3); font-size: 15px; flex-shrink: 0; }
-.hc-label { font-size: 13.5px; font-weight: 700; color: rgba(255,255,255,.85); display: block; margin-bottom: 4px; }
-.hc-desc { font-size: 12px; font-weight: 500; color: rgba(255,255,255,.38); line-height: 1.6; }
-.hc-foot { background: rgba(18,140,126,.13); border-top: 1px solid rgba(18,140,126,.2); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
-.hc-foot-icon { width: 34px; height: 34px; background: rgba(18,140,126,.22); border-radius: 8px; display: grid; place-items: center; font-size: 14px; color: #25D366; flex-shrink: 0; }
-.hc-foot-text { font-size: 12px; font-weight: 700; color: rgba(37,211,102,.85); }
-.hc-foot-sub { font-size: 11.5px; font-weight: 500; color: rgba(37,211,102,.45); margin-top: 2px; }
+/* Panels */
+.pricing-panel{display:none}
+.pricing-panel.active{display:block}
 
-/* ── SECTION COMMONS ── */
-.section-eye { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
-.section-eye::before { content: ''; width: 22px; height: 2px; background: currentColor; border-radius: 2px; }
-.eye-gold { color: var(--gold); }
-.eye-light { color: var(--gold3); }
-.eye-green { color: var(--green); }
+/* Monthly grid */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.pricing-grid{grid-template-columns:1fr}}
+.price-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:32px 28px;position:relative;overflow:hidden;transition:transform .28s cubic-bezier(.4,0,.2,1),box-shadow .28s}
+.price-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(12,12,12,.1)}
+.price-card.popular{background:var(--ink);border-color:rgba(184,125,58,.4);box-shadow:0 8px 32px rgba(0,0,0,.15)}
+.price-card.popular::before{content:'RECOMMENDED';position:absolute;top:18px;right:-32px;background:var(--gold);color:#fff;font-family:'Unbounded',sans-serif;font-size:7px;font-weight:900;letter-spacing:.16em;padding:6px 52px;transform:rotate(45deg);transform-origin:right top}
+.price-tier{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted2);margin-bottom:14px}
+.price-card.popular .price-tier{color:var(--gold)}
+.price-amount{display:flex;align-items:flex-end;gap:4px;margin-bottom:4px}
+.price-cur{font-family:'Unbounded',sans-serif;font-size:22px;font-weight:700;color:var(--ink);line-height:1.2}
+.price-card.popular .price-cur{color:#fff}
+.price-num{font-family:'Unbounded',sans-serif;font-size:46px;font-weight:900;color:var(--ink);line-height:1}
+.price-card.popular .price-num{color:#fff}
+.price-period{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--muted2);padding-bottom:8px}
+.price-note{font-family:'DM Sans',sans-serif;font-size:11px;color:var(--muted);margin-bottom:22px;line-height:1.5}
+.price-card.popular .price-note{color:rgba(255,255,255,.45)}
+.price-divider{height:1px;background:var(--border);margin-bottom:22px}
+.price-card.popular .price-divider{background:rgba(255,255,255,.1)}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.price-features li{display:flex;align-items:center;gap:9px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink3)}
+.price-card.popular .price-features li{color:rgba(255,255,255,.8)}
+.price-features li i{font-size:12px;color:var(--gold);flex-shrink:0}
+.price-features li.muted-feat{color:var(--muted2)}
+.price-features li.muted-feat i{color:var(--border2)}
+.btn-price{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border-radius:8px;font-family:'Unbounded',sans-serif;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid var(--border2);color:var(--ink3);transition:all var(--r)}
+.btn-price:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn-price-pop{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border-radius:8px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;font-family:'Unbounded',sans-serif;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 4px 14px rgba(184,125,58,.4);transition:transform var(--r),box-shadow var(--r)}
+.btn-price-pop:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(184,125,58,.55)}
 
-.h2 { font-family: 'Instrument Serif', serif; font-size: clamp(34px, 4.2vw, 58px); line-height: .93; letter-spacing: -.015em; color: var(--ink); margin-bottom: 12px; }
-.h2 em { color: var(--gold); font-style: italic; }
-.h2-light { color: #fff; }
-.h2-light em { color: var(--gold3); }
-.h2-sub { font-size: 16px; font-weight: 500; color: var(--muted); line-height: 1.7; max-width: 560px; margin-top: 6px; }
-.h2-sub-light { color: rgba(255,255,255,.38); }
+/* One-time grid */
+.license-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.license-grid{grid-template-columns:1fr}}
+.lic-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:30px 26px;position:relative;overflow:hidden;transition:transform .28s cubic-bezier(.4,0,.2,1),box-shadow .28s}
+.lic-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(12,12,12,.1)}
+.lic-card.featured{background:var(--ink);border-color:rgba(184,125,58,.35)}
+.lic-tier{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted2);margin-bottom:12px}
+.lic-card.featured .lic-tier{color:var(--gold)}
+.lic-amount{display:flex;align-items:flex-end;gap:3px;margin-bottom:3px}
+.lic-cur{font-family:'Unbounded',sans-serif;font-size:20px;font-weight:700;color:var(--ink);line-height:1.2}
+.lic-card.featured .lic-cur{color:#fff}
+.lic-num{font-family:'Unbounded',sans-serif;font-size:42px;font-weight:900;color:var(--ink);line-height:1}
+.lic-card.featured .lic-num{color:#fff}
+.lic-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--muted2);padding-bottom:8px}
+.lic-note{font-family:'DM Sans',sans-serif;font-size:11px;color:var(--muted);margin-bottom:18px;line-height:1.5}
+.lic-card.featured .lic-note{color:rgba(255,255,255,.45)}
+.lic-divider{height:1px;background:var(--border);margin-bottom:18px}
+.lic-card.featured .lic-divider{background:rgba(255,255,255,.1)}
+.lic-features{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px}
+.lic-features li{display:flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink3)}
+.lic-card.featured .lic-features li{color:rgba(255,255,255,.8)}
+.lic-features li i{font-size:12px;color:var(--gold);flex-shrink:0}
 
-.center { text-align: center; }
-.center .h2-sub { margin: 6px auto 0; }
+/* Revenue share table */
+.revshare-wrap{background:var(--card);border:1.5px solid var(--border);border-radius:16px;overflow:hidden}
+.rs-head{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;background:var(--ink);padding:16px 22px;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.7);gap:8px}
+.rs-head span.hl{color:var(--gold)}
+.rs-row{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;padding:18px 22px;border-bottom:1px solid var(--border);gap:8px;transition:background var(--r)}
+.rs-row:last-child{border:none}
+.rs-row:hover{background:var(--bg3)}
+.rs-cell{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink3);display:flex;align-items:center}
+.rs-cell strong{color:var(--gold);font-family:'Unbounded',sans-serif;font-size:13px;font-weight:800}
+.rs-cell.mono{font-family:'DM Mono',monospace;font-size:12px}
+.rs-badge{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;background:rgba(42,112,72,.09);border:1px solid rgba(42,112,72,.2);color:var(--green);padding:4px 10px;border-radius:999px}
+@media(max-width:640px){.rs-head,.rs-row{grid-template-columns:1fr 1fr}.rs-head span:nth-child(3),.rs-row .rs-cell:nth-child(3){display:none}}
 
-/* ── PROBLEMS SECTION ── */
-.problems { padding: 104px 56px; background: var(--cream); }
-.problems-inner { max-width: 1120px; margin: 0 auto; }
-.prob-head { margin-bottom: 70px; }
-@media (max-width: 600px) { .problems { padding: 80px 20px; } }
+/* Model tabs for pricing toggle */
+.pricing-model-note{display:flex;align-items:flex-start;gap:12px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-top:20px}
+.pricing-model-note i{font-size:18px;color:var(--gold);flex-shrink:0;margin-top:1px}
+.pricing-model-note p{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.6}
+.pricing-model-note strong{color:var(--ink)}
 
-.prob-pair { display: grid; grid-template-columns: 1fr 1fr; border-radius: 20px; overflow: hidden; border: 1.5px solid var(--cream3); box-shadow: 0 6px 28px rgba(0,0,0,.06); margin-bottom: 24px; }
-.prob-pair:last-child { margin-bottom: 0; }
-@media (max-width: 760px) { .prob-pair { grid-template-columns: 1fr; } }
+/* ══ COMPARISON ══ */
+.ct-header{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;background:var(--ink);color:#fff;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;letter-spacing:-.01em}
+.ct-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;border-bottom:1px solid var(--border)}
+.ct-row:last-child{border:none}
+.ct-row:hover{background:var(--bg3)}
+.ct-cell{padding:14px 18px;display:flex;align-items:center;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink3)}
+.ct-cell:first-child{font-weight:600}
+.ct-cell.center{justify-content:center;font-size:11px;font-weight:700;font-family:'DM Mono',monospace;letter-spacing:.1em}
+.ct-cell.yes{color:var(--green)}.ct-cell.no{color:var(--muted2)}
+.ct-head-cell{padding:14px 18px;display:flex;align-items:center}
+.ct-head-cell.center{justify-content:center;color:rgba(255,255,255,.7);font-size:11px;letter-spacing:.12em}
+.ct-head-cell.highlight{background:rgba(184,125,58,.15);color:var(--gold)}
+.ct-head-cell:first-child{color:rgba(255,255,255,.4);font-size:10px;font-weight:400;font-family:'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:640px){.ct-header,.ct-row{grid-template-columns:1.5fr 1fr 1fr}.ct-cell:nth-child(3),.ct-head-cell:nth-child(3){display:none}}
 
-.prob-side { padding: 48px 44px; }
-@media (max-width: 760px) { .prob-side { padding: 32px 26px; } }
-.prob-left { background: #fff; }
-.prob-right { background: var(--ink2); position: relative; overflow: hidden; }
-.prob-right::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(26,87,54,.14) 0%, transparent 65%); pointer-events: none; }
+/* ══ DEMO ══ */
+.demo-section{background:var(--ink);padding:80px 36px;position:relative;overflow:hidden}
+.demo-section::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-52deg,transparent,transparent 60px,rgba(184,125,58,.03) 60px,rgba(184,125,58,.03) 61px);pointer-events:none}
+.demo-section::after{content:'';position:absolute;inset:-50%;width:200%;height:200%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");opacity:.35;animation:grainAnim 1.4s steps(2) infinite;pointer-events:none;z-index:0}
+.demo-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+@media(max-width:900px){.demo-inner{grid-template-columns:1fr;gap:40px}}
+.demo-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(184,125,58,.12);border:1px solid rgba(184,125,58,.3);border-radius:999px;padding:5px 14px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.demo-pill-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:blink 1.2s step-end infinite}
+.demo-title{font-family:'Unbounded',sans-serif;font-size:clamp(24px,3vw,40px);font-weight:700;letter-spacing:-.025em;line-height:.96;color:#fff;margin-bottom:16px}
+.demo-title em{color:var(--gold);font-style:normal}
+.demo-desc{font-family:'DM Sans',sans-serif;font-size:15px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:28px}
+.demo-links{display:flex;flex-direction:column;gap:10px}
+.demo-link-card{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 18px;transition:background var(--r),border-color var(--r);text-decoration:none}
+.demo-link-card:hover{background:rgba(184,125,58,.1);border-color:rgba(184,125,58,.3)}
+.demo-link-left{display:flex;align-items:center;gap:12px}
+.demo-link-icon{width:36px;height:36px;border-radius:8px;background:rgba(184,125,58,.15);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--gold);flex-shrink:0}
+.demo-link-title{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:2px}
+.demo-link-url{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.1em;color:rgba(255,255,255,.3)}
+.demo-link-arrow{font-size:14px;color:var(--gold)}
+.phone-mock{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:40px;padding:12px;max-width:260px;margin:0 auto;box-shadow:0 30px 80px rgba(0,0,0,.5);position:relative}
+.phone-notch{width:60px;height:22px;background:rgba(0,0,0,.8);border-radius:0 0 14px 14px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center}
+.phone-cam{width:8px;height:8px;border-radius:50%;background:#222}
+.phone-screen{background:var(--ink2);border-radius:28px;overflow:hidden}
+.phone-header{background:rgba(255,255,255,.05);padding:10px 12px;display:flex;align-items:center;justify-content:space-between}
+.phone-brand{font-family:'Unbounded',sans-serif;font-size:9px;font-weight:700;color:#fff}
+.phone-brand span{color:var(--gold)}
+.phone-icons{display:flex;gap:7px}
+.phone-icons i{font-size:11px;color:rgba(255,255,255,.4)}
+.phone-products{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:8px}
+.pp-card{background:rgba(255,255,255,.06);border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.pp-img{height:60px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.pp-body{padding:5px 7px 7px}
+.pp-name{font-family:'DM Sans',sans-serif;font-size:7px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:2px}
+.pp-price{font-family:'Unbounded',sans-serif;font-size:8px;font-weight:700;color:var(--gold)}
+.security-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.sec-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(42,112,72,.08);border:1px solid rgba(42,112,72,.2);color:var(--green);font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-radius:999px}
+.sec-badge i{font-size:10px}
 
-.side-badge { display: inline-flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 5px 12px; border-radius: 5px; margin-bottom: 24px; }
-.badge-prob { background: var(--redbg); border: 1px solid var(--redborder); color: var(--red); }
-.badge-sol { background: rgba(37,211,102,.1); border: 1px solid rgba(37,211,102,.2); color: #25D366; }
+/* login preview */
+.login-preview-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px;margin-top:16px}
+.login-preview-tabs{display:flex;background:rgba(255,255,255,.06);border-radius:8px;padding:3px;gap:2px;margin-bottom:16px}
+.lp-tab{flex:1;padding:7px;text-align:center;border-radius:6px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);cursor:pointer}
+.lp-tab.active{background:var(--ink2);color:#fff}
+.lp-tab i{font-size:11px;display:block;margin-bottom:2px}
+.lp-google{display:flex;align-items:center;justify-content:center;gap:9px;background:rgba(255,255,255,.9);border-radius:7px;padding:9px 14px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;color:#1e1b17}
+.lp-google-g{width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,#4285f4,#ea4335);flex-shrink:0}
+.lp-or{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25);margin:10px 0;text-align:center}
+.lp-input-mock{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:8px 12px;font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.25);text-align:left;margin-bottom:7px}
+.lp-input-mock.focus-mock{border-color:rgba(184,125,58,.5)}
+.lp-btn{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border-radius:7px;padding:9px;font-family:'Unbounded',sans-serif;font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-align:center}
 
-.side-ico { width: 52px; height: 52px; border-radius: 13px; display: grid; place-items: center; font-size: 22px; border: 1.5px solid; margin-bottom: 22px; }
-.ico-prob { background: var(--redbg); border-color: var(--redborder); color: var(--red); }
-.ico-sol { background: rgba(26,87,54,.18); border-color: rgba(26,87,54,.3); color: #2ecc87; position: relative; z-index: 1; }
+/* ══ TESTIMONIALS ══ */
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.testimonials-grid{grid-template-columns:1fr}}
+.testi-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:26px 24px;transition:transform .28s cubic-bezier(.4,0,.2,1),box-shadow .28s}
+.testi-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(12,12,12,.08)}
+.testi-stars{display:flex;gap:3px;margin-bottom:14px}
+.testi-stars i{font-size:12px;color:var(--gold)}
+.testi-text{font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink3);line-height:1.7;font-style:italic;margin-bottom:18px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--goldbg);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:var(--gold);flex-shrink:0}
+.testi-name{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:var(--ink)}
+.testi-role{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2)}
 
-.prob-title { font-size: 21px; font-weight: 800; letter-spacing: -.02em; line-height: 1.18; margin-bottom: 14px; }
-.prob-title-dark { color: var(--ink); }
-.prob-title-light { color: #fff; position: relative; z-index: 1; }
-.prob-text { font-size: 14px; font-weight: 500; line-height: 1.78; }
-.prob-text-dark { color: var(--muted); }
-.prob-text-light { color: rgba(255,255,255,.42); position: relative; z-index: 1; }
+/* ══ CTA FINAL ══ */
+.cta-final{background:var(--ink);padding:90px 36px;position:relative;overflow:hidden;text-align:center}
+.cta-final::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(184,125,58,.12) 0%,transparent 70%);pointer-events:none}
+.cta-final::after{content:'';position:absolute;inset:-50%;width:200%;height:200%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");opacity:.35;animation:grainAnim 1.4s steps(2) infinite;pointer-events:none;z-index:0}
+.cta-final-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.cta-final-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.cta-final h2{font-family:'Unbounded',sans-serif;font-size:clamp(28px,4vw,52px);font-weight:700;letter-spacing:-.03em;line-height:.95;color:#fff;margin-bottom:16px}
+.cta-final h2 em{color:var(--gold);font-style:normal}
+.cta-final p{font-family:'DM Sans',sans-serif;font-size:16px;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:36px}
+.cta-final-btns{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.cta-contact{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;padding-top:32px;border-top:1px solid rgba(255,255,255,.08)}
+.cta-contact-item{display:flex;align-items:center;gap:9px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);transition:color var(--r)}
+.cta-contact-item a{color:inherit;transition:color var(--r)}
+.cta-contact-item:hover,.cta-contact-item:hover a{color:var(--gold)}
+.cta-contact-item i{font-size:13px;color:var(--gold)}
 
-.prob-divider { display: flex; justify-content: center; align-items: center; height: 0; position: relative; z-index: 10; margin: -14px 0; }
-.prob-arrow { width: 44px; height: 44px; background: var(--gold); border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 18px; box-shadow: 0 6px 20px rgba(184,113,31,.4); border: 3px solid var(--cream); }
-@media (max-width: 760px) { .prob-divider { display: none; } }
+/* ══ FOOTER ══ */
+footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.06);padding:30px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-brand{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.6)}
+.footer-brand span{color:var(--gold)}
+.footer-note{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+.footer-links{display:flex;gap:18px}
+.footer-link{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);transition:color var(--r)}
+.footer-link:hover{color:var(--gold)}
 
-/* ── SCREENS SECTION ── */
-.screens { padding: 96px 56px; background: var(--ink); }
-.screens-inner { max-width: 1120px; margin: 0 auto; }
-.screens-head { margin-bottom: 64px; }
-.screen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-@media (max-width: 760px) { .screen-grid { grid-template-columns: 1fr; } .screens { padding: 80px 20px; } }
+/* ══ SCROLL REVEAL ══ */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
 
-.screen-card { background: rgba(255,255,255,.04); border: 1.5px solid rgba(255,255,255,.08); border-radius: 16px; overflow: hidden; }
-.screen-bar { height: 38px; background: rgba(255,255,255,.05); border-bottom: 1px solid rgba(255,255,255,.07); display: flex; align-items: center; padding: 0 16px; gap: 7px; }
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.dot-r { background: #ff5f57; } .dot-y { background: #ffbd2e; } .dot-g { background: #28c840; }
-.url-pill { margin-left: 8px; font-size: 10.5px; font-weight: 600; color: rgba(255,255,255,.22); letter-spacing: .02em; }
-.screen-body { padding: 24px; }
-.screen-title { font-size: 14.5px; font-weight: 800; color: #fff; margin-bottom: 6px; letter-spacing: -.01em; }
-.screen-sub { font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.35); line-height: 1.6; margin-bottom: 20px; }
-
-/* Order rows */
-.order-row { display: flex; align-items: center; justify-content: space-between; padding: 11px 14px; background: rgba(255,255,255,.04); border-radius: 9px; margin-bottom: 9px; border: 1px solid rgba(255,255,255,.07); }
-.or-left { display: flex; align-items: center; gap: 11px; }
-.or-avatar { width: 32px; height: 32px; border-radius: 8px; background: rgba(184,113,31,.2); display: grid; place-items: center; font-size: 12.5px; font-weight: 800; color: var(--gold3); }
-.or-name { font-size: 12.5px; font-weight: 700; color: rgba(255,255,255,.78); }
-.or-meta { font-size: 10.5px; color: rgba(255,255,255,.28); margin-top: 2px; }
-.status { font-size: 10px; font-weight: 800; padding: 4px 10px; border-radius: 5px; letter-spacing: .05em; text-transform: uppercase; }
-.s-pending { background: rgba(255,193,7,.12); color: #ffc107; border: 1px solid rgba(255,193,7,.2); }
-.s-packed { background: rgba(18,140,126,.14); color: #25D366; border: 1px solid rgba(18,140,126,.2); }
-.s-done { background: rgba(26,87,54,.2); color: #2ecc87; border: 1px solid rgba(26,87,54,.3); }
-
-/* Bill card */
-.bill { background: #fff; border-radius: 11px; padding: 18px; color: var(--ink); }
-.bill-shop { text-align: center; padding-bottom: 13px; margin-bottom: 13px; border-bottom: 1.5px dashed var(--cream3); }
-.bill-name { font-size: 14px; font-weight: 800; letter-spacing: -.01em; }
-.bill-meta { font-size: 10.5px; color: var(--muted2); margin-top: 2px; }
-.bill-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid var(--cream2); font-size: 12px; }
-.bill-item-name { font-weight: 700; color: var(--ink2); }
-.bill-item-price { font-weight: 800; }
-.bill-disc { color: var(--green); font-weight: 800; }
-.bill-total { display: flex; justify-content: space-between; padding: 10px 0 0; font-size: 13.5px; font-weight: 800; }
-.bill-send { margin-top: 13px; background: var(--wa); color: #fff; border-radius: 8px; padding: 10px; text-align: center; font-size: 11.5px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 7px; }
-
-/* Stock rows */
-.stock-row { display: flex; align-items: center; gap: 12px; padding: 10px 13px; background: rgba(255,255,255,.04); border-radius: 9px; margin-bottom: 8px; border: 1px solid rgba(255,255,255,.07); }
-.stock-name { flex: 1; font-size: 12px; font-weight: 700; color: rgba(255,255,255,.75); }
-.stock-bar-bg { flex: 1; height: 5px; background: rgba(255,255,255,.08); border-radius: 3px; overflow: hidden; }
-.stock-fill { height: 100%; border-radius: 3px; }
-.fill-ok { background: var(--green); } .fill-low { background: var(--gold2); } .fill-out { background: var(--red); }
-.stock-qty { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.45); min-width: 45px; text-align: right; }
-
-/* Report */
-.report-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 14px; }
-.stat-box { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 9px; padding: 13px; }
-.stat-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.3); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 5px; }
-.stat-val { font-size: 19px; font-weight: 800; color: #fff; line-height: 1; }
-.stat-note { font-size: 10.5px; font-weight: 600; color: var(--gold3); margin-top: 4px; }
-.report-dl { background: rgba(184,113,31,.1); border: 1px solid rgba(184,113,31,.2); border-radius: 9px; padding: 13px 15px; display: flex; align-items: center; gap: 11px; }
-.dl-icon { width: 36px; height: 36px; background: rgba(184,113,31,.2); border-radius: 8px; display: grid; place-items: center; font-size: 15px; color: var(--gold3); flex-shrink: 0; }
-.dl-name { font-size: 12.5px; font-weight: 700; color: rgba(255,255,255,.75); }
-.dl-size { font-size: 10.5px; color: rgba(255,255,255,.3); margin-top: 2px; }
-.dl-btn { margin-left: auto; font-size: 11px; font-weight: 700; color: var(--gold3); }
-
-/* ── FEATURES ── */
-.features { padding: 104px 56px; background: var(--cream2); }
-.features-inner { max-width: 1120px; margin: 0 auto; }
-.feat-head { margin-bottom: 64px; }
-.feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-@media (max-width: 980px) { .feat-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 580px) { .feat-grid { grid-template-columns: 1fr; } .features { padding: 80px 20px; } }
-
-.feat-card { background: var(--card); border: 1.5px solid var(--cream3); border-radius: 16px; padding: 30px 26px; transition: all .25s cubic-bezier(.4,0,.2,1); }
-.feat-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,.09); border-color: var(--goldborder); }
-.feat-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--goldbg); border: 1.5px solid var(--goldborder); display: grid; place-items: center; font-size: 20px; color: var(--gold); margin-bottom: 20px; }
-.feat-title { font-size: 16px; font-weight: 800; color: var(--ink); margin-bottom: 10px; letter-spacing: -.02em; line-height: 1.25; }
-.feat-text { font-size: 13.5px; font-weight: 500; color: var(--muted); line-height: 1.75; }
-.feat-pill { display: inline-block; margin-top: 16px; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--green); background: var(--greenbg); border: 1px solid var(--greenborder); padding: 4px 10px; border-radius: 4px; }
-
-/* Wide feature card */
-.feat-wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 270px; gap: 40px; align-items: center; background: var(--ink); border-color: rgba(184,113,31,.2); }
-@media (max-width: 700px) { .feat-wide { grid-template-columns: 1fr; gap: 28px; } }
-.feat-wide .feat-title { color: #fff; }
-.feat-wide .feat-text { color: rgba(255,255,255,.42); }
-.feat-wide .feat-icon { background: rgba(184,113,31,.14); border-color: rgba(184,113,31,.25); }
-.feat-wide .feat-pill { color: var(--gold3); background: rgba(184,113,31,.13); border-color: rgba(184,113,31,.25); }
-
-/* POS demo */
-.pos-mock { background: rgba(255,255,255,.05); border: 1.5px solid rgba(255,255,255,.1); border-radius: 12px; padding: 20px; }
-.pos-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
-.pos-row:last-of-type { border: none; }
-.pos-item-name { font-size: 12px; font-weight: 700; color: rgba(255,255,255,.72); }
-.pos-item-qty { font-size: 10.5px; font-weight: 500; color: rgba(255,255,255,.3); margin-top: 2px; }
-.pos-price { font-size: 12.5px; font-weight: 800; color: rgba(255,255,255,.9); }
-.pos-disc { color: var(--gold3); }
-.pos-divider { height: 1.5px; background: rgba(255,255,255,.07); margin: 12px 0; }
-.pos-total-row { display: flex; justify-content: space-between; align-items: center; }
-.pos-total-label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.4); }
-.pos-total-val { font-size: 22px; font-weight: 800; color: #fff; }
-.pos-send-btn { margin-top: 13px; width: 100%; background: var(--wa); color: #fff; border-radius: 8px; padding: 11px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 12px; font-weight: 700; }
-
-/* ── WHO IS THIS FOR ── */
-.who { padding: 96px 56px; background: var(--cream); }
-.who-inner { max-width: 1120px; margin: 0 auto; }
-.who-head { margin-bottom: 60px; }
-.who-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-@media (max-width: 900px) { .who-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 500px) { .who-grid { grid-template-columns: 1fr 1fr; } .who { padding: 80px 20px; } }
-
-.who-card { background: var(--card); border: 1.5px solid var(--cream3); border-radius: 14px; padding: 26px 22px; transition: all var(--r); position: relative; overflow: hidden; }
-.who-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold3)); opacity: 0; transition: opacity var(--r); }
-.who-card:hover { border-color: var(--goldborder); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,.08); }
-.who-card:hover::before { opacity: 1; }
-.who-icon { width: 50px; height: 50px; border-radius: 12px; background: var(--goldbg); border: 1.5px solid var(--goldborder); display: grid; place-items: center; font-size: 22px; color: var(--gold); margin-bottom: 16px; transition: all var(--r); }
-.who-card:hover .who-icon { background: var(--gold); color: #fff; }
-.who-title { font-size: 14px; font-weight: 800; color: var(--ink); margin-bottom: 7px; letter-spacing: -.01em; line-height: 1.3; }
-.who-desc { font-size: 12.5px; font-weight: 500; color: var(--muted); line-height: 1.65; }
-.who-tag { display: inline-flex; align-items: center; gap: 5px; margin-top: 13px; font-size: 10px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--green); background: var(--greenbg); border: 1px solid var(--greenborder); padding: 3px 9px; border-radius: 4px; }
-
-/* ── PROCESS ── */
-.process { padding: 96px 56px; background: var(--ink); }
-.process-inner { max-width: 1120px; margin: 0 auto; }
-.process-head { margin-bottom: 68px; }
-.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
-.steps::before { content: ''; position: absolute; top: 27px; left: 7%; right: 7%; height: 2px; background: repeating-linear-gradient(90deg, rgba(184,113,31,.4) 0, rgba(184,113,31,.4) 8px, transparent 8px, transparent 14px); z-index: 0; }
-@media (max-width: 800px) { .steps { grid-template-columns: 1fr 1fr; gap: 28px; } .steps::before { display: none; } .process { padding: 80px 20px; } }
-@media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
-
-.step { padding: 0 20px; position: relative; z-index: 1; text-align: center; }
-.step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--gold); display: grid; place-items: center; font-size: 20px; font-weight: 900; color: #fff; margin: 0 auto 22px; box-shadow: 0 6px 22px rgba(184,113,31,.4); }
-.step-title { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 9px; letter-spacing: -.01em; }
-.step-desc { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.38); line-height: 1.65; }
-.step-time { font-size: 10.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--gold3); margin-top: 10px; }
-
-/* ── PRICING ── */
-.pricing { padding: 104px 56px; background: var(--cream); }
-.pricing-inner { max-width: 1080px; margin: 0 auto; }
-.pricing-head { text-align: center; margin-bottom: 60px; }
-.price-grid { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 22px; align-items: start; }
-@media (max-width: 900px) { .price-grid { grid-template-columns: 1fr; } .pricing { padding: 80px 20px; } }
-
-.price-card { background: var(--card); border: 1.5px solid var(--cream3); border-radius: 20px; padding: 38px 34px; }
-.price-card.featured { border-color: var(--gold); box-shadow: 0 16px 52px rgba(184,113,31,.15); position: relative; padding-top: 52px; }
-.price-card.featured::before { content: 'Special Offer — Limited Time'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #fff; font-size: 10.5px; font-weight: 800; letter-spacing: .06em; padding: 6px 20px; border-radius: 999px; white-space: nowrap; }
-
-.plan-name { font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
-.plan-desc { font-size: 13.5px; font-weight: 500; color: var(--muted2); line-height: 1.6; margin-bottom: 22px; }
-.price-row { display: flex; align-items: flex-end; gap: 3px; margin-bottom: 6px; }
-.price-cur { font-size: 26px; font-weight: 800; color: var(--ink); margin-bottom: 9px; }
-.price-num { font-family: 'Instrument Serif', serif; font-size: 62px; line-height: 1; letter-spacing: -.03em; color: var(--ink); }
-.price-period { font-size: 13px; font-weight: 600; color: var(--muted); }
-.price-save { display: inline-block; margin: 12px 0 20px; background: var(--greenbg); border: 1px solid var(--greenborder); color: var(--green); font-size: 12px; font-weight: 700; padding: 5px 13px; border-radius: 5px; }
-.price-summary { font-size: 14px; font-weight: 600; color: var(--muted); line-height: 1.72; margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1.5px solid var(--cream3); }
-.price-list { display: flex; flex-direction: column; gap: 13px; margin-bottom: 28px; }
-.price-li { display: flex; align-items: flex-start; gap: 11px; }
-.price-li i { color: var(--green); font-size: 15px; flex-shrink: 0; margin-top: 2px; }
-.price-li-main { font-size: 13.5px; font-weight: 700; color: var(--ink2); line-height: 1.3; }
-.price-li-sub { font-size: 12px; font-weight: 500; color: var(--muted2); display: block; margin-top: 3px; line-height: 1.5; }
-.price-btn { display: block; text-align: center; padding: 16px; border-radius: 9px; font-size: 13.5px; font-weight: 700; transition: all var(--r); letter-spacing: .01em; }
-.price-btn-wa { background: var(--wa); color: #fff; box-shadow: 0 4px 16px rgba(18,140,126,.28); }
-.price-btn-wa:hover { background: var(--wa2); transform: translateY(-1px); box-shadow: 0 7px 24px rgba(18,140,126,.42); }
-.price-btn-outline { border: 2px solid var(--cream3); color: var(--ink2); }
-.price-btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-.price-note { font-size: 11.5px; font-weight: 600; color: var(--muted2); text-align: center; margin-top: 10px; }
-
-/* ── FINAL CTA ── */
-.cta { padding: 110px 56px; background: var(--ink); text-align: center; position: relative; overflow: hidden; }
-.cta::before { content: ''; position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(18,140,126,.08) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
-.cta-inner { max-width: 660px; margin: 0 auto; position: relative; z-index: 1; }
-.cta-eyebrow { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--gold3); margin-bottom: 22px; display: block; }
-.cta-title { font-family: 'Instrument Serif', serif; font-size: clamp(40px, 5.5vw, 68px); line-height: .92; color: #fff; margin-bottom: 10px; }
-.cta-title em { color: var(--gold3); font-style: italic; }
-.cta-sub { font-size: 16px; font-weight: 500; color: rgba(255,255,255,.4); line-height: 1.78; margin-bottom: 14px; }
-.cta-note { font-size: 13.5px; font-weight: 500; color: rgba(255,255,255,.22); margin-bottom: 42px; }
-.cta-actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; }
-.btn-cta { display: inline-flex; align-items: center; gap: 12px; background: var(--wa); color: #fff; padding: 20px 46px; border-radius: 10px; font-size: 15.5px; font-weight: 700; box-shadow: 0 8px 30px rgba(18,140,126,.38); transition: all var(--r); }
-.btn-cta:hover { background: var(--wa2); transform: translateY(-2px); box-shadow: 0 14px 44px rgba(18,140,126,.52); }
-.cta-contacts { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.07); }
-.contact-link { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.3); transition: color var(--r); }
-.contact-link i { color: var(--gold3); font-size: 15px; }
-.contact-link a { color: inherit; transition: color var(--r); }
-.contact-link:hover, .contact-link:hover a { color: var(--gold3); }
-@media (max-width: 600px) { .cta { padding: 80px 20px; } }
-
-/* ── FOOTER ── */
-footer { background: var(--ink2); border-top: 1px solid rgba(255,255,255,.05); padding: 30px 56px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-.footer-brand { font-size: 17px; font-weight: 800; color: rgba(255,255,255,.4); letter-spacing: -.02em; }
-.footer-brand span { color: var(--gold3); }
-.footer-copy { font-size: 11.5px; font-weight: 500; color: rgba(255,255,255,.2); }
-.footer-links { display: flex; gap: 20px; }
-.footer-link { font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,.28); transition: color var(--r); }
-.footer-link:hover { color: var(--gold3); }
-@media (max-width: 600px) { footer { padding: 24px 20px; } }
-
-/* ── WHATSAPP FLOAT ── */
-.wa-float { position: fixed; bottom: 28px; right: 28px; background: var(--wa); color: #fff; width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center; font-size: 25px; box-shadow: 0 8px 28px rgba(18,140,126,.48); z-index: 800; transition: transform var(--r); animation: waPulse 3s ease-in-out infinite; }
-.wa-float:hover { transform: scale(1.1); }
-@keyframes waPulse { 0%, 100% { box-shadow: 0 8px 28px rgba(18,140,126,.48); } 50% { box-shadow: 0 8px 44px rgba(18,140,126,.72); } }
-
-/* ── SCROLL REVEAL ── */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .52s ease, transform .52s ease; }
-.reveal.visible { opacity: 1; transform: none; }
-.d1 { transition-delay: .07s; } .d2 { transition-delay: .15s; } .d3 { transition-delay: .23s; } .d4 { transition-delay: .31s; }
-
-/* ── TRANSLATE WIDGET OVERRIDES ── */
-.goog-te-banner-frame { display: none !important; }
-body { top: 0 !important; }
+/* utils */
+.gold{color:var(--gold)}.text-center{text-align:center}.mt-4{margin-top:16px}.mt-8{margin-top:32px}
+@media(max-width:640px){.section{padding:60px 18px}.hero{padding:72px 18px 60px}.navbar{padding:0 18px}.demo-section{padding:60px 18px}.cta-final{padding:70px 18px}footer{padding:24px 18px}.proof-bar{padding:18px}}
 </style>
 </head>
 <body>
@@ -442,647 +392,553 @@ body { top: 0 !important; }
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span class="ticker-item"><span class="ticker-dot"></span><span class="ticker-hi">FREE</span> WhatsApp Demo — See your store live today</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>UPI + Cash on Delivery — Both payment methods ready out of the box</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Support in Tamil — We set everything up for you</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>No contract — Cancel anytime, no questions asked</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Stock auto-updates with every single sale</span>
-    <span class="ticker-item"><span class="ticker-dot"></span><span class="ticker-hi">FREE</span> WhatsApp Demo — See your store live today</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>UPI + Cash on Delivery — Both payment methods ready out of the box</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Support in Tamil — We set everything up for you</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>No contract — Cancel anytime, no questions asked</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Stock auto-updates with every single sale</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Multi-vendor marketplace, fully white-labelled</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Seller + Customer + Staff accounts built-in</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Razorpay payments, coupons, combo offers</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Live demo available — no signup required</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>MFA support &amp; enterprise-grade security</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Monthly · One-time license · Revenue share — pick your model</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Multi-vendor marketplace, fully white-labelled</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Seller + Customer + Staff accounts built-in</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Razorpay payments, coupons, combo offers</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Live demo available — no signup required</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>MFA support &amp; enterprise-grade security</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Monthly · One-time license · Revenue share — pick your model</span>
   </div>
 </div>
 
 <!-- NAVBAR -->
-<nav class="nav">
+<nav class="navbar">
   <a href="#" class="brand">
-    <div class="brand-mark">M</div>
-    <div class="brand-text">
-      <div class="brand-name">Mayavisai</div>
-      <div class="brand-sub">Online Store Platform</div>
+    <div class="brand-mark">MV</div>
+    <div>
+      <div class="brand-name">MAYAVISAI</div>
+      <div class="brand-sub">Marketplace Platform</div>
     </div>
   </a>
   <div class="nav-links">
-    <a href="#problems" class="nav-link">Problems &amp; Solutions</a>
     <a href="#features" class="nav-link">Features</a>
-    <a href="#process" class="nav-link">How It Works</a>
+    <a href="#how-it-works" class="nav-link">How it Works</a>
     <a href="#pricing" class="nav-link">Pricing</a>
+    <a href="#demo" class="nav-link">Demo</a>
     <a href="#contact" class="nav-link">Contact</a>
   </div>
-  <div class="nav-right">
-    <!-- Google Translate in nav -->
-    <div class="translate-wrap">
-      <span class="translate-label">🌐 Translate</span>
-      <div id="google_translate_element"></div>
-    </div>
-    <a href="https://udeshmukundan.pythonanywhere.com/" target="_blank" class="btn-demo">Live Demo</a>
-    <a href="https://wa.me/916374193181?text=Mayavisai demo வேணும்" target="_blank" class="btn-wa-nav"><i class="bi bi-whatsapp"></i> WhatsApp Us</a>
+  <div class="nav-cta-row">
+    <a href="https://udeshmukundan.pythonanywhere.com/" target="_blank" class="btn-ghost">View Demo</a>
+    <a href="#contact" class="btn-primary">Get Started</a>
   </div>
-  <button class="mob-toggle" id="menuToggle"><i class="bi bi-list"></i></button>
+  <button class="mob-menu-btn" id="menuToggle"><i class="bi bi-list"></i></button>
 </nav>
 
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mobileMenu">
   <div class="mob-head">
-    <div class="mob-brand">Mayavisai</div>
-    <button class="mob-x" id="mobClose"><i class="bi bi-x"></i></button>
+    <div>
+      <div class="mob-brand-name">MAYAVISAI</div>
+      <div class="mob-brand-sub">Marketplace Platform</div>
+    </div>
+    <button class="mob-close" id="mobClose"><i class="bi bi-x"></i></button>
   </div>
-  <a href="#problems" class="mob-link" onclick="closeMob()">Problems &amp; Solutions <i class="bi bi-arrow-right"></i></a>
-  <a href="#features" class="mob-link" onclick="closeMob()">Features <i class="bi bi-arrow-right"></i></a>
-  <a href="#process" class="mob-link" onclick="closeMob()">How It Works <i class="bi bi-arrow-right"></i></a>
-  <a href="#pricing" class="mob-link" onclick="closeMob()">Pricing <i class="bi bi-arrow-right"></i></a>
-  <a href="https://udeshmukundan.pythonanywhere.com/" target="_blank" class="mob-link">Live Demo <i class="bi bi-box-arrow-up-right"></i></a>
-  <a href="https://wa.me/916374193181" target="_blank" class="mob-wa" onclick="closeMob()"><i class="bi bi-whatsapp"></i> WhatsApp Us — Free Demo</a>
+  <div class="mob-links">
+    <a href="#features" class="mob-link" onclick="closeMob()">Features <i class="bi bi-arrow-right"></i></a>
+    <a href="#how-it-works" class="mob-link" onclick="closeMob()">How it Works <i class="bi bi-arrow-right"></i></a>
+    <a href="#pricing" class="mob-link" onclick="closeMob()">Pricing <i class="bi bi-arrow-right"></i></a>
+    <a href="#demo" class="mob-link" onclick="closeMob()">Demo <i class="bi bi-arrow-right"></i></a>
+    <a href="https://udeshmukundan.pythonanywhere.com/" target="_blank" class="mob-link">Live Demo <i class="bi bi-box-arrow-up-right"></i></a>
+    <a href="#contact" class="mob-link" onclick="closeMob()">Contact <i class="bi bi-telephone"></i></a>
+  </div>
+  <div class="mob-footer">© 2025 Mayavisai · mayavisai.in</div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-noise"></div>
-  <div class="hero-glow-a"></div>
-  <div class="hero-glow-b"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
   <div class="hero-inner">
-    <div>
-      <div class="h-eyebrow">
-        <span class="h-eyebrow-dot"></span>
-        <span>Built for Tamil Nadu Small Shops</span>
+    <div class="hero-left">
+      <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Now accepting clients</div>
+      <h1 class="hero-title">Your Own<br><em>Marketplace</em> Built &amp; Hosted</h1>
+      <p class="hero-sub">A complete, <strong>white-label multi-vendor marketplace</strong> — like Amazon or Flipkart, but branded for <strong>your business</strong>. Sellers, customers, payments, inventory, analytics — all ready.</p>
+      <div class="hero-cta-row">
+        <a href="#demo" class="btn-hero-primary">Explore Live Demo <i class="bi bi-arrow-right"></i></a>
+        <a href="#pricing" class="btn-hero-ghost"><i class="bi bi-tag"></i> See Pricing</a>
       </div>
-      <h1 class="h-title">
-        Your Shop,<br>
-        <em>Online. Today.</em>
-        <span class="h-subtitle">Take orders online. Send PDF bills from your phone. Track stock automatically.</span>
-      </h1>
-      <p class="h-desc">
-        <strong>No tech knowledge needed.</strong> We handle the entire setup from start to finish — you just focus on running your shop.
-      </p>
-      <div class="h-actions">
-        <a href="https://wa.me/916374193181?text=Mayavisai-ல Free Demo வேணும்" target="_blank" class="btn-hero-primary">
-          <i class="bi bi-whatsapp"></i> Free Demo — WhatsApp Us
-        </a>
-        <a href="https://udeshmukundan.pythonanywhere.com/" target="_blank" class="btn-hero-secondary">
-          <i class="bi bi-play-circle"></i> View Live Store
-        </a>
-      </div>
-      <div class="h-badges">
-        <div class="badge"><i class="bi bi-shield-check"></i> No Contract</div>
-        <div class="badge"><i class="bi bi-credit-card"></i> UPI + COD</div>
-        <div class="badge"><i class="bi bi-chat-dots"></i> Tamil Support</div>
-        <div class="badge"><i class="bi bi-phone"></i> Phone-First</div>
-        <div class="badge"><i class="bi bi-lightning"></i> Same Week Setup</div>
+      <div class="hero-trust">
+        <div class="hero-trust-item"><i class="bi bi-shield-check"></i> MFA Secured</div>
+        <div class="hero-trust-item"><i class="bi bi-credit-card"></i> Razorpay Ready</div>
+        <div class="hero-trust-item"><i class="bi bi-people"></i> Multi-role Accounts</div>
+        <div class="hero-trust-item"><i class="bi bi-phone"></i> Fully Responsive</div>
       </div>
     </div>
-
-    <div class="hero-card">
-      <div class="hc-top">
-        <div class="hc-top-title">Ready From Day 1</div>
-        <div class="hc-top-sub">Your store online, bills on your phone, stock auto-tracked — all from the first day.</div>
-      </div>
-      <div class="hc-list">
-        <div class="hc-item">
-          <div class="hc-icon"><i class="bi bi-shop"></i></div>
-          <div>
-            <span class="hc-label">Your Online Store</span>
-            <span class="hc-desc">Customers browse products and order directly — no calls needed.</span>
-          </div>
+    <div class="hero-right">
+      <div class="browser-mock">
+        <div class="browser-bar">
+          <div class="browser-dots"><div class="bdot bdot-r"></div><div class="bdot bdot-y"></div><div class="bdot bdot-g"></div></div>
+          <div class="browser-url"><i class="bi bi-lock-fill"></i> yourbrand.in / marketplace</div>
         </div>
-        <div class="hc-item">
-          <div class="hc-icon"><i class="bi bi-receipt"></i></div>
-          <div>
-            <span class="hc-label">Bill from Your Phone — Send via WhatsApp</span>
-            <span class="hc-desc">Professional PDF bill for walk-in customers in 30 seconds, sent via WhatsApp.</span>
+        <div class="browser-body">
+          <div class="mini-nav">
+            <div class="mini-brand">YOUR<span>BRAND</span></div>
+            <div class="mini-nav-icons"><i class="bi bi-search"></i><i class="bi bi-heart"></i><i class="bi bi-bag"></i></div>
           </div>
-        </div>
-        <div class="hc-item">
-          <div class="hc-icon"><i class="bi bi-boxes"></i></div>
-          <div>
-            <span class="hc-label">Stock Reduces Automatically</span>
-            <span class="hc-desc">Every sale instantly deducts from stock — zero manual counting.</span>
+          <div class="mini-grid">
+            <div class="mini-card"><div class="mini-card-img mc-fashion"><span style="position:relative;z-index:1;font-size:20px">&#128084;</span><div class="mini-badge">NEW</div></div><div class="mini-card-body"><div class="mini-card-name">Cotton Kurta</div><div class="mini-card-price">₹849</div></div></div>
+            <div class="mini-card"><div class="mini-card-img mc-tech"><span style="position:relative;z-index:1;font-size:20px">&#128241;</span><div class="mini-badge" style="background:rgba(198,53,53,.85)">SALE</div></div><div class="mini-card-body"><div class="mini-card-name">Wireless Buds</div><div class="mini-card-price">₹1,299</div></div></div>
+            <div class="mini-card"><div class="mini-card-img mc-food"><span style="position:relative;z-index:1;font-size:20px">&#127807;</span></div><div class="mini-card-body"><div class="mini-card-name">Organic Spice</div><div class="mini-card-price">₹349</div></div></div>
+            <div class="mini-card"><div class="mini-card-img mc-art"><span style="position:relative;z-index:1;font-size:20px">&#127912;</span></div><div class="mini-card-body"><div class="mini-card-name">Wall Art Print</div><div class="mini-card-price">₹599</div></div></div>
+            <div class="mini-card"><div class="mini-card-img mc-home"><span style="position:relative;z-index:1;font-size:20px">&#127968;</span></div><div class="mini-card-body"><div class="mini-card-name">Decor Item</div><div class="mini-card-price">₹1,049</div></div></div>
+            <div class="mini-card"><div class="mini-card-img mc-beauty"><span style="position:relative;z-index:1;font-size:20px">&#127800;</span><div class="mini-badge">HOT</div></div><div class="mini-card-body"><div class="mini-card-name">Face Serum</div><div class="mini-card-price">₹749</div></div></div>
           </div>
-        </div>
-        <div class="hc-item">
-          <div class="hc-icon"><i class="bi bi-file-earmark-bar-graph"></i></div>
-          <div>
-            <span class="hc-label">Monthly Sales Report as PDF</span>
-            <span class="hc-desc">See what sold, total income, top products — download as PDF.</span>
+          <div class="live-strip">
+            <div class="live-stat"><div class="live-num" id="counterSellers">0</div><div class="live-label">Sellers</div></div>
+            <div class="live-stat"><div class="live-num" id="counterProducts">0</div><div class="live-label">Products</div></div>
+            <div class="live-stat"><div class="live-num" id="counterOrders">0</div><div class="live-label">Orders</div></div>
           </div>
-        </div>
-      </div>
-      <div class="hc-foot">
-        <div class="hc-foot-icon"><i class="bi bi-whatsapp"></i></div>
-        <div>
-          <div class="hc-foot-text">WhatsApp us to get started</div>
-          <div class="hc-foot-sub">We can talk in Tamil — your store ready within a week</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROBLEMS & SOLUTIONS -->
-<section class="problems" id="problems">
-  <div class="problems-inner">
-    <div class="prob-head reveal">
-      <div class="section-eye eye-gold">Real Problems. Direct Solutions.</div>
-      <div class="h2">Do you face <em>these struggles?</em></div>
-      <div class="h2-sub">Most shop owners in Tamil Nadu deal with the same issues every day. Mayavisai solves all of them — cleanly and completely.</div>
-    </div>
-
-    <div class="prob-divider"><div class="prob-arrow"><i class="bi bi-arrow-right"></i></div></div>
-    <div class="prob-pair reveal">
-      <div class="prob-side prob-left">
-        <div class="side-badge badge-prob"><i class="bi bi-exclamation-triangle-fill"></i> The Problem</div>
-        <div class="side-ico ico-prob"><i class="bi bi-chat-dots"></i></div>
-        <div class="prob-title prob-title-dark">Orders Getting Lost in WhatsApp</div>
-        <p class="prob-text prob-text-dark">From morning to night, WhatsApp messages pile up. Which order is confirmed? Which is pending? Which was delivered? The confusion costs you real customers — and a missed customer rarely comes back.</p>
-      </div>
-      <div class="prob-side prob-right">
-        <div class="side-badge badge-sol"><i class="bi bi-check-circle-fill"></i> Mayavisai Fix</div>
-        <div class="side-ico ico-sol"><i class="bi bi-kanban"></i></div>
-        <div class="prob-title prob-title-light">Every Order Visible on Your Dashboard</div>
-        <p class="prob-text prob-text-light">When a customer orders from your online store, it appears instantly on your dashboard. Pending → Packed → Shipped → Delivered — 7 clear stages, full tracking. Nothing falls through the cracks.</p>
-      </div>
-    </div>
-
-    <div class="prob-divider" style="margin-top:24px"><div class="prob-arrow"><i class="bi bi-arrow-right"></i></div></div>
-    <div class="prob-pair reveal">
-      <div class="prob-side prob-left">
-        <div class="side-badge badge-prob"><i class="bi bi-exclamation-triangle-fill"></i> The Problem</div>
-        <div class="side-ico ico-prob"><i class="bi bi-pencil"></i></div>
-        <div class="prob-title prob-title-dark">Handwritten Bills Erode Customer Trust</div>
-        <p class="prob-text prob-text-dark">Walk-in customers ask for a bill. Handwritten receipts have errors, look unprofessional, and get lost. Without a clear record, returns become arguments. Customers lose confidence in your shop.</p>
-      </div>
-      <div class="prob-side prob-right">
-        <div class="side-badge badge-sol"><i class="bi bi-check-circle-fill"></i> Mayavisai Fix</div>
-        <div class="side-ico ico-sol"><i class="bi bi-receipt-cutoff"></i></div>
-        <div class="prob-title prob-title-light">PDF Bill in 30 Seconds — via WhatsApp</div>
-        <p class="prob-text prob-text-light">Select products on your phone, apply a discount, tap Bill — a professional PDF with your shop name, items, total is ready in 30 seconds. Send it to the customer's WhatsApp instantly. No more arguments on returns.</p>
-      </div>
-    </div>
-
-    <div class="prob-divider" style="margin-top:24px"><div class="prob-arrow"><i class="bi bi-arrow-right"></i></div></div>
-    <div class="prob-pair reveal">
-      <div class="prob-side prob-left">
-        <div class="side-badge badge-prob"><i class="bi bi-exclamation-triangle-fill"></i> The Problem</div>
-        <div class="side-ico ico-prob"><i class="bi bi-boxes"></i></div>
-        <div class="prob-title prob-title-dark">You Don't Know What's Left in Stock</div>
-        <p class="prob-text prob-text-dark">You have to manually write down every sale. Combining online orders and walk-in sales is a mess. Overselling means disappointing customers and issuing refunds. You only find out when something runs out.</p>
-      </div>
-      <div class="prob-side prob-right">
-        <div class="side-badge badge-sol"><i class="bi bi-check-circle-fill"></i> Mayavisai Fix</div>
-        <div class="side-ico ico-sol"><i class="bi bi-graph-down-arrow"></i></div>
-        <div class="prob-title prob-title-light">Stock Auto-Deducts on Every Sale</div>
-        <p class="prob-text prob-text-light">Every sale — online or in-store — instantly reduces stock. You get alerts when items run low. Out-of-stock items automatically hide on your online store. Overselling becomes impossible.</p>
-      </div>
-    </div>
-
-    <div class="prob-divider" style="margin-top:24px"><div class="prob-arrow"><i class="bi bi-arrow-right"></i></div></div>
-    <div class="prob-pair reveal">
-      <div class="prob-side prob-left">
-        <div class="side-badge badge-prob"><i class="bi bi-exclamation-triangle-fill"></i> The Problem</div>
-        <div class="side-ico ico-prob"><i class="bi bi-bar-chart"></i></div>
-        <div class="prob-title prob-title-dark">You're Guessing What Sells Well</div>
-        <p class="prob-text prob-text-dark">Without data, you don't know which products move fast and which sit unsold. You restock the wrong things and waste money. Giving records to your accountant becomes a monthly headache.</p>
-      </div>
-      <div class="prob-side prob-right">
-        <div class="side-badge badge-sol"><i class="bi bi-check-circle-fill"></i> Mayavisai Fix</div>
-        <div class="side-ico ico-sol"><i class="bi bi-file-earmark-bar-graph"></i></div>
-        <div class="prob-title prob-title-light">Full Sales Report — Download Any Month</div>
-        <p class="prob-text prob-text-light">Every product's sales count, total revenue, top sellers — all in a clean PDF. Easy for you, easy for your accountant. Make smart restocking decisions with real data, not guesswork.</p>
-      </div>
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-inner">
+    <div class="proof-label">Built for</div>
+    <div class="proof-chips">
+      <div class="proof-chip"><i class="bi bi-shop"></i> Independent Sellers</div>
+      <div class="proof-chip"><i class="bi bi-building"></i> D2C Brands</div>
+      <div class="proof-chip"><i class="bi bi-diagram-3"></i> Franchise Networks</div>
+      <div class="proof-chip"><i class="bi bi-boxes"></i> B2B Distributors</div>
+      <div class="proof-chip"><i class="bi bi-truck"></i> Logistics Startups</div>
+      <div class="proof-chip"><i class="bi bi-lightbulb"></i> Any Startup</div>
     </div>
   </div>
-</section>
-
-<!-- SCREENS -->
-<section class="screens" id="howitlooks">
-  <div class="screens-inner">
-    <div class="screens-head reveal">
-      <div class="section-eye eye-light">What It Actually Looks Like</div>
-      <div class="h2 h2-light">This is what you'll see <em>on your phone</em></div>
-      <div class="h2-sub h2-sub-light">Orders dashboard, billing screen, live stock view, monthly reports — all on your phone, all straightforward.</div>
-    </div>
-    <div class="screen-grid">
-      <div class="screen-card reveal">
-        <div class="screen-bar">
-          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-          <span class="url-pill">mayavisai.in/orders</span>
-        </div>
-        <div class="screen-body">
-          <div class="screen-title">Orders Dashboard</div>
-          <div class="screen-sub">Every incoming order appears here in real time — nothing gets missed.</div>
-          <div class="order-row">
-            <div class="or-left"><div class="or-avatar">R</div><div><div class="or-name">Ramesh K.</div><div class="or-meta">#ORD-2847 · ₹1,200</div></div></div>
-            <div class="status s-pending">Pending</div>
-          </div>
-          <div class="order-row">
-            <div class="or-left"><div class="or-avatar">P</div><div><div class="or-name">Pavithra S.</div><div class="or-meta">#ORD-2846 · ₹680</div></div></div>
-            <div class="status s-packed">Packed</div>
-          </div>
-          <div class="order-row">
-            <div class="or-left"><div class="or-avatar">M</div><div><div class="or-name">Mahesh R.</div><div class="or-meta">#ORD-2845 · ₹2,340</div></div></div>
-            <div class="status s-done">Delivered</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="screen-card reveal d1">
-        <div class="screen-bar">
-          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-          <span class="url-pill">mayavisai.in/billing</span>
-        </div>
-        <div class="screen-body">
-          <div class="screen-title">Walk-In Billing</div>
-          <div class="screen-sub">At the shop — PDF bill ready on your phone, sent via WhatsApp in 30 seconds.</div>
-          <div class="bill">
-            <div class="bill-shop">
-              <div class="bill-name">Sri Murugan Textiles</div>
-              <div class="bill-meta">Bill #BL-1094 · 15 May 2025</div>
-            </div>
-            <div class="bill-row"><span class="bill-item-name">Cotton Saree × 2</span><span class="bill-item-price">₹1,600</span></div>
-            <div class="bill-row"><span class="bill-item-name">Blouse Piece × 1</span><span class="bill-item-price">₹380</span></div>
-            <div class="bill-row"><span class="bill-item-name" style="color:#999">FEST10 Coupon</span><span class="bill-disc">−₹198</span></div>
-            <div class="bill-total"><span>Total</span><span>₹1,782</span></div>
-            <div class="bill-send"><i class="bi bi-whatsapp" style="font-size:13px"></i> Send to Customer via WhatsApp</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="screen-card reveal d2">
-        <div class="screen-bar">
-          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-          <span class="url-pill">mayavisai.in/stock</span>
-        </div>
-        <div class="screen-body">
-          <div class="screen-title">Live Stock View</div>
-          <div class="screen-sub">Auto-updates on every sale — no manual counting required.</div>
-          <div class="stock-row"><span class="stock-name">Cotton Saree (Blue)</span><div class="stock-bar-bg"><div class="stock-fill fill-ok" style="width:75%"></div></div><span class="stock-qty">38 units</span></div>
-          <div class="stock-row"><span class="stock-name">Silk Blouse Piece</span><div class="stock-bar-bg"><div class="stock-fill fill-low" style="width:22%"></div></div><span class="stock-qty" style="color:var(--gold3)">5 ⚠️</span></div>
-          <div class="stock-row"><span class="stock-name">Polyester Saree (Red)</span><div class="stock-bar-bg"><div class="stock-fill fill-ok" style="width:60%"></div></div><span class="stock-qty">24 units</span></div>
-          <div class="stock-row"><span class="stock-name">Zari Border Saree</span><div class="stock-bar-bg"><div class="stock-fill fill-out" style="width:0%"></div></div><span class="stock-qty" style="color:var(--red)">OUT</span></div>
-        </div>
-      </div>
-
-      <div class="screen-card reveal d3">
-        <div class="screen-bar">
-          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-          <span class="url-pill">mayavisai.in/reports</span>
-        </div>
-        <div class="screen-body">
-          <div class="screen-title">Monthly Report</div>
-          <div class="screen-sub">What sold in April — all your business numbers at a glance.</div>
-          <div class="report-grid">
-            <div class="stat-box"><div class="stat-label">Revenue</div><div class="stat-val">₹84,200</div><div class="stat-note">↑ 18% vs March</div></div>
-            <div class="stat-box"><div class="stat-label">Orders</div><div class="stat-val">142</div><div class="stat-note">↑ 24 more</div></div>
-            <div class="stat-box"><div class="stat-label">Top Product</div><div class="stat-val" style="font-size:13px">Cotton Saree</div><div class="stat-note">48 sold</div></div>
-            <div class="stat-box"><div class="stat-label">Avg Order</div><div class="stat-val">₹593</div><div class="stat-note">Healthy range</div></div>
-          </div>
-          <div class="report-dl">
-            <div class="dl-icon"><i class="bi bi-file-pdf"></i></div>
-            <div><div class="dl-name">April_2025_Report.pdf</div><div class="dl-size">1.2 MB · 8 pages</div></div>
-            <div class="dl-btn"><i class="bi bi-download"></i> Download</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
 
 <!-- FEATURES -->
-<section class="features" id="features">
-  <div class="features-inner">
-    <div class="feat-head reveal">
-      <div class="section-eye eye-gold">What You Get</div>
-      <div class="h2">Day 1 — <em>Everything Ready.</em></div>
-      <div class="h2-sub">The moment you sign up, we handle the full setup. You just handle your shop.</div>
+<section class="section" id="features">
+  <div class="section-inner">
+    <div class="sec-head-row reveal">
+      <div>
+        <div class="sec-eyebrow">What's Included</div>
+        <h2 class="sec-title">Everything your marketplace<br><em>needs, out of the box</em></h2>
+      </div>
+      <p class="sec-desc">No months of development. No massive team. The entire platform — from storefront to seller dashboard to admin panel — is ready on day one.</p>
     </div>
-    <div class="feat-grid">
-
-      <div class="feat-card feat-wide reveal">
+    <div class="features-grid">
+      <div class="feat-card featured reveal">
         <div>
-          <div class="feat-icon"><i class="bi bi-receipt"></i></div>
-          <div class="feat-title">Walk-In Customer Billing — Right from Your Phone</div>
-          <p class="feat-text">No writing, no printing. Select products on your phone, apply a coupon, tap Bill — a professional PDF is ready in 30 seconds. The customer gets it on WhatsApp instantly. Paper billing is gone.</p>
-          <span class="feat-pill">Replaces Paper Billing Entirely</span>
+          <div class="feat-icon"><i class="bi bi-person-badge"></i></div>
+          <div class="feat-title">Three-role account system</div>
+          <div class="feat-desc">Your marketplace ships with separate, fully-featured portals for Customers, Sellers, and Staff — each with its own dashboard, permissions, and access controls. No extra configuration needed.</div>
+          <div class="account-tags">
+            <div class="acc-tag acc-tag-customer"><i class="bi bi-person"></i> Customer Portal</div>
+            <div class="acc-tag acc-tag-seller"><i class="bi bi-shop"></i> Seller Dashboard</div>
+            <div class="acc-tag acc-tag-staff"><i class="bi bi-shield-lock"></i> Staff Admin</div>
+          </div>
+          <div class="feat-badge">Google OAuth + MFA Support</div>
         </div>
-        <div class="pos-mock">
-          <div class="pos-row"><div><div class="pos-item-name">Cotton Saree</div><div class="pos-item-qty">× 2 units</div></div><span class="pos-price">₹1,600</span></div>
-          <div class="pos-row"><div><div class="pos-item-name">Blouse Piece</div><div class="pos-item-qty">× 1 unit</div></div><span class="pos-price">₹380</span></div>
-          <div class="pos-row"><div><div class="pos-item-name" style="font-size:11px;opacity:.4">Coupon: FEST10</div></div><span class="pos-price pos-disc">−₹198</span></div>
-          <div class="pos-divider"></div>
-          <div class="pos-total-row"><span class="pos-total-label">Total Pay</span><span class="pos-total-val">₹1,782</span></div>
-          <div class="pos-send-btn"><i class="bi bi-whatsapp" style="font-size:13px"></i> Send Bill via WhatsApp</div>
+        <div class="feat-card-visual">
+          <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">Live Login Preview</div>
+          <div class="login-preview-tabs">
+            <div class="lp-tab active"><i class="bi bi-person"></i> Customer</div>
+            <div class="lp-tab"><i class="bi bi-shop"></i> Seller</div>
+            <div class="lp-tab"><i class="bi bi-shield-lock"></i> Staff</div>
+          </div>
+          <div class="login-preview-body">
+            <div class="lp-google"><div class="lp-google-g"></div> Continue with Google</div>
+            <div class="lp-or">— or staff login —</div>
+            <div class="lp-input-mock">Username</div>
+            <div class="lp-input-mock focus-mock">Password ••••••••</div>
+            <div class="lp-btn">Sign In to Dashboard</div>
+          </div>
         </div>
       </div>
-
-      <div class="feat-card reveal">
-        <div class="feat-icon"><i class="bi bi-shop"></i></div>
-        <div class="feat-title">Your Own Online Store</div>
-        <p class="feat-text">A website in your brand name — customers browse, pick size/colour, pay and order without calling you. All orders land on your dashboard automatically.</p>
-        <span class="feat-pill">Mobile &amp; Desktop Ready</span>
-      </div>
-
-      <div class="feat-card reveal d1">
-        <div class="feat-icon"><i class="bi bi-credit-card"></i></div>
-        <div class="feat-title">UPI + Cash on Delivery — Both Included</div>
-        <p class="feat-text">Razorpay UPI for online payers — automatic invoice sent instantly. COD orders tracked separately. No payment method is left out, no order falls through.</p>
-        <span class="feat-pill">Payments Auto-Confirm</span>
-      </div>
-
-      <div class="feat-card reveal d2">
-        <div class="feat-icon"><i class="bi bi-tag"></i></div>
-        <div class="feat-title">Coupon Codes &amp; Combo Offers</div>
-        <p class="feat-text">Create "DIWALI15" for 15% off. Set minimum cart values, expiry dates, buy-2-get-1 combos. Track exactly who used which coupon and when.</p>
-        <span class="feat-pill">Full Discount Control</span>
-      </div>
-
-      <div class="feat-card reveal">
-        <div class="feat-icon"><i class="bi bi-arrow-return-left"></i></div>
-        <div class="feat-title">Order &amp; Return Tracking — All 7 Stages</div>
-        <p class="feat-text">Pending → Packed → Shipped → Delivered → Returned — every order tracked through every stage. Return requests approved, refunds tracked — all from one dashboard.</p>
-        <span class="feat-pill">Full Order Lifecycle</span>
-      </div>
-
-      <div class="feat-card reveal d1">
-        <div class="feat-icon"><i class="bi bi-person-badge"></i></div>
-        <div class="feat-title">Separate Login for Staff</div>
-        <p class="feat-text">Billing staff get their own login — access to billing walk-in customers only. You keep full control over reports, stock, settings, and everything else. Security is built in by design.</p>
-        <span class="feat-pill">Owner Access Stays Private</span>
-      </div>
-
-      <div class="feat-card reveal d2">
-        <div class="feat-icon"><i class="bi bi-truck"></i></div>
-        <div class="feat-title">Supplier &amp; Purchase Tracking</div>
-        <p class="feat-text">Record supplier details, purchase invoices, batch numbers, expiry dates — all added to stock automatically. Full purchase history accessible anytime you need it.</p>
-        <span class="feat-pill">Full Purchase Records</span>
-      </div>
-
-      <div class="feat-card reveal">
-        <div class="feat-icon"><i class="bi bi-shield-lock"></i></div>
-        <div class="feat-title">Secure Login with Two-Factor Auth</div>
-        <p class="feat-text">Two-factor authentication keeps your account locked down. Role-based access means staff only see what they need to. Your shop data stays yours — no exceptions.</p>
-        <span class="feat-pill">Data 100% Safe</span>
-      </div>
-
-      <div class="feat-card reveal d1">
-        <div class="feat-icon"><i class="bi bi-star"></i></div>
-        <div class="feat-title">Product Ratings &amp; Reviews</div>
-        <p class="feat-text">Customers rate and review products on your store. Reviews show on your product pages. New customers see them, trust your shop, and order with confidence.</p>
-        <span class="feat-pill">Builds Customer Trust</span>
-      </div>
-
-      <div class="feat-card reveal d2">
-        <div class="feat-icon"><i class="bi bi-whatsapp"></i></div>
-        <div class="feat-title">Tamil Support via WhatsApp</div>
-        <p class="feat-text">Setup, adding products, creating coupons, any question at all — just WhatsApp us. We reply in Tamil. Real human support, no bots, no ticket queues.</p>
-        <span class="feat-pill">Real Human Support</span>
-      </div>
-
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-credit-card-2-front"></i></div><div class="feat-title">Razorpay &amp; COD payments</div><div class="feat-desc">Razorpay is fully integrated for online payments with real-time verification. Cash on Delivery is also supported. Automatic invoice generation and order tracking built in.</div><div class="feat-badge">Payment verified, order auto-confirmed</div></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-tag-fill"></i></div><div class="feat-title">Coupons &amp; Combo Offers</div><div class="feat-desc">Create percentage or flat-rate discount coupons, set minimum cart values, usage limits, and expiry dates. Stack combo offers across seller products — all with a clean customer-facing UI.</div><div class="feat-badge">Per-seller and platform-wide discounts</div></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-bag-check"></i></div><div class="feat-title">Walk-in POS system</div><div class="feat-desc">A full point-of-sale terminal for offline / walk-in customers. Sellers can bill customers directly, apply coupons, and generate professional PDF receipts — shareable via signed links.</div><div class="feat-badge">Signed shareable receipt links</div></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-box-seam"></i></div><div class="feat-title">Order &amp; Returns management</div><div class="feat-desc">Full order lifecycle — pending, accepted, packed, shipped, delivered, returned. Sellers manage their own order items. Customers request returns. Stock auto-adjusts at each stage.</div><div class="feat-badge">7-stage order lifecycle</div></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-phone"></i></div><div class="feat-title">Mobile-first responsive UI</div><div class="feat-desc">Every page — storefront, checkout, seller dashboard, POS — is fully responsive and optimised for mobile. Touch swipe on product images, drawer cart, native share API support.</div><div class="feat-badge">Swipe gestures + native share</div></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-star-fill"></i></div><div class="feat-title">Ratings &amp; Wishlist</div><div class="feat-desc">Customers can rate products only after verified purchase. Wishlist system with cross-session persistence. Product share tracking across WhatsApp, Facebook, Twitter, and copy-link.</div><div class="feat-badge">Verified purchase ratings only</div></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-qr-code"></i></div><div class="feat-title">QR &amp; Product variants</div><div class="feat-desc">Each seller product gets a unique QR code (UUID). Full product variant system — size, colour, weight — with combination keys. Per-variant pricing, stock, expiry and batch tracking.</div><div class="feat-badge">UUID-keyed QR per SKU</div></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="bi bi-graph-up-arrow"></i></div><div class="feat-title">Seller sub-stores</div><div class="feat-desc">Each seller gets their own branded sub-store at <em>yourdomain.in/sellername</em> with a custom banner, hero section, product grid, and share button — essentially a mini e-commerce site.</div><div class="feat-badge">Seller subdomain routing</div></div>
     </div>
   </div>
 </section>
 
-<!-- WHO IS THIS FOR -->
-<section class="who">
-  <div class="who-inner">
-    <div class="who-head reveal center">
-      <div class="section-eye eye-gold" style="justify-content:center">Who Is This For?</div>
-      <div class="h2 center">Works for <em>any retail shop</em></div>
-      <div class="h2-sub center">Textile, grocery, jewellery, pharmacy — if you have a shop in Tamil Nadu and want to be online, Mayavisai is built for you.</div>
+<!-- HOW IT WORKS -->
+<section id="how-it-works" style="background:var(--bg2);padding:80px 0 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 36px 48px">
+    <div class="text-center reveal" style="margin-bottom:48px">
+      <div class="sec-eyebrow" style="justify-content:center">The Process</div>
+      <h2 class="sec-title">How it works for <em>your business</em></h2>
     </div>
-    <div class="who-grid">
-      <div class="who-card reveal">
-        <div class="who-icon"><i class="bi bi-scissors"></i></div>
-        <div class="who-title">Textile &amp; Clothing</div>
-        <div class="who-desc">Sarees, dress materials, readymade clothes — let customers browse photos and order online.</div>
-        <div class="who-tag"><i class="bi bi-check-circle-fill"></i> Perfect fit</div>
+  </div>
+  <div class="steps-grid reveal">
+    <div class="step-item"><div class="step-num">01</div><div class="step-title">You choose a plan</div><div class="step-desc">Pick the model that fits your situation — monthly hosting for a managed service, one-time license for full ownership, or revenue share for zero upfront cost.</div></div>
+    <div class="step-item"><div class="step-num">02</div><div class="step-title">We configure &amp; brand it</div><div class="step-desc">We set up the platform with your brand name, logo, colours, domain, and payment gateway keys. Your marketplace goes live on your own domain — fully yours.</div></div>
+    <div class="step-item"><div class="step-num">03</div><div class="step-title">Onboard your sellers</div><div class="step-desc">Sellers sign up, create their sub-stores, add products and inventory. You approve them through the staff dashboard. All seller management is self-service.</div></div>
+    <div class="step-item"><div class="step-num">04</div><div class="step-title">Sell &amp; scale</div><div class="step-desc">Customers shop, pay, rate, return. You collect commissions. We handle maintenance and updates. As your business grows, upgrade your plan or switch models any time.</div></div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section" style="background:var(--bg2);padding-top:60px">
+  <div class="section-inner reveal">
+    <div class="sec-head-row" style="margin-bottom:32px">
+      <div>
+        <div class="sec-eyebrow">Why not build it yourself?</div>
+        <h2 class="sec-title">Building vs. <em>Mayavisai</em></h2>
       </div>
-      <div class="who-card reveal d1">
-        <div class="who-icon"><i class="bi bi-basket2"></i></div>
-        <div class="who-title">Grocery &amp; Provisions</div>
-        <div class="who-desc">Daily essentials, monthly orders — customers place orders directly without calling.</div>
-        <div class="who-tag"><i class="bi bi-check-circle-fill"></i> Perfect fit</div>
+    </div>
+    <div style="border:1px solid var(--border);border-radius:14px;overflow:hidden">
+      <div class="ct-header">
+        <div class="ct-head-cell">Capability</div>
+        <div class="ct-head-cell center">Build from scratch</div>
+        <div class="ct-head-cell center highlight">Mayavisai</div>
+        <div class="ct-head-cell center">Shopify / Wix</div>
       </div>
-      <div class="who-card reveal d2">
-        <div class="who-icon"><i class="bi bi-gem"></i></div>
-        <div class="who-title">Jewellery &amp; Accessories</div>
-        <div class="who-desc">Imitation and gold-plated jewellery — customers browse photos and place orders easily.</div>
-        <div class="who-tag"><i class="bi bi-check-circle-fill"></i> Perfect fit</div>
+      <div class="ct-row"><div class="ct-cell">Multi-vendor support</div><div class="ct-cell center no">6–12 months</div><div class="ct-cell center yes">Ready</div><div class="ct-cell center no">Limited</div></div>
+      <div class="ct-row"><div class="ct-cell">Custom seller sub-stores</div><div class="ct-cell center no">Custom dev</div><div class="ct-cell center yes">Built-in</div><div class="ct-cell center no">Not available</div></div>
+      <div class="ct-row"><div class="ct-cell">Walk-in POS with PDF receipts</div><div class="ct-cell center no">Custom dev</div><div class="ct-cell center yes">Built-in</div><div class="ct-cell center no">Add-on $$</div></div>
+      <div class="ct-row"><div class="ct-cell">Coupon + combo offer engine</div><div class="ct-cell center no">3–4 months</div><div class="ct-cell center yes">Built-in</div><div class="ct-cell center no">Basic only</div></div>
+      <div class="ct-row"><div class="ct-cell">Razorpay + COD payments</div><div class="ct-cell center no">2–4 months</div><div class="ct-cell center yes">Ready</div><div class="ct-cell center no">Fixed gateways</div></div>
+      <div class="ct-row"><div class="ct-cell">Full ownership of code &amp; data</div><div class="ct-cell center yes">Yes</div><div class="ct-cell center yes">Yes (License)</div><div class="ct-cell center no">No</div></div>
+      <div class="ct-row"><div class="ct-cell">Cost to launch</div><div class="ct-cell center no">₹15–50L+</div><div class="ct-cell center yes">₹7,999/mo</div><div class="ct-cell center no">₹3K+/mo</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ══ -->
+<section class="section" id="pricing">
+  <div class="section-inner">
+    <div class="text-center reveal" style="margin-bottom:36px">
+      <div class="sec-eyebrow" style="justify-content:center">Transparent Pricing</div>
+      <h2 class="sec-title text-center">Three ways to <em>get started</em></h2>
+      <p class="sec-desc" style="margin:14px auto 0;text-align:center">Monthly hosting, one-time license, or revenue share — pick the model that suits your cash flow and goals.</p>
+    </div>
+
+    <!-- Toggle -->
+    <div class="pricing-toggle-wrap reveal">
+      <div class="pricing-toggle">
+        <button class="ptog-btn active" onclick="switchPricing('monthly',this)">Monthly Hosting</button>
+        <button class="ptog-btn" onclick="switchPricing('license',this)">One-Time License</button>
+        <button class="ptog-btn hl" onclick="switchPricing('revshare',this)">Revenue Share</button>
       </div>
-      <div class="who-card reveal d3">
-        <div class="who-icon"><i class="bi bi-capsule"></i></div>
-        <div class="who-title">Medical &amp; Pharmacy</div>
-        <div class="who-desc">Regular medicines on a pre-order system — home delivery management made simple.</div>
-        <div class="who-tag"><i class="bi bi-check-circle-fill"></i> Perfect fit</div>
+    </div>
+
+    <!-- MONTHLY -->
+    <div class="pricing-panel active" id="panel-monthly">
+      <div class="pricing-grid reveal">
+        <!-- STARTER -->
+        <div class="price-card">
+          <div class="price-tier">Starter</div>
+          <div class="price-amount"><span class="price-cur">₹</span><span class="price-num">3,999</span></div>
+          <div class="price-period">per month · hosted &amp; managed</div>
+          <div class="price-note">Best for individuals and small shops getting started with multi-seller selling.</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li><i class="bi bi-check-circle-fill"></i> Up to 2 sellers</li>
+            <li><i class="bi bi-check-circle-fill"></i> Up to 500 products</li>
+            <li><i class="bi bi-check-circle-fill"></i> Razorpay + COD payments</li>
+            <li><i class="bi bi-check-circle-fill"></i> Customer, Seller &amp; Staff portals</li>
+            <li><i class="bi bi-check-circle-fill"></i> Coupon &amp; discount engine</li>
+            <li><i class="bi bi-check-circle-fill"></i> Walk-in POS + PDF receipts</li>
+            <li><i class="bi bi-check-circle-fill"></i> SSL + daily backups</li>
+            <li><i class="bi bi-check-circle-fill"></i> Basic email support</li>
+            <li class="muted-feat"><i class="bi bi-dash-circle"></i> Custom domain</li>
+            <li class="muted-feat"><i class="bi bi-dash-circle"></i> Custom branding</li>
+          </ul>
+          <a href="#contact" class="btn-price">Get Started</a>
+        </div>
+        <!-- MULTI SHOP (popular) -->
+        <div class="price-card popular">
+          <div class="price-tier">Multi Shop</div>
+          <div class="price-amount"><span class="price-cur">₹</span><span class="price-num">7,999</span></div>
+          <div class="price-period">per month · hosted &amp; managed</div>
+          <div class="price-note" style="color:rgba(255,255,255,.45)">For growing businesses and D2C brands with multiple sellers and real order volume.</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li><i class="bi bi-check-circle-fill"></i> Up to 10 sellers</li>
+            <li><i class="bi bi-check-circle-fill"></i> Up to 2,000 products</li>
+            <li><i class="bi bi-check-circle-fill"></i> Razorpay + COD payments</li>
+            <li><i class="bi bi-check-circle-fill"></i> All account types + MFA</li>
+            <li><i class="bi bi-check-circle-fill"></i> Combo offers + coupons</li>
+            <li><i class="bi bi-check-circle-fill"></i> Custom domain &amp; branding</li>
+            <li><i class="bi bi-check-circle-fill"></i> Seller sub-stores + QR codes</li>
+            <li><i class="bi bi-check-circle-fill"></i> Analytics dashboard</li>
+            <li><i class="bi bi-check-circle-fill"></i> Priority WhatsApp support</li>
+          </ul>
+          <a href="#contact" class="btn-price-pop">Get Started</a>
+        </div>
+        <!-- ENTERPRISE -->
+        <div class="price-card">
+          <div class="price-tier">Enterprise</div>
+          <div class="price-amount"><span class="price-cur">₹</span><span class="price-num">14,999</span></div>
+          <div class="price-period">per month · dedicated server</div>
+          <div class="price-note">Unlimited sellers and products. Dedicated infrastructure, dedicated account manager, 24/7 SLA.</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li><i class="bi bi-check-circle-fill"></i> Unlimited sellers &amp; products</li>
+            <li><i class="bi bi-check-circle-fill"></i> Dedicated server (not shared)</li>
+            <li><i class="bi bi-check-circle-fill"></i> Custom payment gateways</li>
+            <li><i class="bi bi-check-circle-fill"></i> Multi-region deployment</li>
+            <li><i class="bi bi-check-circle-fill"></i> API access</li>
+            <li><i class="bi bi-check-circle-fill"></i> Dedicated account manager</li>
+            <li><i class="bi bi-check-circle-fill"></i> SLA &amp; 24/7 support</li>
+            <li><i class="bi bi-check-circle-fill"></i> Custom feature requests</li>
+          </ul>
+          <a href="#contact" class="btn-price">Contact Us</a>
+        </div>
       </div>
-      <div class="who-card reveal">
-        <div class="who-icon"><i class="bi bi-journal-bookmark"></i></div>
-        <div class="who-title">Books &amp; Stationery</div>
-        <div class="who-desc">School and college supplies — manage seasonal demand and bulk orders with ease.</div>
-        <div class="who-tag"><i class="bi bi-check-circle-fill"></i> Perfect fit</div>
+      <div class="pricing-model-note mt-8 reveal">
+        <i class="bi bi-info-circle-fill"></i>
+        <p><strong>All monthly plans include:</strong> Hosting on cloud infrastructure (AWS/DigitalOcean), SSL certificate, automated daily backups, CloudFlare CDN, and Razorpay integration. You own all your data. <a href="#contact" style="color:var(--gold)">Ask us anything</a> before signing up.</p>
       </div>
-      <div class="who-card reveal d1">
-        <div class="who-icon"><i class="bi bi-box-seam"></i></div>
-        <div class="who-title">Food &amp; Homemade Products</div>
-        <div class="who-desc">Pickles, sweets, snacks — turn scattered WhatsApp orders into a proper, trackable system.</div>
-        <div class="who-tag"><i class="bi bi-check-circle-fill"></i> Perfect fit</div>
+    </div>
+
+    <!-- ONE-TIME LICENSE -->
+    <div class="pricing-panel" id="panel-license">
+      <div class="license-grid reveal">
+        <div class="lic-card">
+          <div class="lic-tier">Starter License</div>
+          <div class="lic-amount"><span class="lic-cur">₹</span><span class="lic-num">49,999</span></div>
+          <div class="lic-label">one-time · single domain</div>
+          <div class="lic-note">Full source code for one domain. You deploy on your own VPS. Lifetime updates for 1 year.</div>
+          <div class="lic-divider"></div>
+          <ul class="lic-features">
+            <li><i class="bi bi-check-circle-fill"></i> Full Django + React source code</li>
+            <li><i class="bi bi-check-circle-fill"></i> Deploy on 1 domain (your VPS)</li>
+            <li><i class="bi bi-check-circle-fill"></i> Lifetime use on that domain</li>
+            <li><i class="bi bi-check-circle-fill"></i> 1-year free updates</li>
+            <li><i class="bi bi-check-circle-fill"></i> Deployment documentation</li>
+            <li><i class="bi bi-check-circle-fill"></i> 30-day setup support</li>
+          </ul>
+          <a href="#contact" class="btn-price">Buy License</a>
+        </div>
+        <div class="lic-card featured">
+          <div class="lic-tier">Pro License</div>
+          <div class="lic-amount"><span class="lic-cur">₹</span><span class="lic-num">99,999</span></div>
+          <div class="lic-label">one-time · unlimited domains</div>
+          <div class="lic-note">Full source code, unlimited domains, resale rights (limited). Best for agencies and multi-property operators.</div>
+          <div class="lic-divider"></div>
+          <ul class="lic-features">
+            <li><i class="bi bi-check-circle-fill"></i> Full source code</li>
+            <li><i class="bi bi-check-circle-fill"></i> Unlimited domain deployments</li>
+            <li><i class="bi bi-check-circle-fill"></i> Limited resale rights included</li>
+            <li><i class="bi bi-check-circle-fill"></i> 2-year free updates</li>
+            <li><i class="bi bi-check-circle-fill"></i> 90-day setup &amp; migration support</li>
+            <li><i class="bi bi-check-circle-fill"></i> WhatsApp priority support</li>
+          </ul>
+          <a href="#contact" class="btn-price-pop">Buy Pro License</a>
+        </div>
+        <div class="lic-card">
+          <div class="lic-tier">Enterprise License</div>
+          <div class="lic-amount"><span class="lic-cur">₹</span><span class="lic-num">1,99,999</span></div>
+          <div class="lic-label">one-time · full ownership</div>
+          <div class="lic-note">Complete ownership of code and brand. Full resale rights, custom features, 6-month implementation support.</div>
+          <div class="lic-divider"></div>
+          <ul class="lic-features">
+            <li><i class="bi bi-check-circle-fill"></i> Full source code + ownership</li>
+            <li><i class="bi bi-check-circle-fill"></i> Unlimited domains &amp; resale</li>
+            <li><i class="bi bi-check-circle-fill"></i> Custom feature development</li>
+            <li><i class="bi bi-check-circle-fill"></i> 6-month implementation support</li>
+            <li><i class="bi bi-check-circle-fill"></i> Dedicated account manager</li>
+            <li><i class="bi bi-check-circle-fill"></i> Lifetime updates</li>
+          </ul>
+          <a href="#contact" class="btn-price">Contact Us</a>
+        </div>
       </div>
-      <div class="who-card reveal d2">
-        <div class="who-icon"><i class="bi bi-house-door"></i></div>
-        <div class="who-title">Home &amp; Kitchenware</div>
-        <div class="who-desc">Vessels, furniture, home décor — online catalogue with in-store billing combined.</div>
-        <div class="who-tag"><i class="bi bi-check-circle-fill"></i> Perfect fit</div>
+      <div class="pricing-model-note mt-8 reveal">
+        <i class="bi bi-info-circle-fill"></i>
+        <p><strong>Note on self-hosting:</strong> One-time licenses require you to run the app on a VPS (AWS, DigitalOcean, etc.) — shared cPanel hosting won't work for Django. Your VPS cost will be approximately ₹1,500–3,000/month depending on traffic. We provide deployment guides and setup support for all license tiers.</p>
       </div>
-      <div class="who-card reveal d3">
-        <div class="who-icon"><i class="bi bi-bag-check"></i></div>
-        <div class="who-title">Any Retail Shop</div>
-        <div class="who-desc">Getting orders on WhatsApp and need a real system? Mayavisai is ready for you right now.</div>
-        <div class="who-tag"><i class="bi bi-check-circle-fill"></i> Perfect fit</div>
+    </div>
+
+    <!-- REVENUE SHARE -->
+    <div class="pricing-panel" id="panel-revshare">
+      <div class="reveal" style="max-width:800px;margin:0 auto 32px;text-align:center">
+        <p style="font-family:'DM Sans',sans-serif;font-size:15px;color:var(--muted);line-height:1.7">Zero upfront cost. We host everything, you pay only a small commission on actual sales your marketplace generates. Ideal for pre-revenue startups and bootstrap founders.</p>
+      </div>
+      <div class="revshare-wrap reveal">
+        <div class="rs-head">
+          <span>Monthly GMV Range</span>
+          <span class="hl">Commission</span>
+          <span>Upfront Cost</span>
+          <span>Example (your payment)</span>
+        </div>
+        <div class="rs-row">
+          <div class="rs-cell">₹0 – ₹5 Lakhs/month</div>
+          <div class="rs-cell"><strong>5%</strong></div>
+          <div class="rs-cell mono" style="color:var(--green)">₹0</div>
+          <div class="rs-cell" style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted)">₹1L GMV → you pay ₹5,000/mo</div>
+        </div>
+        <div class="rs-row" style="background:var(--bg3)">
+          <div class="rs-cell">₹5L – ₹20 Lakhs/month</div>
+          <div class="rs-cell"><strong>3%</strong></div>
+          <div class="rs-cell mono" style="color:var(--green)">₹0</div>
+          <div class="rs-cell" style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted)">₹10L GMV → you pay ₹30,000/mo</div>
+        </div>
+        <div class="rs-row">
+          <div class="rs-cell">₹20 Lakhs+/month</div>
+          <div class="rs-cell"><strong>2%</strong></div>
+          <div class="rs-cell mono" style="color:var(--green)">₹0</div>
+          <div class="rs-cell" style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted)">₹50L GMV → you pay ₹1,00,000/mo</div>
+        </div>
+      </div>
+      <div class="pricing-model-note mt-8 reveal">
+        <i class="bi bi-info-circle-fill"></i>
+        <p><strong>How it works:</strong> We host and maintain the platform at our cost. You pay nothing until your marketplace generates sales. Commission is calculated on verified GMV (gross merchandise value) after returns. Razorpay's own gateway fee (2–3%) is separate and charged by Razorpay directly. <a href="#contact" style="color:var(--gold)">Get in touch to discuss</a> — this model requires a short onboarding call to qualify.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo-section" id="demo">
+  <div class="demo-inner">
+    <div>
+      <div class="demo-pill"><span class="demo-pill-dot"></span>Live Demo</div>
+      <h2 class="demo-title">See it live,<br><em>right now</em></h2>
+      <p class="demo-desc">The full marketplace is running live. Browse products, add to cart, explore seller stores, and see the checkout flow — no signup needed for browsing. Test credentials available.</p>
+      <div class="demo-links">
+        <a href="https://udeshmukundan.pythonanywhere.com/" target="_blank" class="demo-link-card">
+          <div class="demo-link-left"><div class="demo-link-icon"><i class="bi bi-shop"></i></div><div><div class="demo-link-title">Customer Storefront</div><div class="demo-link-url">udeshmukundan.pythonanywhere.com</div></div></div>
+          <i class="bi bi-box-arrow-up-right demo-link-arrow"></i>
+        </a>
+        <a href="https://udeshmukundan.pythonanywhere.com/?mode=seller" target="_blank" class="demo-link-card">
+          <div class="demo-link-left"><div class="demo-link-icon"><i class="bi bi-graph-up"></i></div><div><div class="demo-link-title">Seller Dashboard</div><div class="demo-link-url">Manage products, orders, POS</div></div></div>
+          <i class="bi bi-box-arrow-up-right demo-link-arrow"></i>
+        </a>
+        <a href="https://udeshmukundan.pythonanywhere.com/?mode=staff" target="_blank" class="demo-link-card">
+          <div class="demo-link-left"><div class="demo-link-icon"><i class="bi bi-shield-lock"></i></div><div><div class="demo-link-title">Staff Admin Panel</div><div class="demo-link-url">Full marketplace control</div></div></div>
+          <i class="bi bi-box-arrow-up-right demo-link-arrow"></i>
+        </a>
+      </div>
+      <div class="security-strip" style="margin-top:24px">
+        <div class="sec-badge"><i class="bi bi-shield-check"></i> MFA Protected</div>
+        <div class="sec-badge"><i class="bi bi-lock"></i> SSL Encrypted</div>
+        <div class="sec-badge"><i class="bi bi-key"></i> Google OAuth</div>
+        <div class="sec-badge"><i class="bi bi-incognito"></i> Demo Data Only</div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center">
+      <div class="phone-mock">
+        <div class="phone-notch"><div class="phone-cam"></div></div>
+        <div class="phone-screen">
+          <div class="phone-header"><div class="phone-brand">MAYA<span>VISAI</span></div><div class="phone-icons"><i class="bi bi-search"></i><i class="bi bi-bag"></i></div></div>
+          <div class="phone-products">
+            <div class="pp-card"><div class="pp-img mc-fashion" style="height:60px;display:flex;align-items:center;justify-content:center;font-size:22px">&#128084;</div><div class="pp-body"><div class="pp-name">Silk Saree</div><div class="pp-price">₹2,499</div></div></div>
+            <div class="pp-card"><div class="pp-img mc-tech" style="height:60px;display:flex;align-items:center;justify-content:center;font-size:22px">&#9201;</div><div class="pp-body"><div class="pp-name">Smart Watch</div><div class="pp-price">₹3,299</div></div></div>
+            <div class="pp-card"><div class="pp-img mc-food" style="height:60px;display:flex;align-items:center;justify-content:center;font-size:22px">&#127831;</div><div class="pp-body"><div class="pp-name">Dry Fruits</div><div class="pp-price">₹649</div></div></div>
+            <div class="pp-card"><div class="pp-img mc-art" style="height:60px;display:flex;align-items:center;justify-content:center;font-size:22px">&#127912;</div><div class="pp-body"><div class="pp-name">Canvas Print</div><div class="pp-price">₹899</div></div></div>
+          </div>
+          <div style="padding:8px;background:rgba(184,125,58,.1);border-top:1px solid rgba(184,125,58,.2)">
+            <div style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);text-align:center"><i class="bi bi-qr-code-scan"></i> Scan to open demo</div>
+            <div style="font-family:'DM Mono',monospace;font-size:6.5px;color:rgba(255,255,255,.25);text-align:center;margin-top:3px">udeshmukundan.pythonanywhere.com</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="process" id="process">
-  <div class="process-inner">
-    <div class="process-head reveal">
-      <div class="section-eye eye-light">How Setup Works</div>
-      <div class="h2 h2-light">4 Steps to <em>Your Store Live</em></div>
-      <div class="h2-sub h2-sub-light">Send us one WhatsApp message — we handle everything from there.</div>
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="text-center reveal" style="margin-bottom:48px">
+      <div class="sec-eyebrow" style="justify-content:center">What Businesses Say</div>
+      <h2 class="sec-title text-center">Built for real <em>business needs</em></h2>
     </div>
-    <div class="steps">
-      <div class="step reveal">
-        <div class="step-num">1</div>
-        <div class="step-title">Send Us a WhatsApp</div>
-        <div class="step-desc">Message us at +91 6374193181. We can talk in Tamil — no English needed.</div>
-        <div class="step-time">5 Minutes</div>
+    <div class="testimonials-grid reveal">
+      <div class="testi-card">
+        <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+        <div class="testi-text">"We needed a way for 20+ local artisans to sell through one portal. Getting a full seller management system with separate dashboards was something we thought would cost us months of development."</div>
+        <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Artisan Collective</div><div class="testi-role">D2C Handicrafts · Chennai</div></div></div>
       </div>
-      <div class="step reveal d1">
-        <div class="step-num">2</div>
-        <div class="step-title">Watch the Free Demo</div>
-        <div class="step-desc">We show you a live demo of the platform — decide with complete confidence, no pressure.</div>
-        <div class="step-time">Same Day</div>
+      <div class="testi-card">
+        <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+        <div class="testi-text">"The POS system alone is worth it — our floor staff can bill walk-in customers, apply discounts, and send a PDF receipt link via WhatsApp, all from their phone. It's replaced three separate tools."</div>
+        <div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Retail Chain Owner</div><div class="testi-role">Fashion Retail · Coimbatore</div></div></div>
       </div>
-      <div class="step reveal d2">
-        <div class="step-num">3</div>
-        <div class="step-title">We Handle the Setup</div>
-        <div class="step-desc">Products, pricing, payment settings — we configure everything. You just share your details.</div>
-        <div class="step-time">2–3 Days</div>
+      <div class="testi-card">
+        <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+        <div class="testi-text">"We're a B2B distributor and needed combo offer pricing for bulk buyers. The coupon engine and order management were exactly what we needed — and the seller sub-store feature is brilliant for our partners."</div>
+        <div class="testi-author"><div class="testi-avatar">K</div><div><div class="testi-name">Distribution Startup</div><div class="testi-role">B2B Marketplace · Bangalore</div></div></div>
       </div>
-      <div class="step reveal d3">
-        <div class="step-num">4</div>
-        <div class="step-title">Your Store Goes Live!</div>
-        <div class="step-desc">Your online store is ready. Orders start coming in. You run your shop — we keep it running.</div>
-        <div class="step-time">Same Week</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-  <div class="pricing-inner">
-    <div class="pricing-head reveal">
-      <div class="section-eye eye-gold" style="justify-content:center">Pricing</div>
-      <div class="h2 center">One price. <em>Everything included.</em></div>
-      <div class="h2-sub center" style="margin-top:10px">No hidden charges. No setup fee. No contract. One monthly amount covers everything — hosting, management, and support.</div>
-    </div>
-    <div class="price-grid">
-
-      <div class="price-card featured reveal">
-        <div class="plan-name">Starter Plan</div>
-        <div class="plan-desc">For single-shop owners — complete solution, fully managed</div>
-        <div class="price-row"><span class="price-cur">₹</span><span class="price-num">1,999</span></div>
-        <div class="price-period">per month · hosting + management included</div>
-        <div class="price-save">Introductory Offer — Limited Time</div>
-        <div class="price-summary">Online store, walk-in billing, stock tracking, monthly reports — all of it. From setup to ongoing support, we handle everything so you can focus on your business.</div>
-        <div class="price-list">
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Your Own Online Store</span><span class="price-li-sub">Website in your brand name — customers order directly</span></div></div>
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">UPI + Cash on Delivery</span><span class="price-li-sub">Razorpay UPI + COD — auto-confirm, automatic invoice</span></div></div>
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Phone-Based Walk-In Billing</span><span class="price-li-sub">30-second PDF bill — sent to customer via WhatsApp</span></div></div>
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Automatic Stock Tracking</span><span class="price-li-sub">Deducts on every sale — zero manual work</span></div></div>
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Coupon Codes &amp; Combo Offers</span><span class="price-li-sub">Festival offers, bulk discounts, expiry dates — your control</span></div></div>
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Monthly PDF Sales Report</span><span class="price-li-sub">What sold, how much income — clearly in PDF</span></div></div>
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Staff Login (Billing Only)</span><span class="price-li-sub">Separate staff access — your owner data stays safe</span></div></div>
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Supplier &amp; Purchase Records</span><span class="price-li-sub">Who you bought from, how much — everything tracked</span></div></div>
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">WhatsApp Support in Tamil</span><span class="price-li-sub">Real human support — no bots, no ticket queues</span></div></div>
-        </div>
-        <a href="https://wa.me/916374193181?text=Mayavisai Starter Plan வேண்டும்" target="_blank" class="price-btn price-btn-wa"><i class="bi bi-whatsapp"></i> Get Started on WhatsApp</a>
-        <p class="price-note">No contract · Cancel anytime · We handle setup</p>
-      </div>
-
-      <div class="price-card reveal d1">
-        <div class="plan-name">Multi-Seller Marketplace</div>
-        <div class="plan-desc">Multiple shops on one platform</div>
-        <div class="price-row"><span class="price-cur">₹</span><span class="price-num">5,999</span></div>
-        <div class="price-period">per month · hosted &amp; managed</div>
-        <div class="price-summary" style="margin-top:18px">For distributors, associations, and aggregators — manage multiple sellers on one platform with a combined dashboard view.</div>
-        <div class="price-list">
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Everything in Starter</span><span class="price-li-sub">All single-store features included for each seller</span></div></div>
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Up to 10 Sellers</span><span class="price-li-sub">Each seller gets their own store and dashboard</span></div></div>
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Combined Analytics Dashboard</span><span class="price-li-sub">See all sellers' sales from one central place</span></div></div>
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Priority WhatsApp Support</span><span class="price-li-sub">First priority — fast response guaranteed</span></div></div>
-        </div>
-        <a href="https://wa.me/916374193181?text=Marketplace plan பற்றி கேட்கணும்" target="_blank" class="price-btn price-btn-wa"><i class="bi bi-whatsapp"></i> Talk to Us</a>
-        <p class="price-note">Best for distributors &amp; aggregators</p>
-      </div>
-
-      <div class="price-card reveal d2">
-        <div class="plan-name">One-Time License</div>
-        <div class="plan-desc">Full source code — yours to own forever</div>
-        <div class="price-row"><span class="price-cur">₹</span><span class="price-num">49,999</span></div>
-        <div class="price-period">one time · no monthly fees ever</div>
-        <div class="price-summary" style="margin-top:18px">Buy the complete source code and host it on your own server. No monthly fees. Built on Django + Python — fully customisable for your needs.</div>
-        <div class="price-list">
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Full Source Code Ownership</span><span class="price-li-sub">Complete Django + Python codebase is yours</span></div></div>
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Deploy on Your Own Server</span><span class="price-li-sub">Your hosting — deploy wherever you want</span></div></div>
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Zero Monthly Fees</span><span class="price-li-sub">One payment — lifetime use</span></div></div>
-          <div class="price-li"><i class="bi bi-check-circle-fill"></i><div><span class="price-li-main">Setup Assistance Included</span><span class="price-li-sub">We help you deploy and go live</span></div></div>
-        </div>
-        <a href="https://wa.me/916374193181?text=One-time license பற்றி கேட்கணும்" target="_blank" class="price-btn price-btn-outline">Ask Us on WhatsApp</a>
-        <p class="price-note">For developers &amp; large businesses</p>
-      </div>
-
     </div>
   </div>
 </section>
 
 <!-- FINAL CTA -->
-<section class="cta" id="contact">
-  <div class="cta-inner">
-    <span class="cta-eyebrow reveal">Start Today</span>
-    <div class="cta-title reveal">Is your shop<br><em>ready to go online?</em></div>
-    <p class="cta-sub reveal">One WhatsApp message is all it takes. We show you the demo, clear your doubts, handle the entire setup, and get your store live — all within the same week.</p>
-    <p class="cta-note reveal">No tech knowledge needed. No contract. No hidden fees.</p>
-    <div class="cta-actions reveal">
-      <a href="https://wa.me/916374193181?text=Mayavisai-ல எனக்கு demo வேணும்" target="_blank" class="btn-cta">
-        <i class="bi bi-whatsapp"></i> WhatsApp Us Now
-      </a>
+<section class="cta-final" id="contact">
+  <div class="cta-final-inner reveal">
+    <div class="cta-final-eyebrow">Ready to Launch</div>
+    <h2>Start your marketplace<br><em>this week</em></h2>
+    <p>Reach out on WhatsApp or email — we'll walk you through the demo, understand your use case, and get you set up. No lengthy contracts, no hidden costs.</p>
+    <div class="cta-final-btns">
+      <a href="https://udeshmukundan.pythonanywhere.com/" target="_blank" class="btn-hero-primary"><i class="bi bi-play-circle"></i> View Live Demo</a>
+      <a href="mailto:udesh@mayavisai.in" class="btn-hero-ghost"><i class="bi bi-envelope"></i> Email Us</a>
     </div>
-    <div class="cta-contacts reveal">
-      <div class="contact-link"><i class="bi bi-whatsapp"></i><a href="https://wa.me/916374193181" target="_blank">+91 6374193181</a></div>
-      <div class="contact-link"><i class="bi bi-envelope"></i><a href="mailto:udesh@mayavisai.in">udesh@mayavisai.in</a></div>
-      <div class="contact-link"><i class="bi bi-display"></i><a href="https://udeshmukundan.pythonanywhere.com/" target="_blank">View Live Demo</a></div>
-      <div class="contact-link"><i class="bi bi-globe2"></i><a href="https://www.mayavisai.in" target="_blank">mayavisai.in</a></div>
+    <div class="cta-contact">
+      <div class="cta-contact-item"><i class="bi bi-whatsapp"></i><a href="https://wa.me/916374193181" target="_blank">+91 63741 93181</a></div>
+      <div class="cta-contact-item"><i class="bi bi-telephone"></i><a href="tel:+919445368718">+91 94453 68718</a></div>
+      <div class="cta-contact-item"><i class="bi bi-envelope"></i><a href="mailto:udesh@mayavisai.in">udesh@mayavisai.in</a></div>
+      <div class="cta-contact-item"><i class="bi bi-globe"></i><a href="https://udeshmukundan.pythonanywhere.com/" target="_blank">Live Demo</a></div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand">Maya<span>visai</span></div>
-  <div class="footer-copy">© 2025 Mayavisai · mayavisai.in · All rights reserved</div>
+  <div class="footer-brand">MAYA<span>VISAI</span></div>
+  <div class="footer-note">© 2025 Mayavisai · mayavisai.in · All rights reserved</div>
   <div class="footer-links">
-    <a href="#problems" class="footer-link">Solutions</a>
     <a href="#features" class="footer-link">Features</a>
     <a href="#pricing" class="footer-link">Pricing</a>
+    <a href="#demo" class="footer-link">Demo</a>
     <a href="mailto:udesh@mayavisai.in" class="footer-link">Contact</a>
   </div>
 </footer>
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/916374193181?text=Mayavisai பற்றி கேட்கணும்" target="_blank" class="wa-float" title="WhatsApp Us">
-  <i class="bi bi-whatsapp"></i>
-</a>
-
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
 <script>
-// Mobile Menu
-const toggle = document.getElementById('menuToggle');
-const menu = document.getElementById('mobileMenu');
-const closeBtn = document.getElementById('mobClose');
-toggle.addEventListener('click', () => { menu.classList.add('open'); document.body.style.overflow = 'hidden'; });
-closeBtn.addEventListener('click', closeMob);
-function closeMob() { menu.classList.remove('open'); document.body.style.overflow = ''; }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMob(); });
+/* MOBILE MENU */
+document.getElementById('menuToggle').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open');document.body.style.overflow='hidden';});
+document.getElementById('mobClose').addEventListener('click',closeMob);
+function closeMob(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMob();});
 
-// Scroll Reveal
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+/* SCROLL REVEAL */
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* COUNTER */
+function animateCounter(el,target,suffix){let s=0;const step=Math.ceil(target/60);const t=setInterval(()=>{s=Math.min(s+step,target);el.textContent=s+(suffix||'');if(s>=target)clearInterval(t);},25);}
+const ho=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){animateCounter(document.getElementById('counterSellers'),24,'+');animateCounter(document.getElementById('counterProducts'),180,'+');animateCounter(document.getElementById('counterOrders'),96,'+');ho.disconnect();}},{threshold:.3});
+const ls=document.querySelector('.live-strip');if(ls)ho.observe(ls);
+
+/* SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id==='#')return;const el=document.querySelector(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}});});
+
+/* LOGIN TABS */
+document.querySelectorAll('.lp-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.lp-tab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');});});
+
+/* TICKER PAUSE */
+const track=document.querySelector('.ticker-track');
+if(track){track.addEventListener('mouseenter',()=>{track.style.animationPlayState='paused';});track.addEventListener('mouseleave',()=>{track.style.animationPlayState='running';});}
+
+/* PRICING TOGGLE */
+function switchPricing(panel, btn){
+  document.querySelectorAll('.pricing-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ptog-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+panel).classList.add('active');
+  btn.classList.add('active');
+  // re-trigger reveals in newly shown panel
+  document.querySelectorAll('#panel-'+panel+' .reveal').forEach(el=>{
+    if(!el.classList.contains('visible')){io.observe(el);}
   });
-}, { threshold: 0.07 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href');
-    if (id === '#') return;
-    const el = document.querySelector(id);
-    if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-  });
-});
-
-// Suppress Google Translate top bar
-const hideGoogBar = () => {
-  const frame = document.querySelector('.goog-te-banner-frame');
-  if (frame) { frame.style.display = 'none'; document.body.style.top = '0'; }
-};
-setTimeout(hideGoogBar, 1000);
-document.addEventListener('click', () => setTimeout(hideGoogBar, 500));
+}
 </script>
 </body>
 </html>
